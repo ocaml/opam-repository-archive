@@ -21,7 +21,7 @@ You can add this repository to your active opam switch:
     opam repo add archive git+https://github.com/ocaml/opam-repository-archive`
 
 
-If you want to add it to all opam switches, add `--all`, and `--set-default` to add it to all newly created switches as well.
+If you want to add it to all opam switches, add `--all` to the command above, and with `--set-default` you can add the repository to all newly created switches as well.
 
 Afterwards you can install the available packages using `opam install mypackage` (or `mypackage.version`).
 
