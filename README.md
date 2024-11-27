@@ -6,7 +6,7 @@ This repository contains archived OCaml packages, taken from the [main opam-repo
 
 The motivation is that the [main opam-repository](https://github.com/ocaml/opam-repository) contains lots of packages, and lots of versions of packages. And a large part of older versions, patch releases, etc. - are no longer maintained or used. With the biannual releases of OCaml, there's also only a limited amount of OCaml versions supported by the main opam-repository (reducing CPU cycles).
 
-The most important reason for the existance of this repository is to remove a lot of burden (waiting for the computer) for OCaml developers that are not interested in 95% percent of the old opam package releases - and given the design of opam (text files, SMT solver), its performance is not linear with the amount of opam files in the repository.
+The most important reason for the existence of this repository is to reduce burden for OCaml developers that are not interested in many of the old opam package releases -- and given the design of opam (text files, SMT solver), its performance is not linear with the amount of opam files in the repository -- and to improve the experience for new users in search of the right libraries -- by clearing up the space from broken and unmaintained packages.
 
 This is the home for packages that are not very likely to be of interest for the common OCaml developer. But when hunting a bug or performance regression or doing archeology, these packages may be very useful for you. Also, when doing changes to the OCaml compiler or runtime and wanting to do some quantative study.
 
