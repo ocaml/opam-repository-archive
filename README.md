@@ -17,7 +17,9 @@ This is a medium-term solution for the question how to scale opam-repository, wi
 ## Usage
 
 You can add this repository to your active opam switch:
-`opam repo add archive git+https://github.com/ocaml/opam-repository-archive`
+
+    opam repo add archive git+https://github.com/ocaml/opam-repository-archive`
+
 
 If you want to add it to all opam switches, add `--all`, and `--set-default` to add it to all newly created switches as well.
 
