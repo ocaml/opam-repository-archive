@@ -12,7 +12,7 @@ This is the home for packages that are not very likely to be of interest for the
 
 If you're interested in more details, please read the [policy](https://github.com/ocaml/opam-repository/wiki/Package-Archiving:-Policy). There's also some history on how this repository came to be in the [initial issue: How does opam-repository scale?](https://github.com/ocaml/opam-repository/issues/23789).
 
-This is a medium-term solution for the question how to scale opam-repository, with the neat property that it works with deployed opam versions out of the box - no need to force everybody to have a new opam version which avoids the scaling issue by other means.
+This repository a medium-term solution for the question how to scale opam-repository, with the neat property that it works with deployed opam versions out of the box - no need to force everybody to have a new opam version which avoids the scaling issue by other means.
 
 ## Usage
 
