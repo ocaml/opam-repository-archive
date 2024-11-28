@@ -39,10 +39,10 @@ Each opam file in this repository contains some fields:
   - Example: "ca32ab3b976aa7abc00c7605548f78a30980d35b"
 
 Criteria ID:
-- `ocaml-version`: The package version satisfies the current compiler cutoff threshold.
-- `source-available`: The sources of the package version are available.
-- `maintenance-intent`: The package version falls within a package's maintenance intent, or is a dependency of a package satisfying the primary repo criteria.
-- `installable`: The package version is installable on at least one of the supported platforms. (Note that it is not required that CI tests are passing, since working installation may require manual system configuration.)
+- `ocaml-version`: The package version does not satisfy the current compiler cutoff threshold.
+- `source-available`: The sources of the package version are not available.
+- `maintenance-intent`: The package version does not fall within a package's maintenance intent.
+- `installable`: The package version is not installable.
 
 An up-to-date field and criteria catalog is available at https://github.com/ocaml/opam-repository/wiki/Package-Archiving:-Policy
 
