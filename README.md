@@ -10,7 +10,7 @@ The most important reason for the existence of this repository is to reduce burd
 
 This is the home for packages that are not very likely to be of interest for the common OCaml developer. But when hunting a bug or performance regression or doing archeology, these packages may be very useful for you. Also, when doing changes to the OCaml compiler or runtime and wanting to do some quantative study.
 
-If you're interested in more discussion on how this repository came to be there, read the [initial issue: How does opam-repository scale?](https://github.com/ocaml/opam-repository/issues/23789).
+If you're interested in more discussion on how this repository came to be, read the [initial issue: How does opam-repository scale?](https://github.com/ocaml/opam-repository/issues/23789).
 
 This is a medium-term solution for the question how to scale opam-repository, with the neat property that it works with deployed opam versions out of the box - no need to force everybody to have a new opam version which avoids the scaling issue by other means.
 
