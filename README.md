@@ -10,7 +10,7 @@ The most important reason for the existence of this repository is *performance*,
 
 This is the home for packages that are not very likely to be of interest for the common OCaml developer. But when hunting a bug or performance regression or doing archeology, these packages may be very useful for you. Also, when doing changes to the OCaml compiler or runtime and wanting to do some quantative study.
 
-If you're interested in more details, please read the [policy](https://github.com/ocaml/opam-repository/wiki/Package-Archiving:-Policy). There's also some history on how this repository came to be in the [initial issue: How does opam-repository scale?](https://github.com/ocaml/opam-repository/issues/23789).
+If you're interested in more details, please read the [policy](https://github.com/ocaml/opam-repository/blob/master/governance/policies/archiving.md). There's also some history on how this repository came to be in the [initial issue: How does opam-repository scale?](https://github.com/ocaml/opam-repository/issues/23789).
 
 This repository a medium-term solution for the question how to scale opam-repository, with the neat property that it works with deployed opam versions out of the box - no need to force everybody to have a new opam version which avoids the scaling issue by other means.
 
@@ -40,11 +40,11 @@ Each opam file in this repository contains some fields:
 
 Criteria ID:
 - `ocaml-version`: The package version does not satisfy the current compiler cutoff threshold.
-- `source-available`: The sources of the package version are not available.
+- `source-unavailable`: The sources of the package version are not available.
 - `maintenance-intent`: The package version does not fall within a package's maintenance intent.
-- `installable`: The package version is not installable.
+- `uninstallable`: The package version is not installable.
 
-An up-to-date field and criteria catalog is available at https://github.com/ocaml/opam-repository/wiki/Package-Archiving:-Policy
+An up-to-date field and criteria catalog is available in the [policy](https://github.com/ocaml/opam-repository/blob/master/governance/policies/archiving.md#specification-of-the-x--fields-used-in-the-archiving-process).
 
 ## Contributing
 
