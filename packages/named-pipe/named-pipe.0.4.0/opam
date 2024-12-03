@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer:   "dave@recoil.org"
+authors:      [ "David Scott" "Thomas Gazagnaire"]
+license:      "ISC"
+homepage:     "https://github.com/mirage/ocaml-named-pipe"
+dev-repo: "git+https://github.com/mirage/ocaml-named-pipe.git"
+bug-reports:  "https://github.com/mirage/ocaml-named-pipe/issues"
+doc:          "https://mirage.github.io/ocaml-named-pipe/"
+
+build: [
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"]
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "true"]
+    {with-test}
+  ["ocaml" "pkg/pkg.ml" "test"] {with-test}
+]
+depends: [
+  "ocaml" {>= "3.12.1"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & >= "0.9.3" & <= "0.15.0"}
+  "topkg" {build & >= "0.8.1" & <= "1.0.7"}
+  "ocb-stubblr" {build & >= "0.1.0" & <= "0.1.1-1"}
+  "base-bytes" {<= "base"}
+  "lwt" {>= "2.4.7" & < "5.0.0"}
+  "base-unix" {= "base"}
+  "cmdliner" {<= "1.3.0"}
+  "alcotest" {with-test & >= "0.4.0" & <= "1.8.0"}
+]
+synopsis: "Bindings for named pipes"
+description: """
+Named pipes are used on Windows for local (and remote) IPC. Where a Unix
+system would use a Unix domain socket, a Windows system will probably used
+a named pipe."""
+url {
+  src:
+    "https://github.com/mirage/ocaml-named-pipe/releases/download/0.4.0/named-pipe-0.4.0.tbz"
+  checksum: [
+    "sha256=c602f4d5fdc9f5ff8ec83a0d43608ad76f49f50c4b4bf10774435e7ed8688374"
+    "md5=ec3a7aaec3cc0efd6560dd1668da6def"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"]

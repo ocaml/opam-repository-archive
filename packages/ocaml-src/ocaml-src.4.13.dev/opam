@@ -1,0 +1,20 @@
+opam-version: "2.0"
+maintainer: "opam-devel@lists.ocaml.org"
+authors: "OCaml contributors"
+homepage: "http://ocaml.org/"
+build: [ "touch" "META" ]
+install: ["cp" "-r" "." "%{lib}%/ocaml-src"]
+synopsis: "Compiler sources"
+license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+bug-reports: "https://github.com/ocaml/opam-repository/issues"
+dev-repo: "git+https://github.com/ocaml/ocaml#4.13"
+depends: [
+  "ocaml" {= "4.13.2"}
+  "ocaml-beta" {opam-version < "2.1.0" & = "disabled"}
+]
+url {
+  src: "git+https://github.com/ocaml/ocaml.git#4.13"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"]
