@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "hez@0ok.org"
+authors: [ "Hezekiah M. Carty <hez@0ok.org>" ]
+license: "MIT"
+homepage: "https://github.com/hcarty/lwt-zmq"
+bug-reports: "https://github.com/hcarty/lwt-zmq/issues"
+dev-repo: "git+https://github.com/hcarty/lwt-zmq.git"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+install:[
+  ["ocaml" "setup.ml" "-install"]
+]
+depends: [
+  "ocaml" {>= "3.12.1"}
+  "lwt" {< "5.0.0"}
+  "zmq" {>= "4.0-2" & < "5.0.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Lwt-friendly interface to ZeroMQ"
+url {
+  src: "https://github.com/hcarty/lwt-zmq/archive/v2.0.1.tar.gz"
+  checksum: [
+    "sha256=d906da1063547d4f0366fdd4d4a1f052dd8aed8bfa8bf4e567f5d4f3fa9362f2"
+    "md5=e5321d12d3d5cab74577c0669d31fe7c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"]

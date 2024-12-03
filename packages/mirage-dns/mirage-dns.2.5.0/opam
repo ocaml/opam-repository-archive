@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+homepage: "https://github.com/mirage/ocaml-dns"
+dev-repo: "git+https://github.com/mirage/ocaml-dns.git"
+bug-reports: "https://github.com/mirage/ocaml-dns/issues"
+license: "ISC"
+authors: [
+  "Anil Madhavapeddy"
+  "Tim Deegan"
+  "Richard Mortier"
+  "Haris Rotsos"
+  "David Sheets"
+  "Thomas Gazagnaire"
+  "Luke Dunstan"
+]
+build: ["ocamlfind" "query" "dns.mirage"]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "dns" {>= "0.15.1" & < "1.0.0"}
+  "mirage-types-lwt" {>= "2.3.0" & < "3.0.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "cstruct" {>= "1.0.0" & <= "6.2.0"}
+  "tcpip" {<= "8.2.0"}
+]
+synopsis: "Virtual package for the MirageOS DNS transports"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"]

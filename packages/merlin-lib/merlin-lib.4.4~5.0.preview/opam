@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer:   "defree@gmail.com"
+authors:      "The Merlin team"
+homepage:     "https://github.com/ocaml/merlin"
+bug-reports:  "https://github.com/ocaml/merlin/issues"
+dev-repo:     "git+https://github.com/ocaml/merlin.git"
+license:      "MIT"
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocaml" {>= "5.0" & < "5.1"}
+  "dune" {>= "2.9.0" & <= "3.17.0"}
+  "csexp" {>= "1.5.1" & <= "1.5.2"}
+  "menhir" {dev & <= "20240715"}
+  "menhirLib" {dev & <= "20240715"}
+  "menhirSdk" {dev & <= "20240715"}
+]
+synopsis:
+  "Merlin's libraries"
+description:
+  "These libraries provides access to low-level compiler interfaces and the
+  standard higher-level merlin protocol. The library is provided as-is, is not
+  thoroughly documented, and its public API might break with any new release."
+url {
+  src: "git+https://github.com/kit-ty-kate/merlin.git#500"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"] # preview packages are not meant to be used indefinitely

@@ -1,0 +1,17 @@
+opam-version: "2.0"
+maintainer: "alain.frisch@lexifi.com"
+build: [make "all"]
+remove: [["ocamlfind" "remove" "ppx_tools"]]
+depends: [
+  "ocaml" {= "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+]
+install: [make "install"]
+synopsis: "Tools for authors of ppx rewriters and other syntactic tools"
+flags: light-uninstall
+url {
+  src: "git+https://github.com/alainfrisch/ppx_tools.git"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2ac5b4411dc6433623d35bbb1ad092b393d3174e"
+x-reason-for-archiving: ["uninstallable"] # uses a git url, no checksum. newer versions exist
