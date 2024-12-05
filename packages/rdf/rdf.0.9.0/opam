@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: "zoggy@bat8.org"
+authors: ["Maxence Guesdon"]
+homepage: "https://www.good-eris.net/ocaml-rdf/"
+license: "LGPL-3.0-only"
+doc: ["https://www.good-eris.net/ocaml-rdf/doc.html"]
+tags: [
+  "rdf"
+  "semantic web"
+  "xml"
+  "turtle"
+  "graph"
+  "sparql"
+  "utf8"
+]
+build: [
+  ["./configure" "--prefix" prefix]
+  [make "all"]
+]
+remove: [["ocamlfind" "remove" "rdf"]]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.03.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "xmlm" {>= "1.1.1" & != "1.3.0" & <= "1.4.0"}
+  "ocamlnet" {>= "3.6.5" & <= "4.1.9-2"}
+  "ulex" {>= "1.1" & <= "1.2"}
+  "menhir" {>= "20120123" & <= "20240715"}
+  "uuidm" {>= "0.9.5" & <= "0.9.9"}
+  "cryptokit" {>= "1.7" & <= "1.20"}
+  "pcre" {>= "7.0.2" & <= "7.5.0"}
+  "yojson" {>= "1.1.8" & <= "2.2.2"}
+]
+depopts: ["mysql" "postgresql" "cohttp" "lwt"]
+conflicts: [
+  "cohttp" {< "0.11.2"}
+  "lwt" {< "2.4.5"}
+  "mysql" {< "1.1.1"}
+]
+install: [make "install"]
+synopsis: "Native OCaml implementation of RDF Graphs and Sparql 1.1 Query."
+flags: light-uninstall
+url {
+  src: "https://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.9.0.tar.gz"
+  checksum: "md5=229e2162b9344d9ce051f019a170bdba"
+}
+available: false # source tarball not available
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "f51a0cfb02636dd317844a2246d8d08b3581867e"
+x-reason-for-archiving: ["source-unavailable"]

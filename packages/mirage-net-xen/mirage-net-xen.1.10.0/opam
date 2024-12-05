@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer:    "anil@recoil.org"
+authors:       ["Anil Madhavapeddy" "Thomas Leonard"]
+homepage:      "https://github.com/mirage/mirage-net-xen"
+bug-reports:   "https://github.com/mirage/mirage-net-xen/issues"
+dev-repo:      "git+https://github.com/mirage/mirage-net-xen.git"
+doc:           "https://mirage.github.io/mirage-net-xen/"
+build: [
+  ["dune" "subst"] {dev}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.04.0"}
+  "dune" {>= "1.0" & <= "3.17.0"}
+  "cstruct" {>= "3.0.0" & <= "6.2.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "mirage-net-lwt" {= "2.0.0"}
+  "io-page" {>= "1.5.0" & <= "3.0.0"}
+  "io-page-xen" {>= "2.0.0" & <= "2.3.0"}
+  "mirage-xen" {>= "1.1.0" & < "4.0.0"}
+  "netchannel" {>= "1.10.0" & <= "2.1.3"}
+  "lwt-dllist" {<= "1.0.1"}
+  "logs" {>= "0.5.0" & <= "0.7.0"}
+]
+available: false
+tags: "org:mirage"
+synopsis: "Network device for reading and writing Ethernet frames via then Xen netfront/netback protocol"
+description: """
+This library allows an OCaml application to read and
+write Ethernet frames via the [Netfront/netback][xen-net] protocol.
+"""
+url {
+  src:
+    "https://github.com/mirage/mirage-net-xen/releases/download/v1.10.0/mirage-net-xen-v1.10.0.tbz"
+  checksum: [
+    "sha256=38c224c87fe98b180db4968275eff3678ebb52723f0b3011537bd16e3eda1417"
+    "md5=6eb1c139e18d3e99131351f24dd22508"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "f51a0cfb02636dd317844a2246d8d08b3581867e"
+x-reason-for-archiving: ["uninstallable"]

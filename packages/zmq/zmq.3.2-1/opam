@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "anders@fugmann.net"
+homepage: "https://github.com/issuu/ocaml-zmq"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "base-unix" {= "base"}
+  "ounit" {<= "2.2.7"}
+  "uint" {< "2.0.0"}
+  "oasis" {<= "0.4.11"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depexts: [
+  ["libzmq3-dev"] {os-family = "debian"}
+]
+conflicts: ["ocaml-zmq"]
+dev-repo: "git+https://github.com/issuu/ocaml-zmq"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "OCaml bindings for ZeroMQ 3.2"
+url {
+  src: "https://github.com/issuu/ocaml-zmq/archive/3.2-1.tar.gz"
+  checksum: [
+    "sha256=e2cb47e72e1f8136ad6d9af606dca0832a8e1ba9c45adbc89d23a9c386a680b7"
+    "md5=05f9d04dbb93b2c9ac07108aefb5f768"
+  ]
+}
+available: false
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "f51a0cfb02636dd317844a2246d8d08b3581867e"
+x-reason-for-archiving: ["uninstallable"]
