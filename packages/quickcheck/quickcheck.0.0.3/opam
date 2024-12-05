@@ -1,0 +1,23 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "quickcheck"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "optcomp" {<= "1.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Translation of QuickCheck from Haskell into OCaml"
+flags: light-uninstall
+url {
+  src: "git+https://github.com/avsm/ocaml-quickcheck.git"
+}
+available: false # uses a git url, no checksum. newer versions exist
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "f51a0cfb02636dd317844a2246d8d08b3581867e"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,58 @@
+opam-version: "2.0"
+maintainer:    "anil@recoil.org"
+authors:       ["Anil Madhavapeddy" "Thomas Leonard"]
+homepage:      "https://github.com/mirage/mirage-net-xen"
+bug-reports:   "https://github.com/mirage/mirage-net-xen/issues"
+dev-repo:      "git+https://github.com/mirage/mirage-net-xen.git"
+doc:           "https://mirage.github.io/mirage-net-xen"
+build: [
+  ["jbuilder" "subst" "-n" name] {dev}
+  [ "jbuilder" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.04.0"}
+  "jbuilder" {>= "1.0+beta9" & <= "transition"}
+  "cstruct" {>= "3.0.0" & <= "6.2.0"}
+  "ppx_tools" {build & <= "6.6"}
+  "ppx_sexp_conv" {build & <= "v0.17.0"}
+  "ppx_cstruct" {build & <= "6.2.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "mirage-net-lwt" {>= "1.0.0" & < "2.0.0"}
+  "io-page" {>= "1.5.0" & <= "3.0.0"}
+  "io-page-xen" {>= "2.0.0" & <= "2.3.0"}
+  "mirage-xen" {>= "1.1.0" & < "3.3.0"}
+  "ipaddr" {>= "3.0.0" & <= "5.6.0"}
+  "mirage-profile" {>= "0.3" & <= "0.9.1"}
+  "shared-memory-ring" {>= "3.0.0" & <= "3.2.1"}
+  "sexplib" {>= "113.01.00" & <= "v0.17.0"}
+  "logs" {>= "0.5.0" & <= "0.7.0"}
+  "rresult" {<= "0.7.0"}
+]
+tags: "org:mirage"
+synopsis: "Network device for reading and writing Ethernet frames via then Xen netfront/netback protocol"
+description: """\
+
+This library allows an OCaml application to read and
+write Ethernet frames via the [Netfront/netback][xen-net] protocol.
+
+Note: the `Netif` module is the public API.
+The `Netchannel` API is still under development.
+
+* Web: <http://openmirage.org>
+* E-mail: <mirageos-devel@lists.xenproject.org>
+* Issues: <https://github.com/mirage/mirage/issues>
+
+[xen-net]: http://xenbits.xen.org/gitweb/?p=xen.git;a=blob;f=xen/include/public/io/netif.h"""
+url {
+  src:
+    "https://github.com/mirage/mirage-net-xen/releases/download/v1.8.1/mirage-net-xen-1.8.1.tbz"
+  checksum: [
+    "sha256=84c22f724546d81edd780c64ea94f31fe68fc3ba0e09008c09dfd47c169c7fc5"
+    "md5=ab5bf2613b8a37aa143d88d25e803c2d"
+  ]
+}
+available: false
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "f51a0cfb02636dd317844a2246d8d08b3581867e"
+x-reason-for-archiving: ["uninstallable"]
