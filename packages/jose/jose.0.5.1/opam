@@ -1,0 +1,57 @@
+opam-version: "2.0"
+synopsis: "JOSE implementation for OCaml and ReasonML"
+description:
+  "JavaScript Object Signing and Encryption built ontop of pure OCaml libs"
+maintainer: ["ulrik.strid@outlook.com"]
+authors: ["Ulrik Strid"]
+license: "MIT"
+homepage: "https://ulrikstrid.github.io/reason-jose"
+doc: "https://ulrikstrid.github.io/reason-jose"
+bug-reports: "https://github.com/ulrikstrid/reason-jose/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "base64" {>= "3.0.0" & <= "3.5.1"}
+  "dune" {>= "1.11" & <= "3.17.0"}
+  "eqaf" {>= "0.7" & <= "0.10"}
+  "mirage-crypto" {>= "0.8.1" & < "1.0.0"}
+  "x509" {>= "0.10.0" & < "0.12.0"}
+  "cstruct" {>= "4.0.0" & <= "6.2.0"}
+  "astring" {<= "0.8.5"}
+  "yojson" {<= "2.2.2"}
+  "result" {<= "1.5"}
+  "zarith" {<= "1.14"}
+  "containers" {with-test & <= "3.15"}
+  "bisect_ppx" {with-test & <= "2.8.3"}
+  "alcotest" {with-test & <= "1.8.0"}
+  "junit" {with-test & <= "2.0.2"}
+  "junit_alcotest" {with-test & <= "2.0.2"}
+  "lwt" {with-test & <= "5.9.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+available: false
+dev-repo: "git+https://github.com/ulrikstrid/reason-jose.git"
+x-commit-hash: "d90a584f737a45556ca135f373aa10fbc3b5d45d"
+url {
+  src:
+    "https://github.com/ulrikstrid/reason-jose/releases/download/v0.5.1/jose-v0.5.1.tbz"
+  checksum: [
+    "sha256=56b8753ae1e7643a03e0325a75b26623cf613233c385b7b220ac23fc85bd604d"
+    "sha512=0e2d50265e5b8ee8763a31ae32f33029c7cb4f0dc711bfd5a610f704049291882dadad8c4166c7889f09be048db8a938083c838b4d2615c2f5546d4e5ce1c69b"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "de786e28dbea73843ad5e5f0290a4e81fba39370"
+x-reason-for-archiving: ["uninstallable"]

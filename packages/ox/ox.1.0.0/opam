@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "arjun@cs.umass.edu"
+build: [
+  ["ocaml" "setup.ml" "-configure"]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "ox"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {<= "5.9.0"}
+  "cstruct" {<= "6.2.0"}
+  "packet" {<= "0.4.0"}
+  "openflow" {= "0.1.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "A platform for writing OpenFlow controllers"
+flags: light-uninstall
+url {
+  src: "https://people.cs.umass.edu/~arjun/download/ox.1.0.tar.gz"
+  checksum: [
+    "sha256=d4672e4e0767cdae6ffde08792b3c43efc0d62f2239fe06c3f0ae859d16c5220"
+    "md5=aba54cd09130ab8228cae919958ee7fe"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "e2ae8ce533a8712320aa7d09e0bc4e71d4935213"
+x-reason-for-archiving: ["uninstallable"]
