@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "smimram@gmail.com"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [["ocamlfind" "remove" "faad"]]
+depends: ["ocaml" "ocamlfind" {<= "1.9.6"}]
+depexts: [
+  ["libfaad-dev"] {os-family = "debian"}
+]
+install: [make "install"]
+synopsis:
+  "Bindings for the faad library which provides functions for decoding AAC audio files"
+flags: light-uninstall
+url {
+  src: "https://github.com/savonet/ocaml-faad/archive/0.3.2.tar.gz"
+  checksum: [
+    "sha256=5bfaae3985096d89d14bbc865a68465d4678c48df438d406c65bbca0d0af1a8e"
+    "md5=1b07f7edac8f3568765f9fc5b3560caf"
+  ]
+}
+available: false # Can't be built
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "de786e28dbea73843ad5e5f0290a4e81fba39370"
+x-reason-for-archiving: ["uninstallable"]

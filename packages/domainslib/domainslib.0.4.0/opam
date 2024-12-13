@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "KC Sivaramakrishnan <kc@kcsrk.info>"
+authors: ["KC Sivaramakrishnan <kc@kcsrk.info>"]
+homepage: "https://github.com/ocaml-multicore/domainslib"
+doc: "https://ocaml-multicore.github.io/domainslib/"
+synopsis: "Parallel Structures over Domains for Multicore OCaml"
+license: "ISC"
+dev-repo: "git+https://github.com/ocaml-multicore/domainslib.git"
+bug-reports: "https://github.com/ocaml-multicore/domainslib/issues"
+tags: ["org:ocamllabs"]
+depends: [
+  "dune" {>= "1.8" & <= "3.17.0"}
+  "base-domains" {= "base"}
+  "mirage-clock-unix" {with-test & <= "4.2.0"}
+]
+available: false # Not compatible with 4.12.0+domains nor 5.0.0~alpha0 and newer. Was compatible only with trunk for a short period of time.
+build: ["dune" "build" "-p" name "-j" jobs]
+url {
+  src: "https://github.com/ocaml-multicore/domainslib/archive/0.4.0.tar.gz"
+  checksum: [
+    "sha256=f5f61f01889cbc3493fc1f2998c728e3a496020af4a4a9e1ccbd1a93e93540df"
+    "md5=8ae1c816334f7c374bfb955a7bad1759"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "de786e28dbea73843ad5e5f0290a4e81fba39370"
+x-reason-for-archiving: ["uninstallable"]
