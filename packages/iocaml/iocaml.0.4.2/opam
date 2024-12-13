@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+homepage: "https://github.com/andrewray/iocamlserver"
+build: [
+  ["cp" "config.darwin.ml" "config.ml"] {os = "macos"}
+  [make "all"]
+]
+depends: [
+  "ocaml" {>= "4.01.0" & < "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "uuidm" {<= "0.9.9"}
+  "yojson" {<= "2.2.2"}
+  "cow" {< "2.0.0"}
+  "zmq" {>= "3.2-2" & <= "5.3.0"}
+  "lwt" {>= "2.4" & <= "5.9.0"}
+  "lwt-zmq" {<= "1.0-beta4"}
+  "websocket" {>= "0.8" & <= "2.17"}
+  "cohttp" {>= "0.10.0" & <= "6.0.0"}
+  "crunch" {<= "3.3.1"}
+  "iocaml-kernel" {= "0.4.0"}
+  "iocamljs-kernel" {= "0.4.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/andrewray/iocamlserver"
+synopsis: "A webserver for iocaml-kernel and iocamljs-kernel."
+url {
+  src: "https://github.com/andrewray/iocamlserver/archive/v0.4.2.tar.gz"
+  checksum: [
+    "sha256=85893372d32573e78e8db21afa50f072e5cc5fcd0e1c5d36b81af3af91c2d525"
+    "md5=d03065eaecd8ddcce9ddb98fcff062b0"
+  ]
+}
+extra-source "iocaml.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/iocaml/iocaml.install.0.4.2"
+  checksum: [
+    "sha256=958ae03848210711c22c3bd104890608b2b12ec6235979a20430dd30fcaca6ad"
+    "md5=b5671ae5c0e15ac1641decc66c832398"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "e2ae8ce533a8712320aa7d09e0bc4e71d4935213"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,44 @@
+opam-version: "2.0"
+synopsis: "Xen Vchan implementation"
+maintainer: "jonathan.ludlam@eu.citrix.com"
+authors: ["Vincent Bernardoff" "Jon Ludlam" "David Scott"]
+license: "ISC"
+tags: "org:mirage"
+homepage: "https://github.com/mirage/ocaml-vchan"
+doc: "https://mirage.github.io/ocaml-vchan/"
+bug-reports: "https://github.com/mirage/ocaml-vchan/issues"
+depends: [
+  "ocaml" {>= "4.04.0"}
+  "dune" {<= "3.17.0"}
+  "vchan" {>= "4.0.0" & < "4.0.2"}
+  "lwt" {>= "2.5.0" & <= "5.9.0"}
+  "cstruct" {>= "1.9.0" & <= "6.2.0"}
+  "ppx_tools" {build & <= "6.6"}
+  "ppx_sexp_conv" {build & <= "v0.17.0"}
+  "ppx_cstruct" {build & <= "6.2.0"}
+  "io-page" {<= "3.0.0"}
+  "mirage-flow-lwt" {>= "1.0.0" & <= "1.6.0"}
+  "xenstore" {>= "1.2.2" & <= "2.3.0"}
+  "mirage-xen" {< "3.3.0"}
+  "xenstore_transport" {>= "1.0.0" & <= "1.3.0"}
+  "sexplib" {<= "v0.17.0"}
+  "cmdliner" {<= "1.3.0"}
+  "result" {<= "1.5"}
+  "ounit" {with-test & <= "2.2.7"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+dev-repo: "git+https://github.com/mirage/ocaml-vchan.git"
+url {
+  src:
+    "https://github.com/mirage/ocaml-vchan/releases/download/v4.0.1/vchan-v4.0.1.tbz"
+  checksum: [
+    "sha256=b9c5f8dd27897717547d98aaa0017cd4d7b6417c970d6801bdef6c21ecacc648"
+    "md5=e6c8304aeffe57dee7aec37511251b23"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "e2ae8ce533a8712320aa7d09e0bc4e71d4935213"
+x-reason-for-archiving: ["uninstallable"]

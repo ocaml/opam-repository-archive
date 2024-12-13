@@ -1,0 +1,45 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+authors: ["Jane Street Group, LLC"]
+homepage: "https://github.com/janestreet/torch"
+bug-reports: "https://github.com/janestreet/torch/issues"
+dev-repo: "git+https://github.com/janestreet/torch.git"
+doc: "https://ocaml.janestreet.com/ocaml-core/latest/doc/torch/index.html"
+license: "MIT"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocaml"               {>= "5.1.0"}
+  "base" {>= "v0.17" & < "v0.18" & <= "v0.17.1"}
+  "core" {>= "v0.17" & < "v0.18" & <= "v0.17.1"}
+  "core_unix" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "ppx_bench" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "ppx_inline_test" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "ppx_jane" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "ppx_string" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "stdio" {>= "v0.17" & < "v0.18" & <= "v0.17.0"}
+  "ctypes" {>= "0.18.0" & <= "0.23.0"}
+  "ctypes-foreign" {<= "0.23.0"}
+  "dune" {>= "3.11.0" & <= "3.17.0"}
+  "dune-configurator" {<= "3.17.0"}
+  "ocaml-compiler-libs" {>= "v0.11.0" & <= "v0.17.0"}
+  "libtorch" {>= "2.3.0" & < "2.4.0" & <= "2.2.1+linux-x86_64"}
+]
+available: arch != "arm32" & arch != "x86_32"
+synopsis: "Torch bindings for OCaml"
+description: "
+The ocaml-torch project provides some OCaml bindings for the Torch library.
+This brings to OCaml NumPy-like tensor computations with GPU acceleration and
+tape-based automatic differentiation.
+"
+url {
+  src: "https://github.com/janestreet/torch/archive/refs/tags/v0.17.1.tar.gz"
+  checksum: [
+    "md5=34ef5494e9625a3bcb34146581f9385c"
+    "sha512=ddf7226001fd746d124c28e8430bb2af4565337144b71d5a6026e22c1ac301f68765717ff77603e4caf57a9e73ceb72db20da8891034b66889d4e1225ffc880d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "e2ae8ce533a8712320aa7d09e0bc4e71d4935213"
+x-reason-for-archiving: ["uninstallable"]
