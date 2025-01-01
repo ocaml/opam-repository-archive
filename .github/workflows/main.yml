@@ -1,0 +1,43 @@
+# Adapted from https://github.com/ocaml/setup-ocaml
+#
+name: ci
+
+# The lints should be only run when packages are added
+on:
+  pull_request:
+    paths:
+      - packages/
+  push:
+    paths:
+      - packages/
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v4
+        with:
+          # We need to fetch the history so we can compare against master
+          fetch-depth: 0
+
+      - name: Install GNU prallel
+        run: sudo apt-get install -y parallel
+
+      - name: Set-up OCaml
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 5
+
+      - name: Install opam-ci-check
+        run: opam pin opam-ci-check https://github.com/shonfeder/opam-repo-ci.git#411/archive-lint
+
+      # Get the names of the packages being added to the archive, and feed these
+      # to opam-ci-check
+      - name: Lint newly archived packages
+        run: |
+          git diff --name-only origin/main packages \
+          | sed 's:.*/\(.*\)/opam:\1:' \
+          | xargs --max-lines=1 --max-procs=4 opam exec -- opam-ci-check lint -r . --checks=archive-repo \
+          | grep "Error in"
