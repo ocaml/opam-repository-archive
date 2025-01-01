@@ -1,0 +1,38 @@
+opam-version: "2.0"
+synopsis: "A bunch of js_of_ocaml shortcuts"
+description: "A bunch of js_of_ocaml shortcuts"
+maintainer: "OCamlPro <contact@ocamlpro.com>"
+authors: "OCamlPro <contact@ocamlpro.com>"
+license: "LGPL-2.1-only"
+homepage: "https://github.com/ocamlpro/ezjs_min"
+bug-reports: "https://github.com/ocamlpro/ezjs_min/issues"
+depends: [
+  "ocaml" {>= "4.05"}
+  "dune" {>= "2.8" & <= "3.17.1"}
+  "js_of_ocaml-ppx" {<= "5.9.1"}
+  "stdlib-shims" {>= "0.1" & <= "0.3.0"}
+  "odoc" {with-doc & <= "2.4.4"}
+]
+depopts: ["lwt"]
+conflicts: [
+  "lwt" {< "4.0.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/ocamlpro/ezjs_min.git"
+available: false # The tarball is no longer available
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2d85539cd05071ec4f91d6c4ee35d2adc44aa283"
+x-reason-for-archiving: ["uninstallable"]

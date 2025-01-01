@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "alain.frisch@lexifi.com"
+homepage: "https://github.com/ocaml-community/sedlex"
+bug-reports: "https://github.com/ocaml-community/sedlex/issues"
+dev-repo: "git+https://github.com/ocaml-community/sedlex.git"
+build: [
+  [make "all"]
+  [make "opt"]
+]
+install: [make "install"]
+remove: [["ocamlfind" "remove" "sedlex"]]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.03.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ppx_tools" {<= "6.6"}
+  "gen" {<= "1.1"}
+]
+synopsis:
+  "unicode-friendly lexer generator (successor of ulex, now based on -ppx instead of camlp4)"
+authors: "alain.frisch@lexifi.com"
+flags: light-uninstall
+url {
+  src: "git+https://github.com/ocaml-community/sedlex.git"
+}
+available: false # uses a git url, no checksum. newer versions exist
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2d85539cd05071ec4f91d6c4ee35d2adc44aa283"
+x-reason-for-archiving: ["uninstallable"]

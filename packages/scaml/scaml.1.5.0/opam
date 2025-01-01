@@ -1,0 +1,51 @@
+opam-version: "2.0"
+synopsis: "SCaml, Smart Contract Abstract Machine Language"
+maintainer: "jun.furuse@dailambda.jp"
+authors: "Jun Furuse"
+license: "MIT"
+homepage: "https://gitlab.com/dailambda/scaml/"
+bug-reports: "https://gitlab.com/dailambda/scaml/"
+depends: [
+  "dune" {>= "3.4.0" & <= "3.17.1"}
+  "ocaml" {= "4.14.0"}
+  "ppxlib" {>= "0.27.0" & <= "0.33.1~5.3preview"}
+  "ppxx" {<= "2.5.0"}
+  "spotlib" {= "4.2.0"}
+  "camlon" {= "3.1.0"}
+  "ppx_meta_conv" {<= "4.1.0"}
+  "hex" {<= "1.5.0"}
+  "ptime" {<= "1.2.0"}
+  "zarith" {<= "1.14"}
+  "zarith_stubs_js" {<= "v0.17.0"}
+  "data-encoding" {<= "1.0.1"}
+  "tezos-error-monad" {= "14.0"}
+  "tezos-micheline" {= "14.0"}
+  "tezos-stdlib" {= "14.0"}
+  "tezos-crypto" {= "14.0"}
+  "tezos-hacl" {= "14.0"}
+  "tezos-crypto" {= "14.0"}
+  "typerep" {<= "v0.17.1"}
+  "ppx_typerep_conv" {>= "v0.15.0" & <= "v0.17.0"}
+  "hacl-star" {<= "0.3.0-1"}
+  "bls12-381" {<= "20.1"}
+  "ocamlformat" {<= "0.27.0"}
+  "bheap" {= "2.0.0"}
+  "js_of_ocaml-compiler" {<= "5.9.1"}
+  "js_of_ocaml-ppx" {<= "5.9.1"}
+  "js_of_ocaml-lwt" {<= "5.9.1"}
+  "alcotest" {<= "1.8.0"}
+  "monaco_jsoo" {= "1.0.1"}
+]
+build: ["dune" "build" "-p" name "-j" jobs]
+dev-repo: "git+https://gitlab.com/dailambda/scaml/"
+url {
+  src:
+    "https://gitlab.com/dailambda/scaml/-/archive/1.5.0/scaml-1.5.0.tar.gz"
+  checksum: [
+    "md5=f742641bf2ee415507d4f2f7c71b5186"
+    "sha512=360e6da522cae8467f603538b1899977285984af2394e115d550de6d55a64ee997cbec3ee74e5835a2973931e3ecc3b2467ed1a85120e928caf73647581c7790"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2d85539cd05071ec4f91d6c4ee35d2adc44aa283"
+x-reason-for-archiving: ["uninstallable"]

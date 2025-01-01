@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer: "Valentin Reis <fre@freux.fr>"
+authors: ["Valentin Reis <fre@freux.fr>"]
+homepage: "http://freux.fr/obandit"
+doc: "http://freux.fr/obandit/doc"
+license: "ISC"
+dev-repo: "git+http://git.freux.fr/cgit/obandit.git"
+bug-reports: "ocaml@freux.fr"
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "batteries" {<= "3.9.0"}
+]
+build: [
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"]
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "true"]
+    {with-test}
+  ["ocaml" "pkg/pkg.ml" "test"] {with-test}
+]
+synopsis: "Ocaml Multi-Armed Bandits"
+description: """
+Obandit is an OCaml module for basic multi-armed bandits. It supports the
+EXP3, UCB1 and Epsilon-greedy algorithms.
+
+Obandit is distributed under the ISC license."""
+url {
+  src: "https://github.com/freuk/obandit/archive/v0.2.1.tar.gz"
+  checksum: [
+    "sha256=3c7affd88ed1105ac47596ea2fc287e35500ea4244dc8930256e01fc3138afa5"
+    "md5=755a7e0a25da631ab5d4b486506f9cfa"
+  ]
+}
+available: false
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2d85539cd05071ec4f91d6c4ee35d2adc44aa283"
+x-reason-for-archiving: ["uninstallable"]
