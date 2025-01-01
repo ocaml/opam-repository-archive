@@ -1,0 +1,55 @@
+opam-version: "2.0"
+maintainer:    "jonathan.ludlam@eu.citrix.com"
+authors: [
+  "Vincent Bernardoff"
+  "Jon Ludlam"
+  "David Scott"
+]
+homepage:    "http://github.com/mirage/ocaml-vchan"
+bug-reports: "http://github.com/mirage/ocaml-vchan/issues"
+dev-repo: "git+http://github.com/mirage/ocaml-vchan.git"
+doc:         "http://mirage.github.io/ocaml-vchan"
+license:     "ISC"
+
+build: [
+  ["jbuilder" "subst" "-p" name] {dev}
+  [ "jbuilder" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "jbuilder" {>= "1.0+beta9" & <= "transition"}
+  "vchan" {= "3.0.0"}
+  "lwt" {>= "2.5.0" & <= "5.9.0"}
+  "cstruct" {>= "3.0.0" & <= "6.2.0"}
+  "ppx_tools" {<= "6.6"}
+  "ppx_sexp_conv" {<= "v0.17.0"}
+  "ppx_cstruct" {<= "6.2.0"}
+  "io-page" {<= "3.0.0"}
+  "mirage-flow-lwt" {>= "1.0.0" & <= "1.6.0"}
+  "xenstore" {>= "1.2.2" & <= "2.3.0"}
+  "mirage-xen" {< "3.3.0"}
+  "xenstore_transport" {<= "1.3.0"}
+  "sexplib" {<= "v0.17.0"}
+  "cmdliner" {<= "1.3.0"}
+  "result" {<= "1.5"}
+  "ounit" {with-test & <= "2.2.7"}
+]
+tags: "org:mirage"
+synopsis: "Xen Vchan implementation"
+description: """
+Vchan is a high performance inter-domain communications protocol using
+shared memory. This implementation runs in both userspace and
+kernelspace using Mirage."""
+url {
+  src:
+    "https://github.com/mirage/ocaml-vchan/releases/download/3.0.0/vchan-3.0.0.tbz"
+  checksum: [
+    "sha256=7219b1fbcbb308f248f50ddf745623d107da28381d3a9a76f2775e9ea1191524"
+    "md5=8be9a2d7df23fdf8983daecef3454b5d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "2d85539cd05071ec4f91d6c4ee35d2adc44aa283"
+x-reason-for-archiving: ["uninstallable"]
