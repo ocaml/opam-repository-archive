@@ -22,7 +22,7 @@ jobs:
           # We need to fetch the history so we can compare against the main branch
           fetch-depth: 0
 
-      - name: Install GNU prallel
+      - name: Install GNU parallel
         run: sudo apt-get install -y parallel
 
       - name: Set-up OCaml
