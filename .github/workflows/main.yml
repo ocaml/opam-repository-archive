@@ -19,7 +19,7 @@ jobs:
       - name: Checkout tree
         uses: actions/checkout@v4
         with:
-          # We need to fetch the history so we can compare against master
+          # We need to fetch the history so we can compare against the main branch
           fetch-depth: 0
 
       - name: Install GNU prallel
