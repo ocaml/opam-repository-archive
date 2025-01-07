@@ -1,0 +1,59 @@
+opam-version: "2.0"
+authors: "Dave Scott"
+homepage: "https://github.com/xapi-project/xcp-idl"
+bug-reports: "https://github.com/xapi-project/xcp-idl/issues"
+dev-repo: "git+https://github.com/xapi-project/xcp-idl"
+maintainer: "xen-api@lists.xen.org"
+tags: [ "org:xapi-project" ]
+build: [
+  [make "all"]
+  [make "test"] {with-test}
+]
+install: [
+  [make "install"]
+]
+remove: [
+  ["ocamlfind" "remove" "xcp"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "uri" {<= "4.4.0"}
+  "re" {<= "1.12.0"}
+  "cmdliner" {<= "1.3.0"}
+  "cohttp" {< "0.22.0"}
+  "xmlm" {<= "1.4.0"}
+  "rpc" {>= "1.9.51" & <= "9.0.0"}
+  "message-switch" {= "1.4.0"}
+  "xapi-stdext" {= "2.1.0"}
+  "xapi-rrd" {>= "1.0.0" & <= "1.12.0"}
+  "xapi-inventory" {= "1.0.2"}
+  "xapi-backtrace" {= "0.4"}
+  "fd-send-recv" {<= "2.0.2"}
+  "lwt" {< "3.0.0"}
+  "ounit" {>= "2.0.0" & <= "2.2.7"}
+  "ppx_sexp_conv" {<= "v0.17.0"}
+  "sexplib" {> "113.00.00" & < "v0.9.0"}
+]
+synopsis: "Interface descriptions and common boilerplate for xapi services."
+description: """
+The xapi toolstack is a set of communicating services including
+  - xenopsd: low-level Xen domain management
+  - networkd: host network configuration
+  - squeezed: balances memory between domains
+  - rrdd: manages datasources and records history
+plus storage 'plugins'"""
+flags: light-uninstall
+url {
+  src: "https://github.com/xapi-project/xcp-idl/archive/v1.14.0.tar.gz"
+  checksum: [
+    "sha256=02012ed04918468aa5fa9729222d94a56b111115ca8bf6fd318945d2aa12d9a0"
+    "md5=587a14daed37b581593acd7f66632141"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

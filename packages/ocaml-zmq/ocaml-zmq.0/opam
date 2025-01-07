@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+homepage: "https://github.com/issuu/ocaml-zmq"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "ounit" {<= "2.2.7"}
+  "uint" {< "2.0.0"}
+  "base-unsafe-string" {= "base"}
+]
+depexts: [
+  ["libzmq3-dev"] {os-family = "debian"}
+  ["zeromq-devel"] {os-distribution = "centos"}
+  ["zeromq-devel"] {os-distribution = "rhel"}
+]
+conflicts: ["zmq"]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "OCaml bindings for ZMQ 2.1"
+dev-repo: "git+https://github.com/issuu/ocaml-zmq.git"
+url {
+  src: "https://github.com/issuu/ocaml-zmq/tarball/67586823edd"
+  checksum: [
+    "sha256=8c502f38f116c30e8fd418b8b22b51508cd4d2ae1ac290655928722ea6294c3d"
+    "md5=32db494bfaaeb15ee536644090ee0b2b"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

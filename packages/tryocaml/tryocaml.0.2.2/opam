@@ -1,0 +1,21 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+homepage: "https://github.com/OCamlPro/tryocaml"
+build: [[make]]
+depends: [
+  "ocaml" {< "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "js_of_ocaml" {< "3.0"}
+]
+dev-repo: "git+https://github.com/OCamlPro/tryocaml"
+synopsis: "Easiest way to learn how to code in OCaml language"
+url {
+  src: "https://github.com/OCamlPro/tryocaml/archive/0.2.2.tar.gz"
+  checksum: [
+    "sha256=0dc4d5287954cbf74ebead644c8b48a2df535df43f869beb5c6d16658412285f"
+    "md5=9c2a0e3cab3b7552763e1a2421340543"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

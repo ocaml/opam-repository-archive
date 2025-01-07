@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "markus.mottl@gmail.com"
+authors: [ "Markus Mottl <markus.mottl@gmail.com>" ]
+license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+homepage: "http://mmottl.github.io/res"
+bug-reports: "https://github.com/mmottl/res/issues"
+dev-repo: "git+https://github.com/mmottl/res.git"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+remove: [
+  ["ocamlfind" "remove" "res"]
+]
+depends: [
+  "ocaml" {>= "3.12" & < "4.06.0"}
+  "ocamlfind" {>= "1.5" & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "RES - Library for resizable, contiguous datastructures"
+description:
+  "RES is a library containing resizable arrays, strings, and bitvectors."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/mmottl/res/releases/download/v4.0.6/res-4.0.6.tar.gz"
+  checksum: [
+    "sha256=6abc891faebdd15a94ce90d374dac9951f8a4db29eb00e32b7611f92c52868c0"
+    "md5=9a4fc89fd1b908064f5f682849a81117"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

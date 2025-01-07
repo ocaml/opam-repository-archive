@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+authors: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/hardcaml-affirm"
+dev-repo: "git+https://github.com/ujamjar/hardcaml-affirm.git"
+bug-reports: "https://github.com/ujamjar/hardcaml-affirm/issues"
+build: [ [ "ocaml" "pkg/pkg.ml" "build" ] ]
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "base-bytes" {<= "base"}
+  "astring" {<= "0.8.5"}
+  "hardcaml" {>= "1.2.0" & < "2.0.0"}
+  "sattools" {= "0.1.0"}
+  "hardcaml-bloop" {= "0.1.0"}
+  "hardcaml-waveterm" {>= "0.2" & <= "0.2.0"}
+]
+synopsis: "Verification tools for HardCaml"
+url {
+  src: "https://github.com/ujamjar/hardcaml-affirm/archive/v0.1.0.tar.gz"
+  checksum: [
+    "sha256=bf4e029f99dd33171d8cd4f62f08a591438ed9cd6680a45fee14b0163ccc56ee"
+    "md5=694d3db0dfcaeafa789ec184c72cbf34"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

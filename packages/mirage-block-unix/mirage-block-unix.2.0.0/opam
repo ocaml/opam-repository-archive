@@ -1,0 +1,39 @@
+opam-version: "2.0"
+authors: "Dave Scott <dave@recoil.org>"
+maintainer: "dave@recoil.org"
+homepage: "https://github.com/mirage/mirage-block-unix"
+dev-repo: "git+https://github.com/mirage/mirage-block-unix.git"
+bug-reports: "https://github.com/mirage/mirage-block-unix/issues"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--disable-tests"]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-configure" "--enable-tests"] {with-test}
+  ["ocaml" "setup.ml" "-build"] {with-test}
+  ["ocaml" "setup.ml" "-test"] {with-test}
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove: ["ocamlfind" "remove" "mirage-block-unix"]
+depends: [
+  "ocaml" {>= "4.00.0" & < "5.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "cstruct" {>= "1.0.1" & <= "6.2.0"}
+  "ppx_cstruct" {<= "6.2.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "mirage-types" {>= "1.1.0" & < "3.0.0"}
+  "io-page" {>= "1.0.0" & <"2.0.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "cstruct-lwt" {<= "6.2.0"}
+]
+synopsis: "MirageOS disk block driver for Unix"
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/mirage-block-unix/archive/v2.0.0.tar.gz"
+  checksum: [
+    "sha256=9bcbb43d28eb6135367108c4aa8a0b2d742c532d2493327ae13a6d353492f9a9"
+    "md5=c69a34289bbc4ffc89ed8324d546ba58"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

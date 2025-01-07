@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "jeremie@dimino.org"
+authors: ["Jérémie Dimino"]
+homepage: "https://github.com/jeremiedimino/optcomp"
+license: "BSD-3-Clause"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+remove: [
+  ["ocamlfind" "remove" "optcomp"]
+  ["rm" "%{bin}%/optcomp-o"]
+  ["rm" "%{bin}%/optcomp-r"]
+]
+depends: [
+  "ocaml" {>= "3.12" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/jeremiedimino/optcomp"
+install: [make "install"]
+synopsis: "Optional compilation with cpp-like directives"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/optcomp-1.6.tar.gz"
+  checksum: [
+    "sha256=5022d80e4d7dba4ada3aa57156503fad75fcd6d7b13cfa8580012a1d9f581042"
+    "md5=d3587244dba1b8b10f24d0b60a8c700d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

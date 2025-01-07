@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "mort@cantab.net"
+license: "ISC"
+tags: [
+  "org:mirage"
+]
+build: [make "all"]
+remove: [["ocamlfind" "remove" "cowabloga"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "cow" {>= "0.9.1" & < "2.0.0"}
+  "omd" {>= "0.8.2" & < "1.0.0"}
+  "lwt" {>= "2.4.3" & < "2.7.0"}
+  "cohttp" {= "0.10.0"}
+  "cstruct" {>= "1.0.1" & <= "6.2.0"}
+  "ssl" {<= "0.7.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/cowabloga"
+install: [make "install"]
+synopsis: "Simple static blogging support."
+description: "ALPHA. It will likely be in flux for a little while."
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/cowabloga/archive/v0.0.5.tar.gz"
+  checksum: [
+    "sha256=72c6eae2b086ae684019f5d85e9249bdefa0cfda5f315cbff226b53d0c74ed5e"
+    "md5=7befa7527ec46095d341a93108eee739"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "zoggy@bat8.org"
+authors: ["Maxence Guesdon"]
+homepage: "https://zoggy.frama.io/ocf/"
+license: "LGPL-3.0-only"
+doc: ["https://zoggy.frama.io/ocf/doc.html"]
+dev-repo: "git+https://framagit.org/zoggy/ocf.git"
+bug-reports: "https://framagit.org/zoggy/ocf/issues"
+tags: ["configuration" "options" "json"]
+
+build: [
+  ["./configure" "--prefix" prefix]
+  [make "all"]
+]
+install: [
+  [make "install"]
+]
+remove: [["ocamlfind" "remove" "ocf"]]
+depends: [
+  "ocaml" {>= "4.02.1" & < "4.03.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "yojson" {>= "1.1.8" & <= "2.2.2"}
+  "ppx_tools" {>= "0.99" & <= "6.6"}
+]
+synopsis: "Library to load and store configuration options in JSON syntax"
+flags: light-uninstall
+url {
+  src: "https://framagit.org/zoggy/ocf/-/archive/0.4.0/ocf-0.4.0.tar.gz"
+  checksum: [
+    "sha256=c0a34377e2094bce01907ebe67cd7cad80d8c0ae7bccec50b1cc2da850b7c2af"
+    "md5=62641e815499dfbe70e306acfdb66925"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

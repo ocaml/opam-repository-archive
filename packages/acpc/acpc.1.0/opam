@@ -1,0 +1,41 @@
+opam-version: "2.0"
+maintainer: "unixjunkie@sdf.org"
+authors: ["Francois Berenger"]
+homepage: "https://github.com/UnixJunkie/ACPC"
+dev-repo: "git+https://github.com/UnixJunkie/ACPC"
+bug-reports: "https://github.com/UnixJunkie/ACPC/issues"
+license: "BSD-3-Clause"
+build: [
+  ["obuild" "configure"]
+  ["obuild" "build"]
+]
+install: [
+  ["cp" "dist/build/acpc/acpc"
+        "dist/build/acpc_big/acpc_big"
+        "dist/build/acpc_mol2tool/acpc_mol2tool"
+        bin]
+]
+remove: [["rm" "-f" "%{bin}%/acpc" "%{bin}%/acpc_big" "%{bin}%/acpc_mol2tool"]]
+depends: [
+  "ocaml"
+  "obuild" {build & <= "0.1.11"}
+  "base-unix" {= "base"}
+  "batteries" {< "3.7"}
+  "dolog" {= "0.6"}
+  "vector3" {<= "1.0.0"}
+  "parmap" {<= "1.2.5"}
+  "conf-gnuplot" {= "0.1"}
+  "conf-autoconf" {<= "0.2"}
+]
+synopsis: "Chemoinformatics tool for ligand-based virtual screening"
+flags: light-uninstall
+url {
+  src: "https://github.com/UnixJunkie/ACPC/archive/v1.0.tar.gz"
+  checksum: [
+    "sha256=bd1fb8462e6061c2ae67473f966f963ace2729abab5ca08b1efe05c5a7bbfdfc"
+    "md5=ebe1a67e8958fd0455601a8ab8d8bcc5"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

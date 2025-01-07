@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "thomas@gazagnaire.org"
+authors: [ "Thomas Gazagnaire" ]
+license: "ISC"
+homepage:     "https://github.com/mirage/ocaml-mstruct"
+dev-repo: "git+https://github.com/mirage/ocaml-mstruct.git"
+bug-reports:  "https://github.com/mirage/ocaml-mstruct/issues"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+remove: [
+  ["ocamlfind" "remove" "mstruct"]
+]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "dolog" {>= "0.4" & <= "0.6"}
+  "cstruct" {>= "1.0.0" & <= "6.2.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Mstruct is a thin mutable layer on top of cstruct"
+flags: [ deprecated light-uninstall ]
+url {
+  src: "https://github.com/mirage/ocaml-mstruct/archive/1.1.0.tar.gz"
+  checksum: [
+    "sha256=92319b02bf791eaa067a1f03e85bdf2514e9c5f13426d6e8ab6dcf35bbb3580e"
+    "md5=5d4783ed0ea44cd9111760331ab83325"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

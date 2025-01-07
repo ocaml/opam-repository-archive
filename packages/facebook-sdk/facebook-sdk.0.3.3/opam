@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: "dominic.price@nottingham.ac.uk"
+homepage: "https://github.com/CREATe-centre/sociaml-facebook-api"
+bug-reports: "https://github.com/CREATe-centre/sociaml-facebook-api/issues"
+authors: [ "Dominic Price" ]
+license: "GPL-3.0-only"
+build: [
+  ["oasis" "setup"]
+  ["./configure" "--prefix" prefix]
+  [make "build"]
+]
+remove: [
+  [make "uninstall"]
+  ["ocamlfind" "remove" "facebook"]
+  ["ocamlfind" "remove" "endpoints"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "calendar" {>= "2.00" & <= "3.0.0"}
+  "cohttp" {>= "0.10.0" & < "0.12.0"}
+  "core" {<= "v0.17.1"}
+  "csv" {<= "2.4"}
+  "lwt" {< "3.0.0"}
+  "meta_conv" {<= "1.1.5"}
+  "oasis" {<= "0.4.11"}
+  "ssl" {<= "0.7.0"}
+  "tiny_json" {<= "1.1.6"}
+  "tiny_json_conv" {<= "1.4.1"}
+  "uri" {<= "4.4.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/CREATe-centre/sociaml-facebook-api.git"
+install: [make "install"]
+synopsis: "Facebook Graph API SDK for OCaml"
+description: """
+OCaml bindings to the Facebook graph API using cohttp and lwt threading. This
+package is still in the early stages of development and at present only
+contains the functionality required to fetch a user's time-line and to
+publish simple messages to the time-line."""
+url {
+  src: "https://github.com/dominicjprice/facebook-sdk/archive/v0.3.3.tar.gz"
+  checksum: [
+    "sha256=31716c2a536888589600dcecd52b7f4fbba23e32f15f408aaf69fbd19acdc198"
+    "md5=63cb5644f5af431b09d177864d01027a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "joshua.allmann@gmail.com"
+authors: ["Josh Allmann <joshua.allmann@gmail.com>"]
+homepage: "https://github.com/j0sh/ocaml-mqtt"
+bug-reports: "https://github.com/j0sh/ocaml-mqtt/issues"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [
+    ["ocamlfind" "remove" "mqtt"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocplib-endian" {<= "1.2"}
+  "ounit" {<= "2.2.7"}
+  "lwt" {<= "2.7.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/j0sh/ocaml-mqtt"
+install: [make "install"]
+synopsis: "MQTT message parser in OCaml"
+flags: light-uninstall
+url {
+  src: "https://github.com/j0sh/ocaml-mqtt/archive/v0.0.1.tar.gz"
+  checksum: [
+    "sha256=564df1d563662c2908f8086f2f1198129b39c255a7ba2c8e8ad2e5c11dd46199"
+    "md5=9cc9720647acd0256b7ec53ffb6f6d76"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

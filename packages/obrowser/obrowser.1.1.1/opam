@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: make
+remove: [["ocamlfind" "remove" "obrowser"]]
+depends: [
+  "ocaml" {= "3.12.1"}
+  "ocamlfind" {<= "1.9.6"}
+  "menhir" {<= "20240715"}
+  "lwt" {<= "5.9.0"}
+]
+install: [make "install"]
+synopsis: "OCaml virtual machine written in Javascript"
+description: """
+O'Browser is an OCaml virtual machine written in Javascript, to run
+OCaml program in browsers! It is independant from Eliom and Ocsigen's
+server. You can use it with any Web server."""
+flags: light-uninstall
+url {
+  src: "http://ocsigen.org/download/obrowser-1.1.1.tar.gz"
+  checksum: [
+    "sha256=9372518f675b71084c440aa98a8ff94aacae67458873dcf82682e235a90b0dce"
+    "md5=c2b67241ad48f6e1a207dfda9773b535"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

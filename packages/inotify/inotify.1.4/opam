@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "seanmcl@gmail.com"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "inotify"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/whitequark/ocaml-inotify"
+available: os = "linux" | os = "macos"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Inotify bindings for ocaml."
+flags: light-uninstall
+url {
+  src: "https://github.com/whitequark/ocaml-inotify/archive/1.4.tar.gz"
+  checksum: [
+    "sha256=e92c4340b83d79d1b8816458c073c82635043a2b6b404514b310246c8a42e936"
+    "md5=8002a6fec33b4897c19fc4512bee84e3"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

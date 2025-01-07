@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "markus.mottl@gmail.com"
+authors: [ "Markus Mottl <markus.mottl@gmail.com>" ]
+homepage: "http://mmottl.github.io/pcre-ocaml"
+bug-reports: "https://github.com/mmottl/pcre-ocaml/issues"
+build: make
+remove: [["ocamlfind" "remove" "pcre"]]
+depends: [
+  "ocaml" {>= "3.12" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "conf-libpcre" {<= "2"}
+  "ocamlbuild" {build & != "0.9.0" & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mmottl/pcre-ocaml"
+install: [make "install"]
+synopsis:
+  "Interface to the PCRE (Perl-compatibility regular expressions) library"
+description: """
+This OCaml-library interfaces the C-library PCRE (Perl-compatibility
+Regular Expressions). It can be used for matching regular expressions
+which are written in "PERL"-style."""
+flags: light-uninstall
+url {
+  src: "https://github.com/mmottl/pcre-ocaml/archive/v7.0.2.tar.gz"
+  checksum: [
+    "sha256=d5994470c0aa0e0eb5c554a4a8e46f43ea2c3f01b6f5c5f9df9fa6382e3f0f04"
+    "md5=862a4a94dae50a95308edb706dc9317d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

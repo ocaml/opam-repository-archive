@@ -1,0 +1,37 @@
+opam-version: "2.0"
+authors: ["Pippijn van Steenhoven" "Francois Berenger"]
+maintainer: "https://github.com/Antique-team/clangml-transforms/issues"
+homepage: "https://github.com/Antique-team/clangml-transforms"
+bug-reports: "https://github.com/Antique-team/clangml-transforms/issues"
+dev-repo: "git+https://github.com/Antique-team/clangml-transforms.git"
+build: [
+  ["obuild" "configure"]
+  ["obuild" "build"]
+]
+install: [
+  ["obuild" "install"]
+]
+remove: [
+  ["ocamlfind" "-remove" "clangml-transforms"]
+]
+depends: [
+  "ocaml" {< "4.05"}
+  "deriving" {<= "0.8.1"}
+  "clangml" {< "4.0.0"}
+  "batteries" {<= "3.9.0"}
+  "dolog" {< "4.0.0"}
+  "obuild" {> "0.0.7" & <= "0.1.11"}
+]
+synopsis: "Transformations over the clang AST for MemCAD"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/Antique-team/clangml-transforms/archive/v0.21.tar.gz"
+  checksum: [
+    "sha256=4143b8c84729911c530319a8fd1d78596e9178717acf855d1580e3ff46405ccc"
+    "md5=2594b69596c1544dd269162a47742ff8"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

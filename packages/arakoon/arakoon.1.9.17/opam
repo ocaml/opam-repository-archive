@@ -1,0 +1,53 @@
+opam-version: "2.0"
+maintainer: "Romain Slootmaekers <romain.slootmaekers@openvstorage.com>"
+authors: ["Romain Slootmaekers <romain.slootmaekers@openvstorage.com>"
+          "Jan Doms <jan.doms@openvstorage.com>"]
+homepage: "https://github.com/openvstorage/arakoon"
+bug-reports: "https://github.com/openvstorage/arakoon/issues"
+license: "Apache-2.0"
+dev-repo: "git+https://github.com/openvstorage/arakoon.git"
+build: [ [make] ]
+
+install: [make "install"   "OCAML_LIBDIR=%{prefix}%/lib" "PREFIX=%{prefix}%"]
+
+remove:  [
+  [make "uninstall_client" "OCAML_LIBDIR=%{prefix}%/lib" "PREFIX=%{prefix}%"]
+  ["rm" "-rf" "%{bin}%/arakoon"]
+]
+
+depends: [
+  "ocaml" {>= "4.03.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "bisect" {>= "1.3" & <= "1.3.1"}
+  "camltc" {>= "0.9.4" & <= "0.9.8"}
+  "camlbz2" {>= "0.6.0" & <= "transition"}
+  "conf-libev" {>= "4-11" & <= "4-12"}
+  "lwt" {>= "3.0.0" & <= "5.9.0"}
+  "lwt_ssl" {>= "1.0.1" & <= "1.2.0"}
+  "ocplib-endian" {>= "1.0" & <= "1.2"}
+  "ssl" {>= "0.5.3" & <= "0.7.0"}
+  "snappy" {>= "0.1.0" & <= "0.1.2"}
+  "quickcheck" {= "1.0.2"}
+  "core" {>= "v0.9.0" & <= "v0.17.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "redis" {= "0.3.3"}
+  "uri" {>= "1.9.2" & <= "4.4.0"}
+  "ounit" {<= "2.2.7"}
+]
+available: os != "macos"
+depexts: [
+  ["help2man"] {os-family = "debian"}
+]
+synopsis:
+  "A distributed key-value store that guarantees consistency above anything else."
+url {
+  src:
+    "https://github.com/openvstorage/arakoon/archive/1a5da78cd06e7662c6d262ae0c723c4d54d94542.tar.gz"
+  checksum: [
+    "sha256=7a808770a1abcdbcd13938b60e5dbce01b3d590d8be3388d6b04dce6deaaeac9"
+    "md5=6c1236864a12cf037719b1b3517f5b48"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

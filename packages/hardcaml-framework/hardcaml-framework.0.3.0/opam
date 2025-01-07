@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+authors: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/hardcaml-framework"
+dev-repo: "git+https://github.com/ujamjar/hardcaml-framework.git"
+bug-reports: "https://github.com/ujamjar/hardcaml-framework/issues"
+build: [ [ "ocaml" "pkg/pkg.ml" "build" ] ]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "hardcaml" {>= "1.2.0" & < "2.0.0"}
+  "hardcaml-waveterm" {= "0.2.0"}
+  "astring" {<= "0.8.5"}
+  "omd" {<= "2.0.0~alpha4"}
+  "lwt" {<= "5.9.0"}
+  "js_of_ocaml" {<= "5.9.1"}
+]
+synopsis: "Framework for generating and simulating HardCaml cores"
+description: "with console or javascript backends."
+url {
+  src: "https://github.com/ujamjar/hardcaml-framework/archive/v0.3.0.tar.gz"
+  checksum: [
+    "sha256=c691b890280b0b110aa9bb181f46107424257aa414459fe117948dde88191dc7"
+    "md5=1a960c0bcc1853661365509079b6c589"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/oplay"
+build: [
+  [ make "all" ]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "tsdl" {< "0.9.0"}
+  "ctypes" {< "0.18.0"} # used implicitly through tsdl
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/ujamjar/oplay"
+synopsis: "Raw YUV video player"
+url {
+  src: "https://github.com/ujamjar/oplay/archive/v1.0.0.tar.gz"
+  checksum: [
+    "sha256=83d52fe0a6d77b00918055aed403c3aa5b6e2cd55c3318aca703d2a1f7530728"
+    "md5=9b565d21693259000a380c5ae9dd9a54"
+  ]
+}
+extra-source "oplay.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/oplay/oplay.install"
+  checksum: [
+    "sha256=a0f3f5df528de0e82ee684225abb97757d081d385c3d56cea450e9fd7d22cd76"
+    "md5=ec5b2a247b58c9bfa534468de18bac92"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

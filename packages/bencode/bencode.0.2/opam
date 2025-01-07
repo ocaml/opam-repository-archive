@@ -1,0 +1,24 @@
+opam-version: "2.0"
+maintainer: "rudi.grinberg@gmail.com"
+authors: [ "Rudi Grinberg" "Simon Cruanes" ]
+license: "WTFPL"
+build: [make "all"]
+remove: [[make "uninstall"]]
+depends: [
+  "ocaml" {>= "4.00.1" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/rgrinberg/bencode"
+install: [make "install"]
+synopsis: "Read/Write bencode (.torrent) files in OCaml"
+url {
+  src: "https://github.com/rgrinberg/bencode/archive/0.2.tar.gz"
+  checksum: [
+    "sha256=1645f7b666bbbb078c85b7a75599958d7da5c288409e2643d200945e9da89c8b"
+    "md5=790a99820a6555f724d4e29b1f5ec558"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

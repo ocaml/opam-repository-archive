@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Gregory Tsipenyuk <gregtsip@gmail.com>"
+authors: "Gregory Tsipenyuk <gregtsip@gmail.com>"
+license: "MIT"
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--override=ocamlbuildflags" "-I storage"]
+  [make]
+]
+install: [make "install"]
+remove: [make "uninstall"]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "lwt" {<= "5.9.0"}
+  "mirage" {< "3.0.0"}
+  "cohttp" {>= "0.14.0" & <= "6.0.0"}
+  "git" {>= "1.4.3" & <= "3.17.0"}
+  "irmin" {= "0.9.1"}
+  "re2" {<= "v0.17.0"}
+  "tls" {= "0.2.0"}
+  "menhir" {<= "20240715"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/gregtatcam/imaplet-lwt"
+synopsis: "IMAP server prototype, supports IMAPv4rev1"
+url {
+  src: "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.4.tar.gz"
+  checksum: [
+    "sha256=4a2652009ea491d883472c0dcfa1bf52fb3594d1576b03524b0e77dac7b5b940"
+    "md5=152c9a92a635ee50433d23b333cf9889"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

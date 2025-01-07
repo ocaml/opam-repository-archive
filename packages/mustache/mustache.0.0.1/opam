@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "rudi.grinberg@gmail.com"
+authors: [ "Rudi Grinberg" ]
+license: "WTFPL"
+build: [
+  [make "configure"]
+  [make "build"]
+  [make "doc"] {with-doc}
+]
+remove: [
+  ["ocamlfind" "remove" "mustache"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ezjsonm" {< "0.4.0"}
+  "oasis" {<= "0.4.11"}
+  "re" {<= "1.12.0"}
+  "sexplib" {< "113.01.00"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/rgrinberg/ocaml-mustache"
+install: [make "install"]
+synopsis: "Mustache logic-less templates in OCaml"
+flags: light-uninstall
+url {
+  src: "https://github.com/rgrinberg/ocaml-mustache/archive/0.0.1.tar.gz"
+  checksum: [
+    "sha256=74622ca8cc77eb0abd8dcdf4695c1fb9b243ed527ce25fcf6451c9a300e62ef8"
+    "md5=2f4812529e118f912dfe857f4f3c2236"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

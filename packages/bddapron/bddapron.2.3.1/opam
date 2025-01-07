@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "Nicolas Berthier <m@nberth.space>"
+authors: ["Bertrand Jeannet"]
+homepage: "https://www.inrialpes.fr/pop-art/people/bjeannet/bjeannet-forge/bddapron/index.html"
+bug-reports: "https://gforge.inria.fr/projects/bjeannet/"
+license: "LGPL-2.1-only"
+build: [
+  ["./configure" "--docdir" doc]
+  [make "JOBS=%{jobs}%"]
+]
+install: [
+  [make "install"]
+]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.06"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "camllib" {<= "1.3.3"}
+  "mlcuddidl" {>= "2.3.0" & <= "3.0.8"}
+  "apron" {>= "20151015" & <= "v0.9.15"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Logico-numerical domain(s) based on BDDs and APRON"
+url {
+  src: "http://nberth.space/pool/bddapron/bddapron-2.3.1.tar.gz"
+  checksum: [
+    "sha256=5f9068d9dd2b0978259089a22aaf22ea695e8289279ea8cadb82577a3baca36f"
+    "md5=4a4eef2d83c071576571ed4addd7aa92"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

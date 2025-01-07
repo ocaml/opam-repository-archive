@@ -1,0 +1,47 @@
+opam-version: "2.0"
+maintainer: "mmatalka@gmail.com"
+build: [
+  [make "-j%{jobs}%"]
+  [make "-j%{jobs}%" "test"] {with-test}
+]
+install: [
+	[make "PREFIX=%{prefix}%" "install"]
+]
+
+remove: [
+	[make "PREFIX=%{prefix}%" "remove"]
+]
+
+depends: [
+  "ocaml" {< "4.06.0"}
+  "cmdliner" {<= "1.3.0"}
+  "containers" {< "2.8"}
+  "csv" {<= "2.4"}
+  "lua_pattern" {= "1.7"}
+  "merlin-of-pds" {<= "1.4"}
+  "ocamlfind" {<= "1.9.6"}
+  "pds" {build & (>= "5" & < "6") & <= "5.38"}
+  "ppx_deriving" {<= "6.0.3"}
+  "ppx_sexp_conv" {<= "v0.17.0"}
+  "sexplib" {<= "v0.17.0"}
+]
+authors: [
+	"mmatalka@gmail.com"
+]
+
+homepage: "https://github.com/orbitz/opass"
+bug-reports: "https://github.com/orbitz/opass/issues"
+dev-repo: "git+https://github.com/orbitz/opass.git"
+synopsis: "A simple command line tool for storing, retreiving,"
+description:
+  "and generating password and secret notes, using PGP for encryption."
+url {
+  src: "https://github.com/orbitz/opass/archive/2.15.tar.gz"
+  checksum: [
+    "sha256=37e8795a0d9854aea91519550f65b1d30f5e7525009057f78f0495add29829e2"
+    "md5=0e662ebe04efc311bc5f975745f48d60"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

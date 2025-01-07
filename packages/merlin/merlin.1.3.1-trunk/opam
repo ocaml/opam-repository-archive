@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "defree@gmail.com"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [[make "uninstall"]]
+depends: [
+  "ocaml" {> "4.00.1" & < "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "yojson" {< "2.0.0"}
+  "menhir" {<= "20240715"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depopts: [
+  "sexplib"
+]
+dev-repo: "git+https://github.com/the-lambda-church/merlin"
+install: [make "install"]
+synopsis:
+  "Editor helper, provides completion, typing and sources browsing in Vim and Emacs"
+url {
+  src:
+    "https://github.com/the-lambda-church/merlin/archive/v1.3.1-trunk.tar.gz"
+  checksum: [
+    "sha256=1fd1fa11612d0625b71cdf0ca406107a3e871244644b61dfa4b084a2dba7f3cd"
+    "md5=6f78a42fadc459eca4dcdce0aac633d1"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

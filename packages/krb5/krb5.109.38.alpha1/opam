@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: make
+remove: [["ocamlfind" "remove" "krb5"]]
+depends: [
+  "ocaml"
+  "camlp4" {<= "5.3"}
+  "async" {>= "109.38.00" & <= "109.53.00"}
+  "core" {>= "109.38.00" & <= "109.53.01"}
+  "sexplib" {>= "109.20.00" & <= "109.53.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depexts: [
+  ["libkrb5-dev"] {os-family = "debian"}
+]
+install: [make "install"]
+synopsis: "Kerberos 5 bindings"
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/alpha-packages/109.38.alpha1/individual/krb5-109.38.alpha1.tar.gz"
+  checksum: [
+    "sha256=f9de89fb38cc5afca1ce6b6fbf91bcec33b7ea50e12bfecf817925b64fad30b6"
+    "md5=e31093911c4e65cd0c8f8a1eeb18c91e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

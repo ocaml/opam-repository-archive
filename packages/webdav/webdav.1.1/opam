@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: make
+remove: [["ocamlfind" "remove" "webdav"]]
+depends: [
+  "ocaml" {< "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlnet" {< "3.5.1"}
+  "omake" {<= "0.10.7"}
+  "pcre" {<= "8.0.1"}
+  "pxp" {<= "1.2.9"}
+]
+install: [make "install"]
+synopsis: "Implements the client side of the WebDAV protocol (RFC 4918)"
+description: """
+The file locking part of WebDAV is omitted, though.
+The library uses Ocamlnet's [netclient] library for client-side HTTP,
+and extends it by providing the required access methods for
+WebDAV. Additionally, there is also an implementation for Ocamlnet's
+Netfs.stream_fs abstraction modelling a simple file system."""
+flags: light-uninstall
+url {
+  src: "http://download.camlcity.org/download/webdav-1.1.tar.gz"
+  checksum: [
+    "sha256=1f0eacebdb36badd70622bd83b22cd6f56dca74aed97a1fa81168493a5a2c13b"
+    "md5=23db105a570a4065ba04bbe2b804b43f"
+  ]
+  mirrors: "http://download2.camlcity.org/download/webdav-1.1.tar.gz"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "0zat <0.zat.zer0@gmail.com>"
+authors: ["0zat"]
+homepage: "https://github.com/0zat/webidl"
+bug-reports: "https://github.com/0zat/webidl"
+dev-repo: "git+https://github.com/0zat/webidl.git"
+build: ["ocaml" "setup.ml" "build"]
+install: ["ocaml" "setup.ml" "install"]
+remove: ["ocaml" "setup.ml" "remove"]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.06.0"}
+  "ocamlfind" {build & >= "1.7.1" & <= "1.9.6"}
+  "ocamlbuild" {build & >= "0.9.3" & <= "0.15.0"}
+  "menhir" {build & >= "20170101" & <= "20240715"}
+  "ppx_deriving" {>= "4.1" & <= "6.0.3"}
+]
+synopsis: "Web IDL parser"
+description: """
+- parsing Web IDL(https://heycam.github.io/webidl/) 
+- convert them to OCaml data,
+- print them by deriving.show"""
+url {
+  src: "https://github.com/0zat/webidl/archive/v0.1.zip"
+  checksum: [
+    "sha256=d904392efd85d8f9555abdcf4ee03ae63611dde66a459503a91523728e119b72"
+    "md5=dd77fd3b6efff59268fa832fdb88ac98"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

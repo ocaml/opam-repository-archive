@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "jeremie@dimino.org"
+homepage: "https://github.com/jeremiedimino/ocaml-usb"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [["ocamlfind" "remove" "usb"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "oasis" {>= "0.3.0" & <= "0.4.11"}
+  "camlp4" {<= "5.3"}
+  "lwt" {>= "2.0.0" & < "4.0.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "conf-pkg-config" {build & <= "3"}
+]
+depexts: [
+  ["libusb-1.0-0-dev"] {os-family = "debian"}
+]
+install: [make "install"]
+synopsis: "OCaml bindings for libusb-1.0"
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/ocaml-usb/ocaml-usb/1.3.0/ocaml-usb-1.3.0.tar.gz"
+  checksum: [
+    "sha256=a22927215e24e1b91710e5a559de816f597fee5103acb697a2cf91674f9aa6df"
+    "md5=df0cfb6ace35ac8f183735ed284e21fb"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

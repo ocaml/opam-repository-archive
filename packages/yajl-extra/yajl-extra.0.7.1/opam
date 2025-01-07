@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "mlin@mlin.net"
+remove: [["ocamlfind" "remove" "yajl-extra"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "batteries" {< "2.0.0"}
+  "yajl" {<= "0.7.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install-extra"]
+synopsis:
+  "Extended YAJL bindings with a convenient high-level JSON representation"
+dev-repo: "git+https://github.com/mlin/yajl-ocaml.git"
+flags: light-uninstall
+url {
+  src:
+    "https://raw.github.com/mlin/yajl-ocaml/tarball/yajl-ocaml-0.7.1.tar.gz"
+  checksum: [
+    "sha256=fa5238b14e8d59ba7a05355fcb2af15dc67e033ca3f40037a8f0e05e681586dd"
+    "md5=5aa65b8a34f8cf4dbc05adb3f7ec717d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

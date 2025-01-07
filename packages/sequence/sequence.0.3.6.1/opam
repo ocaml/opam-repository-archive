@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "simon.cruanes@inria.fr"
+authors: "Simon Cruanes"
+homepage: "https://github.com/c-cube/iter/"
+doc: ["http://cedeela.fr/~simon/software/iter/Sequence.html"]
+tags: [
+  "sequence"
+  "iterator"
+  "iter"
+  "fold"
+]
+build: [make "all" "doc"]
+remove: [["ocamlfind" "remove" "sequence"]]
+depends: [
+  "ocaml" {< "4.07.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/c-cube/iter"
+install: [make "install"]
+synopsis: "Simple and lightweight sequence abstract data type."
+description: """
+Simple sequence abstract data type, intended to transfer a finite number of
+elements from one data structure to another. Some transformations on sequences,
+like `filter`, `map`, `take`, `drop` and `append` can be performed before the
+sequence is iterated/folded on."""
+flags: light-uninstall
+url {
+  src: "https://github.com/c-cube/iter/archive/0.3.6.1.tar.gz"
+  checksum: "sha256=7b19d08f0a926abdbcc64fa21af7d682a5c34135de7f051b2cccd4110ddc1db2"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

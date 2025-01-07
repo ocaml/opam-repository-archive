@@ -1,0 +1,24 @@
+opam-version: "2.0"
+maintainer: "andrenth@gmail.com"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+depends: [
+  "ocaml" {< "4.03.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ospec" {>= "0.3.0" & <= "0.3.2"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Unsigned ints for OCaml"
+url {
+  src: "https://github.com/andrenth/ocaml-uint/tarball/1.0.3"
+  checksum: [
+    "sha256=acab8261bf1b7945d56ea3266cc8c11d522a6699d9a92cc59cb500e7a50fd041"
+    "md5=cbba3a16d7c98f362a7dbc788b311dbc"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "dev@domoco.fr"
+authors: ["Incubaid Team"]
+homepage: "https://github.com/toolslive/camltc"
+build: [make "-C" "src"]
+remove: [
+  [make "-C" "src" "uninstall" "DESTDIR=%{prefix}%"]
+]
+depends: [
+  "ocaml" {> "4.00.0" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {>= "2.4.3" & < "4.0.0"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/toolslive/camltc"
+install: [make "-C" "src" "install" "DESTDIR=%{prefix}%"]
+synopsis: "Tokyo Cabinet bindings for OCaml."
+url {
+  src: "https://github.com/toolslive/camltc/archive/camltc-0.9.1.tar.gz"
+  checksum: [
+    "sha256=9abac15608a0020aa25cdb90dade2ea0de0e9d06cd6c61d7c571e033d1cde212"
+    "md5=642869c6b12e27ae6225e3011ae8d5a2"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

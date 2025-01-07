@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "romain.slootmaekers@incubaid.com"
+homepage: "http://incubaid.github.io/baardskeerder/"
+license: "LGPL-3.0-only"
+build: ["sh" "-exc" "cd src && %{make}%"]
+remove: [["ocamlfind" "remove" "baardskeerder"]]
+depends: [
+  "ocaml" {< "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ounit" {<= "2.2.7"}
+  "quickcheck" {<= "1.0.2"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/Incubaid/baardskeerder"
+install: ["sh" "-exc" "cd src && %{make}% install"]
+synopsis: "Baardskeerder is an append-only B-ish tree."
+flags: light-uninstall
+url {
+  src: "https://github.com/Incubaid/baardskeerder/archive/0.5.2.tar.gz"
+  checksum: [
+    "sha256=1b314398fe1c42c391040069e9d9eb48ec2bc32065d3d045d948dc7e042b5693"
+    "md5=281bd713b823b517b84bb0c88ce8c56d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer:   "dave@recoil.org"
+authors:      ["Anil Madhavapeddy" "David Scott"]
+homepage:     "https://github.com/mirage/shared-memory-ring"
+bug-reports:  "https://github.com/mirage/shared-memory-ring/issues"
+dev-repo: "git+https://github.com/mirage/shared-memory-ring.git"
+license:      "ISC"
+tags:         [ "org:mirage" "org:xapi-project"]
+
+build: [
+  ["jbuilder" "subst" "-p" name] {dev}
+  [ "jbuilder" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.06.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "jbuilder" {>= "1.0+beta9" & <= "transition"}
+  "cstruct" {>= "2.4.1" & < "3.4.0"}
+  "ppx_cstruct" {<= "6.2.0"}
+  "mirage-profile" {<= "0.9.1"}
+  "ounit" {with-test & <= "2.2.7"}
+]
+synopsis: "Shared memory rings for RPC and bytestream communications."
+description: """
+Includes concrete implementations of Xen console and Xenstore 
+rings."""
+url {
+  src:
+    "https://github.com/mirage/shared-memory-ring/releases/download/2.0.1/shared-memory-ring-2.0.1.tbz"
+  checksum: [
+    "sha256=c3a0c4c64d4c94aef33e094e50a4c91db2b5a1151683f233cafe13fab4b863d8"
+    "md5=8e81a7961c6cf1555254a4b6bfb7f050"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

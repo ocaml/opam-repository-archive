@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer: "armael@isomorphis.me"
+homepage: "http://dev.isomorphis.me/stone"
+bug-reports: "http://github.com/Armael/stone/issues"
+dev-repo: "git+http://github.com/Armael/stone.git"
+build: [
+  ["./configure" "--bin-dir" bin]
+  [make]
+]
+install: [make "install"]
+remove: [
+  ["./configure" "--bin-dir" bin]
+  [make "uninstall"]
+]
+depends: [
+  "ocaml" {< "4.06"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "cow" {>= "2.0.0" & <= "2.5.0"}
+  "config-file" {<= "1.2.1"}
+  "crunch" {<= "3.3.1"}
+  "inotify" {>= "2.3" & <= "2.6"}
+  "omd" {<= "2.0.0~alpha4"}
+]
+synopsis:
+  "Simple static website generator, useful for a portfolio or documentation pages"
+description:
+  "Full documentation is available at http://dev.isomorphis.me/stone/"
+authors: "armael@isomorphis.me"
+url {
+  src: "https://github.com/Armael/stone/archive/v0.4.0.tar.gz"
+  checksum: [
+    "sha256=76072333036e703dc03896391a5544a9f604fb0f7115b2b6e1e9006371c5fa28"
+    "md5=f4eb792890b30ba7bb1b70745d8c0317"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

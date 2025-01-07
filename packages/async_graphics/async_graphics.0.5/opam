@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "Leo White <leo@lpw25.net>"
+authors: ["Leo White <leo@lpw25.net>"]
+homepage: "https://github.com/lpw25/async_graphics"
+bug-reports: "https://github.com/lpw25/async_graphics/issues"
+dev-repo: "git+https://github.com/lpw25/async_graphics.git"
+license: "LGPL-2.0-only WITH OCaml-LGPL-linking-exception"
+tags: [
+  "async"
+  "graphics"
+]
+remove: [["ocamlfind" "remove" "async_graphics"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "graphics" {<= "5.1.2"}
+  "async" {>= "109.09.00" & < "113.00.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: "./install.sh"
+synopsis: "Async wrapper for the OCaml Graphics library"
+flags: light-uninstall
+url {
+  src: "https://github.com/lpw25/async_graphics/archive/0.5.tar.gz"
+  checksum: [
+    "sha256=10a8e6110b08669f913b0fdcf0a18437f7465b43c8d496d68643a09532f0f1d7"
+    "md5=f30f88239882c5583776b8697739db06"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

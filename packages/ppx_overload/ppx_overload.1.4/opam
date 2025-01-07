@@ -1,0 +1,15 @@
+opam-version: "2.0"
+authors: "Jun Furuse"
+maintainer: "jun.furuse@gmail.com"
+homepage: "https://bitbucket.org/camlspotter/typpx"
+bug-reports: "https://bitbucket.org/camlspotter/typpx/issues?status=new&status=open"
+dev-repo: "hg+https://bitbucket.org/camlspotter/typpx"
+build: ["ocamlfind" "query" "ppx_overload"]
+depends: [
+  "ocaml" {>= "4.05.0"}
+  "typpx" {>= "1.4.1" & <= "1.4.3"}
+]
+synopsis: "Virtual package for ppx_overload, now provided by typpx"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

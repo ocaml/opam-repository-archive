@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "anders@fugmann.net"
+homepage: "https://github.com/issuu/ocaml-zmq"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "ZMQ"]]
+depends: [
+  "ocaml" {< "4.03.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "base-unix" {= "base"}
+  "ounit" {<= "2.2.7"}
+  "uint" {<= "2.0.1"}
+  "oasis" {<= "0.4.11"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "conf-zmq" {= "0.1"}
+]
+conflicts: ["ocaml-zmq"]
+dev-repo: "git+https://github.com/issuu/ocaml-zmq"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "OCaml bindings for ZeroMQ 4.0"
+flags: light-uninstall
+url {
+  src: "https://github.com/issuu/ocaml-zmq/archive/4.0-1.tar.gz"
+  checksum: [
+    "sha256=63e6357201837e821d2a283e00c9176e00e9ae1d273033e083b4549ef0d4b2a8"
+    "md5=2eea29af746e0c6b6389393eb021f5ae"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

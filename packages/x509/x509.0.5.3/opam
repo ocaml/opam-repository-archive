@@ -1,0 +1,51 @@
+opam-version: "2.0"
+homepage:     "https://github.com/mirleft/ocaml-x509"
+dev-repo: "git+https://github.com/mirleft/ocaml-x509.git"
+bug-reports:  "https://github.com/mirleft/ocaml-x509/issues"
+authors:      [ "David Kaloper <david@numm.org>" "Hannes Mehnert <hannes@mehnert.org>" ]
+maintainer:   [ "Hannes Mehnert <hannes@mehnert.org>" "David Kaloper <david@numm.org>" ]
+license:      "BSD-2-Clause"
+
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+  ["./configure" "--%{ounit:enable}%-tests"] {with-test}
+  [make "test"] {with-test}
+]
+install: [ make "install" ]
+remove: [ "ocamlfind" "remove" "x509" ]
+
+depends: [
+  "ocaml" {>= "4.02.2"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "oasis" {build & <= "0.4.11"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ppx_deriving" {<= "6.0.3"}
+  "ppx_sexp_conv" {< "v0.11.0"}
+  "cstruct" {>= "1.6.0" & < "4.0.0"}
+  "sexplib" {<= "v0.17.0"}
+  "asn1-combinators" {>= "0.1.1" & < "0.2.0"}
+  "nocrypto" {>= "0.5.3" & <= "0.5.4-2"}
+  "base-bytes" {<= "base"}
+  "ounit" {with-test & <= "2.2.7"}
+  "cstruct-unix" {with-test & <= "6.2.0"}
+]
+conflicts: [
+  "sexplib" {= "v0.9.0"}
+]
+tags: [ "org:mirage" ]
+synopsis: "X.509 certificate (RFC5280) library"
+description: """
+Library for X.509 certificate parsing, serialization and authentication.
+Supports path validation (RFC5280) and hostname verification (RFC6125)."""
+flags: light-uninstall
+url {
+  src: "https://github.com/mirleft/ocaml-x509/archive/0.5.3.tar.gz"
+  checksum: [
+    "sha256=50911a87d0c6bcfb23518a6040a91a58d33cbe0a0abd041d9f590bcf990b3108"
+    "md5=8efe2bca5a80f7d35e730980fbaebc5c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

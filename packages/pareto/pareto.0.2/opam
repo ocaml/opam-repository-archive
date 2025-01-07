@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "superbobry@gmail.com"
+authors: ["Sergei Lebedev"]
+homepage: "https://github.com/superbobry/pareto"
+license: "MIT"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [["ocamlfind" "remove" "pareto"]]
+depends: [
+  "ocaml" {>= "4.00.1" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "gsl" {>= "1.13.0" & <= "1.25.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/superbobry/pareto"
+install: [make "install"]
+synopsis: "GSL powered OCaml statistics library, which provides:"
+description: """
+* Common statistical tests for significant differences between samples.
+* Uniform interface for common discrete and continuous probability distributions.
+* Descriptive and summary statistics, quantile estimation, kernel density estimation.
+* Resampling methods: jackknife, BCa bootstrap."""
+flags: light-uninstall
+url {
+  src: "https://github.com/superbobry/pareto/archive/0.2.tar.gz"
+  checksum: [
+    "sha256=f75cc633a524a8e795d6c66332b3d7dd4a763b273efa6e096f34e9e844d60589"
+    "md5=ca7373f1544ce6f53b54e6baac51cb2d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "hugo.heuzard@gmail.com"
+authors: [ "Hugo	Heuzard" ]
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/hhugo/deriving-yojson"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [
+  ["ocamlfind" "remove" "deriving-yojson"]
+]
+depends: [
+  "ocaml" {>= "3.12.1" & < "4.06"}
+  "deriving" {>= "0.6" & <= "0.8.1"}
+  "ocamlfind" {<= "1.9.6"}
+  "yojson" {<= "2.2.2"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/hhugo/deriving-yojson"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Parse/convert ocaml value from/to yojson ast"
+flags: light-uninstall
+url {
+  src: "https://github.com/hhugo/deriving-yojson/archive/0.4.tar.gz"
+  checksum: [
+    "sha256=fe6247e2d83736f6fbfad450a02dfdb24f9cdea8888e028cc713fbfcb23c3503"
+    "md5=2ef5ad46d15e2767918061fe597fb547"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

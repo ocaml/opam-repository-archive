@@ -1,0 +1,57 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      ["Thomas Leonard" "Magnus Skjegstad"
+               "David Scott" "Thomas Gazagnaire"]
+license:      "Apache-1.0+"
+homepage:     "https://github.com/docker/datakit"
+bug-reports:  "https://github.com/docker/datakit/issues"
+dev-repo: "git+https://github.com/docker/datakit.git"
+doc:          "https://docker.github.io/datakit/"
+
+build: [
+  "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "-n" "datakit-github"
+]
+
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "cmdliner" {< "1.0.0"}
+  "lwt" {<= "5.9.0"}
+  "asetmap" {<= "0.8.1"}
+  "logs" {<= "0.7.0"}
+  "fmt" {<= "0.9.0"}
+  "mtime" {< "1.0.0"}
+  "asl" {<= "0.11"}
+  "win-eventlog" {<= "0.4"}
+  "uri" {>= "1.8.0" & <= "4.4.0"}
+  "hvsock" {>= "0.8.1" & < "0.14.0"}
+  "named-pipe" {= "0.4.0"}
+  "hex" {<= "1.5.0"}
+  "nocrypto" {<= "0.5.4-2"}
+  "conduit" {<= "7.1.0"}
+  "datakit-server" {>= "0.7.0" & < "0.10.0"}
+  "datakit-client" {>= "0.7.0" & < "0.10.0"}
+  "github-hooks" {>= "0.1.1" & < "0.2.0"}
+  "github" {>= "2.2.0" & <= "4.4.1"}
+]
+synopsis: "A bi-directional bridge between the GitHub API and Datakit"
+description: """
+The package provides a bi-directional bridge between the GitHub API
+and Datakit, so you can talk to the GitHub API using filesystem and
+Git-like commands only. The `datakit-github` programs can start a
+webhook server to listen for GitHub events in real time, and project
+it into a Git repository. It also monitors that Git repository for
+user-provided changes, and translate them into GitHub API calls."""
+url {
+  src:
+    "https://github.com/docker/datakit/releases/download/0.8.1/datakit-0.8.1.tbz"
+  checksum: [
+    "sha256=14364824a8c2c6d681bbfd79332e35092914b46dddbc19f870ef707d53c85e67"
+    "md5=72c918be8a5b66754e1a29b439605f7c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

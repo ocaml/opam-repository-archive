@@ -1,0 +1,42 @@
+opam-version: "2.0"
+maintainer: "sheets@alum.mit.edu"
+authors: [
+  "David Sheets"
+  "Thomas Gazagnaire"
+]
+homepage: "https://github.com/dsheets/ocaml-github-hooks"
+bug-reports: "https://github.com/dsheets/ocaml-github-hooks/issues"
+dev-repo: "git+https://github.com/dsheets/ocaml-github-hooks.git"
+doc: "https://dsheets.github.io/ocaml-github-hooks/"
+
+tags: [
+  "git"
+  "github"
+]
+build: ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"]
+depends: [
+  "ocaml"
+  "topkg" {build & <= "1.0.7"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "base-unix" {= "base"}
+  "fmt" {<= "0.9.0"}
+  "logs" {<= "0.7.0"}
+  "lwt" {<= "5.9.0"}
+  "cohttp" {< "0.99"}
+  "github" {= "2.0.0"}
+  "nocrypto" {<= "0.5.4-2"}
+  "hex" {<= "1.5.0"}
+]
+synopsis: "GitHub API web hook listener library"
+description: "Library to create GitHub webhook server."
+url {
+  src:
+    "https://github.com/dsheets/ocaml-github-hooks/releases/download/0.1.0/github-hooks-0.1.0.tbz"
+  checksum: [
+    "sha256=f9e6e1b4d00e84288c648a6a1a5045389d74e12e777c5d993af74f4c46294b92"
+    "md5=a731078254779950f20112cadc351565"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

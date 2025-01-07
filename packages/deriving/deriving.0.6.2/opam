@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer: "dev@ocsigen.org"
+build: [
+  [
+    "ocaml"
+    "setup.ml"
+    "-configure"
+    "--prefix"
+    prefix
+    "--%{type_conv:enable}%-tc"
+  ]
+  [make]
+]
+remove: [["ocamlfind" "remove" "deriving"]]
+depends: [
+  "ocaml" {<= "4.01.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "optcomp" {= "1.6"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "num" {<= "1.5-1"}
+]
+depopts: ["type_conv"]
+conflicts: ["type_conv" {< "108.07.00"}]
+install: [make "install"]
+synopsis: "Extension to OCaml for deriving functions from type declarations"
+flags: light-uninstall
+url {
+  src: "http://ocsigen.org/download/deriving-0.6.2.tar.gz"
+  checksum: [
+    "sha256=92702267e6e75125b261eecc9c21f6af23b67a9f203341d498aa51515b39f5cc"
+    "md5=8f3721a28a781fef5e516c386fa99404"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

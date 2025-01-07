@@ -1,0 +1,14 @@
+opam-version: "2.0"
+maintainer: "Magnus Skjegstad <magnus@skjegstad.com>"
+authors: "Magnus Skjegstad <magnus@skjegstad.com>"
+homepage: "https://github.com/mirage/jitsu"
+bug-reports: "https://github.com/mirage/jitsu/issues/"
+dev-repo: "git+https://github.com/mirage/jitsu.git"
+license: "ISC"
+
+depends: ["ocaml" "jitsu" {<= "0.3.0"} "xen-api-client" {<= "0.9.14"}]
+synopsis:
+  "Virtual package for installing Jitsu with a Xapi (xen-api-client) backend."
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

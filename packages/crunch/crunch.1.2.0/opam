@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [
+  ["rm" "-f" "%{bin}%/ocaml-crunch"]
+  ["ocamlfind" "remove" "crunch"]
+]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cmdliner" {<= "1.3.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-crunch"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Convert a filesystem into a static OCaml module"
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/ocaml-crunch/archive/v1.2.0.tar.gz"
+  checksum: [
+    "sha256=6842bb4c7fa8788dde05cc1e0f609354d2693227d3b07a293c267fdd4ec79281"
+    "md5=31bcbfac8e5d8cabc83028dd9c14842c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

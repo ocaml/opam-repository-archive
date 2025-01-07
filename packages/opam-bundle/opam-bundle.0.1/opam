@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "Louis Gesbert <louis.gesbert@ocamlpro.com>"
+authors: "Louis Gesbert <louis.gesbert@ocamlpro.com>"
+homepage: "https://github.com/AltGr/opam-bundle"
+bug-reports: "https://github.com/AltGr/opam-bundle/issues"
+license: "GPL-3.0-only"
+tags: "org:ocamlpro"
+dev-repo: "git+https://github.com/AltGr/opam-bundle.git"
+build: [make]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "cmdliner" {<= "1.3.0"}
+  "opam-client" {>= "2.0.0~beta3.1" & < "2.0.0~beta5"}
+]
+synopsis: "A tool that creates stand-alone source bundles from opam packages"
+flags: plugin
+url {
+  src: "https://github.com/AltGr/opam-bundle/archive/0.1.tar.gz"
+  checksum: [
+    "sha256=81c669cf2fcde13e686f4260699533c43619d9549d470ca99e2c16d488980f31"
+    "md5=618f6cdb0648f80fe98dc6ea1a4ae291"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

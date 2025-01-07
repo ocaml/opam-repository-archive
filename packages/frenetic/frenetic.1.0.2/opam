@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "arjun@cs.umass.edu"
+authors: "many people at Cornell, Princeton, UMass Amherst, UCL"
+homepage: "http://frenetic-lang.org"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix "--enable-installexec"]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "netcore"]]
+depends: [
+  "ocaml" {>= "4.00"}
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {<= "5.9.0"}
+  "cstruct" {<= "6.2.0"}
+  "packet" {< "0.2.0"}
+  "openflow" {< "0.2.0"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/frenetic-lang/frenetic"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "The Frenetic Network Programming Language for SDN"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/frenetic-lang/frenetic/archive/frenetic.1.0.2.tar.gz"
+  checksum: [
+    "sha256=cfbfe8882badba65057a51f836da2d4533d94f61c9504a5c67f27474d30c632b"
+    "md5=fc4e402277711bc4970861406c1d03a1"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

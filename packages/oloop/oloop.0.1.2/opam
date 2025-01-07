@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: "Ashish Agarwal <agarwal1975@gmail.com>"
+authors: [ "Ashish Agarwal"
+           "Christophe Troestler" ]
+license: "ISC"
+homepage: "https://github.com/ocaml/oloop"
+dev-repo: "git+https://github.com/ocaml/oloop.git"
+bug-reports: "https://github.com/ocaml/oloop/issues"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-configure" "--enable-tests"] {with-test}
+  ["ocaml" "setup.ml" "-build"] {with-test}
+  ["ocaml" "setup.ml" "-test"] {with-test}
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+install: [
+  ["cp" "opam/files/oloop.install" "./"]
+  ["ocaml" "setup.ml" "-install"]
+]
+remove: [
+  ["ocamlfind" "remove" "oloop"]
+]
+depends: [
+  "ocaml" {>= "4.01.0" & < "4.03.0"}
+  "async" {<= "v0.17.0"}
+  "base-bytes" {<= "base"}
+  "base-unix" {= "base"}
+  "core_kernel" {<= "v0.17.0"}
+  "oasis" {build & >= "0.4" & <= "0.4.11"}
+  "ocamlfind" {build & >= "1.5" & <= "1.9.6"}
+  "sexplib" {< "113.01.00"}
+  "cppo" {build & <= "1.8.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis:
+  "Evaluate code through the OCaml toploop for inclusion in educational material."
+flags: light-uninstall
+url {
+  src: "https://github.com/ocaml/oloop/archive/refs/tags/0.1.2.tar.gz"
+  checksum: [
+    "md5=94fa6040cf7d4c4304cb06fa5902a1aa"
+    "sha256=66cc8e2e645640c4ecd76202b1e50b5a882a4e4c2b865524076b92afd902e050"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

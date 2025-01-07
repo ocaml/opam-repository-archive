@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+homepage: "https://github.com/downloads/Chris00"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "weberizer"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "oasis" {= "0.3.0"}
+  "ocamlnet" {<= "4.1.9-2"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Weberizer is a simple templating engine for OCaml"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/weberizer-0.6.5.tar.gz"
+  checksum: [
+    "sha256=084af71fb30bcb5444f3193a5ae8ce2bacc55a1ee520e6233fa6905c11e7d89e"
+    "md5=d146ad2a11bfe718e94b9d15512dec66"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

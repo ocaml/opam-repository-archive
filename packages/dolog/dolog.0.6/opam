@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "unixjunkie@sdf.org"
+authors: ["Francois Berenger"]
+homepage: "https://github.com/UnixJunkie/dolog"
+license: "BSD-3-Clause"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "dolog"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "base-unix" {= "base"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/UnixJunkie/dolog"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "the dumb OCaml logger (lazy and optionally colorful)"
+flags: light-uninstall
+url {
+  src: "https://github.com/UnixJunkie/dolog/archive/v0.6.tar.gz"
+  checksum: [
+    "sha256=9c8d61480885f3e7bb1e591379cd472a6ec14876e16457ac3cd5696f2a5608cc"
+    "md5=4ce7231f74dc283c2454b50089049611"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

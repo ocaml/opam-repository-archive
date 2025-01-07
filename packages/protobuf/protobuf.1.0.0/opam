@@ -1,0 +1,24 @@
+opam-version: "2.0"
+maintainer: "mmatalka@gmail.com"
+build: make
+remove: [["ocamlfind" "remove" "protobuf"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "core" {<= "111.13.00"}
+  "bitstring" {<= "4.1.0"}
+]
+dev-repo: "git+https://github.com/orbitz/ocaml-protobuf"
+install: [make "install"]
+synopsis: "Protobuf implementation for Ocaml"
+flags: light-uninstall
+url {
+  src: "https://github.com/orbitz/ocaml-protobuf/archive/1.0.0.tar.gz"
+  checksum: [
+    "sha256=4ad9553245f7314e35f6e17b5a9a537f36b16355fa0eeef410467d83f5345fd9"
+    "md5=b8c1ff122fb411808a81bca7a554e00d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

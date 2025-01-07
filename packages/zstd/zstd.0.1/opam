@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: "ygrek@autistici.org"
+homepage: "https://github.com/ygrek/ocaml-zstd"
+license: "BSD-3-Clause"
+authors: [ "ygrek" ]
+#doc: ["http://ocurl.forge.ocamlcore.org/api/index.html"]
+dev-repo: "git+https://github.com/ygrek/ocaml-zstd.git"
+bug-reports: "https://github.com/ygrek/ocaml-zstd/issues"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--disable-tests" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-configure" "--enable-tests" "--prefix" prefix]
+    {with-test}
+  ["ocaml" "setup.ml" "-build"] {with-test}
+  ["ocaml" "setup.ml" "-test"] {with-test}
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+install: [
+  ["ocaml" "setup.ml" "-install"]
+]
+remove: [
+  ["ocamlfind" "remove" "zstd"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "oasis" {build & <= "0.4.11"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ctypes" {< "0.6.0"}
+  ("extlib" {with-test & <= "1.8.0"} | "extlib-compat" {with-test & <= "1.7.2"})
+  "base-unix" {with-test & = "base"}
+  "conf-zstd" {<= "1.3.8"}
+]
+synopsis: "Bindings to zstd compression library"
+description: """
+Zstd, short for Zstandard, is a fast lossless compression algorithm,
+targeting real-time compression scenarios at zlib-level compression ratio.
+See http://zstd.net/ for more info."""
+flags: light-uninstall
+url {
+  src: "https://ygrek.org/p/release/ocaml-zstd/ocaml-zstd-0.1.tar.gz"
+  checksum: [
+    "sha256=7147dc35442d521ed513aeed939870e94dc1b5bf3c7a3c13271d0ba17076da2e"
+    "md5=584f0a706a194ace68c5ed7c5f9ea0dd"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

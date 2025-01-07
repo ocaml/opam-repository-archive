@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+authors: [ "Sylvain Le Gall" ]
+homepage: "https://github.com/gildor478/ocaml-expect"
+bug-reports: "https://github.com/gildor478/ocaml-expect/issues"
+dev-repo: "git+https://github.com/gildor478/ocaml-expect.git"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "expect"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "extlib" {= "1.5.3"}
+  "ounit" {<= "2.2.7"}
+  "pcre" {<= "8.0.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis:
+  "Simple implementation of \"expect\" to help building unitary testing of interactive program"
+description: """
+You can match the question using a regular expression or a timeout.
+
+See the Expect manual for more information:
+http://expect.nist.gov/"""
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/ocaml-expect/ocaml-expect/0.0.3/ocaml-expect-0.0.3.tar.gz"
+  checksum: [
+    "sha256=97480912f205dc1af75cbb7e9aa55cb60cf68580f75f663a3c849043fd410bdb"
+    "md5=3ac7f4bf2cfa9e7e8375c231be384248"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

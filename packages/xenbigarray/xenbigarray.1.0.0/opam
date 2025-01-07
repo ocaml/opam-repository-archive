@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: make
+remove: [["ocamlfind" "remove" "bigarray"]]
+depends: [
+  "ocaml" {< "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/xenbigarray"
+install: [make "install"]
+synopsis: "Portable Bigarray intended for embedded Xen use"
+flags: [ deprecated light-uninstall ]
+url {
+  src:
+    "https://github.com/mirage/xenbigarray/archive/xenbigarray-1.0.0.tar.gz"
+  checksum: [
+    "sha256=44d06bb68885cec031441319e069ee38bc193ceca6bca08ddec606aa0a83ff40"
+    "md5=eff305c39563116bb25d7f7d0e1c3c33"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

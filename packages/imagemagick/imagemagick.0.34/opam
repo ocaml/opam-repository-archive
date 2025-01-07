@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+authors: ["Florent Monnier"]
+homepage: "http://decapode314.free.fr/ocaml/ImageMagick/"
+doc: "http://decapode314.free.fr/ocaml/ImageMagick/doc/"
+build: make
+remove: [["ocamlfind" "remove" "magick"]]
+depends: ["ocaml" "ocamlfind" {<= "1.9.6"} "base-unsafe-string" {= "base"}]
+available: os != "macos"
+depexts: [
+  ["libgraphicsmagick1-dev" "libmagickcore-dev"] {os-family = "debian" & os-distribution != "ubuntu"}
+  ["libmagickcore-dev"] {os-distribution = "ubuntu"}
+]
+install: [make "find_install"]
+synopsis: "Bindings for ImageMagick"
+flags: light-uninstall
+url {
+  src:
+    "http://decapode314.free.fr/ocaml/ImageMagick/downloads/OCaml-ImageMagick-0.34.tgz"
+  checksum: [
+    "sha256=7840f72b07d17756bdc12b1792e915ebc6197a2aab0a86baf0eba1dcb0a0c93e"
+    "md5=d4e28dce94ccefba878ad31016f05fe4"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

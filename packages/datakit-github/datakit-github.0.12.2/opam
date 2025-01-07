@@ -1,0 +1,40 @@
+opam-version: "2.0"
+maintainer: "thomas@gazagnaire.org"
+authors: [
+  "Thomas Leonard" "Magnus Skjegstad" "David Scott" "Thomas Gazagnaire"
+]
+license: "Apache-1.0+"
+homepage: "https://github.com/moby/datakit"
+doc: "https://docker.github.io/datakit/"
+bug-reports: "https://github.com/moby/datakit/issues"
+depends: [
+  "ocaml"
+  "dune" {<= "3.17.1"}
+  "cmdliner" {<= "1.3.0"}
+  "lwt" {>= "3.0.0" & <= "5.9.0"}
+  "uri" {>= "1.8.0" & <= "4.4.0"}
+  "asetmap" {<= "0.8.1"}
+  "logs" {<= "0.7.0"}
+  "fmt" {<= "0.9.0"}
+  "result" {<= "1.5"}
+  "datakit-client-9p" {>= "0.12.0" & <= "1.0.0"}
+  "datakit-client-git" {>= "0.12.0" & <= "1.0.0"}
+]
+build: ["dune" "build" "-p" name "-j" jobs]
+dev-repo: "git+https://github.com/moby/datakit.git"
+synopsis: "Abstraction of the GitHub API, suitable for DataKit clients"
+description: """
+This library exposes the GitHub REST API over the
+DataKit filesystem layer.
+"""
+url {
+  src:
+    "https://github.com/moby/datakit/releases/download/0.12.2/datakit-0.12.2.tbz"
+  checksum: [
+    "sha256=fee6cd712a2e313424dc0dd55f09b233f5e5367129d6a697ee257c545fe1820f"
+    "md5=0684dd6d4c55b163cca25a16df90af26"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

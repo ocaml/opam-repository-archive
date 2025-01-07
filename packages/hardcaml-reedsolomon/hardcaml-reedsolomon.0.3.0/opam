@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+authors: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/hardcaml-reedsolomon"
+dev-repo: "git+https://github.com/ujamjar/hardcaml-reedsolomon.git"
+bug-reports: "https://github.com/ujamjar/hardcaml-reedsolomon/issues"
+build: [
+  [make "all"]
+]
+install: [
+  [make "install"]
+]
+remove: [
+  [make "uninstall"]
+]
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "hardcaml" {>= "1.2.0" & < "2.0.0"}
+  "hardcaml-waveterm" {= "0.2.0"}
+  "hardcaml-examples" {= "0.3.0"}
+  "reedsolomon" {<= "0.3"}
+]
+synopsis: "HardCaml implementation of Reed-Solomon error correction coding"
+url {
+  src:
+    "https://github.com/ujamjar/hardcaml-reedsolomon/archive/v0.3.0.tar.gz"
+  checksum: [
+    "sha256=4adcc44bbb932ccb7a4c9567623ab22176b6049114c43bb26cb2dfe1ad49a215"
+    "md5=746349c50c97fca3e7b801741acd3c1f"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

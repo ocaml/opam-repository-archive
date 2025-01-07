@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "Darren Ldl <darrenldldev@gmail.com>"
+authors: "Darren Ldl <darrenldldev@gmail.com>"
+homepage: "https://github.com/darrenldl/ocaml-SeqBox"
+bug-reports: "https://github.com/darrenldl/ocaml-SeqBox/issues"
+license: "BSD-3-Clause"
+dev-repo: "git+https://github.com/darrenldl/ocaml-SeqBox.git"
+build: ["jbuilder" "build" "-p" name]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.06.0"}
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "stdint" {build & <= "0.7.2"}
+  "nocrypto" {build & <= "0.5.4-2"}
+  "digestif" {build & = "0.5"}
+  "angstrom" {build & >= "0.2.0" & < "0.7.0"}
+  "hex" {build & <= "1.5.0"}
+  "cmdliner" {build & <= "1.3.0"}
+]
+synopsis: "Implementation of SeqBox in OCaml"
+description:
+  "A single file container/archive that can be reconstructed even after total loss of file system structures (from official SeqBox)."
+url {
+  src: "https://github.com/darrenldl/ocaml-SeqBox/archive/1.2.2.tar.gz"
+  checksum: [
+    "sha256=e585d2615bbeeee58fda5ca60d56ca2bfe07569939124a2773c254edd97b00f2"
+    "md5=da75c53c19c7e609e4a9e6cd18ad4e2d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

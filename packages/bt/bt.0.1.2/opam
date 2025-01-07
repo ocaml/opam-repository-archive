@@ -1,0 +1,47 @@
+opam-version: "2.0"
+maintainer: "n.oje.bar@gmail.com"
+authors: [ "Nicolas Ojeda Bar <n.oje.bar@gmail.com>" ]
+license: "MIT"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [
+  ["ocamlfind" "remove" "bt"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "bitstring" {<= "4.1.0"}
+  "cmdliner" {<= "1.3.0"}
+  "cohttp" {>= "0.11.2" & < "0.99"}
+  "cryptokit" {<= "1.20"}
+  "lwt" {< "2.4.7"}
+  "ocamlfind" {<= "1.9.6"}
+  "qcheck" {<= "0.23"}
+  "uri" {<= "4.4.0"}
+  "zarith" {<= "1.14"}
+  "ssl" {<= "0.7.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/nojb/ocaml-bt"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "BitTorrent library and client using Lwt"
+flags: light-uninstall
+url {
+  src: "https://github.com/nojb/ocaml-bt/archive/v0.1.2.tar.gz"
+  checksum: [
+    "sha256=3d4f52c12ef200d14426b520a7b95c1675911b8631d9c79938a7cbe5faac1299"
+    "md5=97e7d562c19a6e129aeda3fa007ac346"
+  ]
+}
+extra-source "bt.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/bt/bt.install"
+  checksum: [
+    "sha256=a8f80b94c3f52c1bd54d96975befd95d5fa45b8b5145f9b81cb7c603d0a7ae77"
+    "md5=3930cb93cfa27b2c88967c9994751b4a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer: "kakadu@pm.me"
+license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/Kakadu/QOcamlBrowser_quick"
+bug-reports: "https://github.com/Kakadu/QOcamlBrowser_quick/issues"
+synopsis: "OCamlBrowser clone written with OCaml and QtQuick 2"
+authors: "Kakadu"
+
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [
+  [make "uninstall"]
+]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.03.0"}
+  "lablqml" {>= "0.3" & <= "0.7"}
+  "conf-qt" {= "5.2.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/Kakadu/QOcamlBrowser_quick"
+install: [make "install" "PREFIX=%{prefix}%"]
+
+url {
+  src: "https://github.com/Kakadu/QOcamlBrowser_quick/archive/0.2.7.tar.gz"
+  checksum: [
+    "sha256=1814acb7e2e11e2c59b4edaa5ac2937fb51370cfd345df6e5f259505b2f44402"
+    "md5=92fa0ddf6695487b51cc0af84abd4733"
+  ]
+}
+
+flags: [ deprecated ]
+x-maintenance-intent: [ "(latest)" ]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

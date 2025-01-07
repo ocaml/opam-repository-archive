@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer: "Thomas Refis <trefis@janestreet.com>"
+homepage:  "https://github.com/ocaml-doc/doc-ock-html"
+doc: "https://ocaml-doc.github.com/doc-ock-html/"
+license: "ISC"
+dev-repo: "git+http://github.com/ocaml-doc/doc-ock-html.git"
+bug-reports: "https://github.com/ocaml-doc/doc-ock-html/issues"
+tags: ["doc" "html" "ocaml" "org:ocaml-doc"]
+
+depends: [
+  "ocaml" {>= "4.02.3"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & >= "0.7.5" & <= "1.0.7"}
+  "doc-ock" {= "1.0.0"}
+  "tyxml" {>= "4.0.0" & <= "4.6.0"}
+  "xmlm" {<= "1.4.0"}
+]
+build: [[
+  "ocaml" "pkg/pkg.ml" "build"
+          "--pinned" "%{pinned}%" ]]
+synopsis: "From doc-ock to HTML"
+description: """
+Doc-ock-html generates HTML documentation using [Doc-ock][doc-ock]
+
+doc-ock: https://github.com/ocaml-doc/doc-ock"""
+authors: "Thomas Refis <trefis@janestreet.com>"
+url {
+  src:
+    "http://github.com/ocaml-doc/doc-ock-html/releases/download/v1.0.0/doc-ock-html-1.0.0.tbz"
+  checksum: [
+    "sha256=10e2c8ce060e9cb024b8573d51e92ac12d3119eec03aefb3279fb4af026f4e1d"
+    "md5=360c9fecf53f646b63324b15a30dd2bc"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

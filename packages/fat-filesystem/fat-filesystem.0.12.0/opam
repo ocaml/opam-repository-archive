@@ -1,0 +1,52 @@
+opam-version: "2.0"
+authors:      ["Dave Scott" "Anil Madhavapeddy"]
+maintainer:   "dave@recoil.org"
+homepage:     "https://github.com/mirage/ocaml-fat"
+bug-reports:  "https://github.com/mirage/ocaml-fat/issues"
+dev-repo: "git+https://github.com/mirage/ocaml-fat.git"
+doc:          "https://mirage.github.io/ocaml-fat/"
+
+build: [
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "false"]
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "true"]
+    {with-test}
+  ["ocaml" "pkg/pkg.ml" "test"] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.02.3" & < "4.06.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "cstruct" {>= "2.0.0" & < "3.4.0"}
+  "ppx_tools" {<= "6.6"}
+  "result" {<= "1.5"}
+  "rresult" {<= "0.7.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "mirage-fs" {>= "1.0.0" & < "3.0.0"}
+  "mirage-fs-lwt" {>= "1.0.0" & <= "2.0.0"}
+  "mirage-block-lwt" {>= "1.0.0" & <= "1.2.0"}
+  "mirage-block-unix" {>= "2.5.0" & <= "2.14.2"}
+  "io-page" {>= "1.6.1" & <= "3.0.0"}
+  "io-page-unix" {<= "2.3.0"}
+  "re" {<= "1.7.1"}
+  "cmdliner" {<= "1.3.0"}
+  "astring" {<= "0.8.5"}
+  "alcotest" {with-test & <= "1.8.0"}
+  "ppx_cstruct" {<= "6.2.0"}
+]
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+synopsis: "FAT filesystem implementation"
+url {
+  src:
+    "https://github.com/mirage/ocaml-fat/releases/download/0.12.0/fat-filesystem-0.12.0.tbz"
+  checksum: [
+    "sha256=de47b01b5f95b542926c38e064040152bba49ac35ef0448c857445bc16164d4b"
+    "md5=e69c9b1490cc9c6d16926d683c01b158"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

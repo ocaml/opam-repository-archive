@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "thomas@gazagnaire.org"
+authors: [
+  "Thomas Leonard" "Magnus Skjegstad" "David Scott" "Thomas Gazagnaire"
+]
+license: "Apache-1.0+"
+homepage: "https://github.com/moby/datakit"
+doc: "https://docker.github.io/datakit/"
+bug-reports: "https://github.com/moby/datakit/issues"
+depends: [
+  "ocaml"
+  "dune" {<= "3.17.1"}
+  "datakit-client" {>= "0.12.0" & <= "1.0.0"}
+  "irmin-git" {>= "1.2.0" & < "2.0.0"}
+  "irmin-watcher" {<= "0.5.0"}
+  "git-unix" {<= "3.17.0"}
+  "io-page-unix" {with-test & <= "2.3.0"}
+  "alcotest" {with-test & <= "1.8.0"}
+  "irmin-mem" {with-test & < "2.0.0"}
+  "irmin-git" {with-test & < "2.0.0"}
+  "mirage-flow-lwt" {with-test & <= "1.6.0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "tests/datakit-git"] {with-test}
+]
+dev-repo: "git+https://github.com/moby/datakit.git"
+synopsis: "A library for connecting Datakit client using Git"
+description: """
+This library allows for creating DataKit clients that
+use the Git protocol for communication.
+"""
+url {
+  src:
+    "https://github.com/moby/datakit/releases/download/v1.0.0/datakit-v1.0.0.tbz"
+  checksum: [
+    "sha256=e5b36c9db8ce40dd828166ddeb35b197766d782fb39d1cbc90628a43c69c34d5"
+    "sha512=af3e973be41bcbda95bdf2722e3040607cbfd5cffcd026046eba027da9cabe072c0ecb4cd7edef4aedb4ee0f68e7cec5c273f666c5fd66dd7e0ee19ed5d90c0a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

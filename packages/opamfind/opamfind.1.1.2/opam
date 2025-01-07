@@ -1,0 +1,44 @@
+opam-version: "2.0"
+authors: "Jun Furuse"
+maintainer: "jun.furuse@gmail.com"
+homepage: "https://bitbucket.org/camlspotter/opamfind/"
+bug-reports: "https://bitbucket.org/camlspotter/opamfind/issues?status=new&status=open"
+dev-repo: "hg+https://bitbucket.org/camlspotter/opamfind"
+build: [
+  [ "ocaml" "setup.ml" "-configure" "--prefix" prefix ]
+  [ "ocaml" "setup.ml" "-build" ]
+]
+install: [
+  [ "ocaml" "setup.ml" "-install" ]
+]
+remove: [
+  [ "ocaml" "setup.ml" "-configure" "--prefix" prefix ]
+  [ "ocaml" "setup.ml" "-uninstall" ]
+]
+depends: [
+  "ocaml" {>= "4.03.0"}
+  "camlon" {<= "3.1.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "omake" {build & <= "0.10.7"}
+  "spotlib" {>= "3.0.0" & < "4.0.0"}
+  "ppx_meta_conv" {>= "2.6.0" & < "2.7.0"}
+  "ppx_orakuda" {<= "3.3.0"}
+  "ppx_monadic" {<= "2.3.0"}
+]
+synopsis:
+  "Small library and tool to find out relationships between OCamlFind and OPAM packages."
+description: """
+OPAMFind is a library to analyze the installed OCamlFind and OPAM packages
+and obtain the relationship between them: which OCamlFind package is installed
+by which OPAM package."""
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/opamfind-1.1.2.tar.gz"
+  checksum: [
+    "sha256=342b042d576a9311ae24a2ddce9c684be7fdbf188798fa0da7ea6780cac8bb4d"
+    "md5=daa388e41048a7b145543f4b6fce2354"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "mmatalka@gmail.com"
+build: make
+remove: [["ocamlfind" "remove" "riakc"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "core" {>= "109.12.00" & <= "v0.17.1"}
+  "async" {< "109.58.00"}
+  "protobuf" {<= "1.0.0"}
+]
+depexts: [
+  ["protobuf-compiler"] {os-family = "debian"}
+]
+dev-repo: "git+https://github.com/orbitz/ocaml-riakc"
+install: [make "install"]
+synopsis: "Protobuf based Riak client"
+flags: light-uninstall
+url {
+  src: "https://github.com/orbitz/ocaml-riakc/archive/1.0.0.tar.gz"
+  checksum: [
+    "sha256=7100b5c94b133dd740d50e6e3c338582fafc267eef46a63c9885ae017ce6a746"
+    "md5=1858e6560d0cedebb60ddde28edd00ca"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

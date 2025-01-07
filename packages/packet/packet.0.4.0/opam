@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "Arjun Guha <arjun@cs.umass.edu>"
+homepage: "https://github.com/frenetic-lang/ocaml-packet"
+build: [
+  ["./configure" "--%{pa_ounit:enable}%-tests"]
+  [make]
+  [make "test"] {with-test}
+]
+remove: [
+  ["ocamlfind" "remove" "packet"]
+]
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cstruct" {>= "1.0.1" & < "2.0.0"}
+  "sexplib" {>= "110.01.00" & < "113.01.00"}
+  "tcpip" {>= "2.0.3" & <= "8.2.0"}
+  "quickcheck" {<= "1.0.2"}
+  "ounit" {with-test & <= "2.2.7"}
+  "pa_ounit" {with-test & <= "113.00.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-packet"
+install: [make "install"]
+synopsis: "A serialization library for several common packet formats"
+description: """
+This library includes serializers for ethernet, TCP, IP, ARP, ICMP, and
+others."""
+flags: light-uninstall
+url {
+  src: "https://github.com/frenetic-lang/ocaml-packet/archive/v0.4.0.tar.gz"
+  checksum: [
+    "sha256=d638740ee656fde9164a3c70713c395c09233b2776fa24d753f1b14dfb66b96a"
+    "md5=4f6f97ad5e1156b0d30bd91d03ce7b1a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

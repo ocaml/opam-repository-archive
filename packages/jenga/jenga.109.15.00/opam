@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [["ocamlfind" "remove" "jenga"]]
+depends: [
+  "ocaml"
+  "camlp4" {<= "5.3"}
+  "sexplib" {= "109.15.00"}
+  "fieldslib" {= "109.15.00"}
+  "comparelib" {= "109.15.00"}
+  "core" {>= "109.15.00" & <= "109.15.01"}
+  "core_extended" {= "109.15.00"}
+  "async" {= "109.15.00"}
+  "async_shell" {= "109.15.00"}
+  "async_inotify" {= "109.15.00"}
+  "ocaml_plugin" {= "109.15.00"}
+  "pcre" {<= "8.0.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis: "Build system"
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/jenga-109.15.00.tar.gz"
+  checksum: [
+    "sha256=8ca44cb183faabada00ead161f11e73fba9629bb244fbcf0cf3fa487503a7f5a"
+    "md5=2c7310647000799cecc87a3233989b94"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

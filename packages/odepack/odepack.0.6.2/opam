@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "odepack"]]
+depends: [
+  "ocaml" {= "3.12.1"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "conf-gfortran" {= "0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Binding to odepac"
+description: """
+This is a binding to odepack, a collection of solvers for the initial
+value problem for ordinary differential equation systems."""
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/odepack/odepack/0.6.2/odepack-0.6.2.tar.gz"
+  checksum: [
+    "sha256=30ca569926ee862cbc56c38852c93ce94afbd7cbe14855ef3977b06c00a91f85"
+    "md5=372b0843c6bc6c48d857686cd2cc8576"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

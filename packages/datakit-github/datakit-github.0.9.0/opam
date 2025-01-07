@@ -1,0 +1,40 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      ["Thomas Leonard" "Magnus Skjegstad"
+               "David Scott" "Thomas Gazagnaire"]
+license:      "Apache-1.0+"
+homepage:     "https://github.com/docker/datakit"
+bug-reports:  "https://github.com/docker/datakit/issues"
+dev-repo: "git+https://github.com/docker/datakit.git"
+doc:          "https://docker.github.io/datakit/"
+
+build: [
+  "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "-n" name
+]
+
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "cmdliner" {<= "1.3.0"}
+  "lwt" {>= "2.7.0" & <= "5.9.0"}
+  "uri" {>= "1.8.0" & <= "4.4.0"}
+  "asetmap" {<= "0.8.1"}
+  "logs" {<= "0.7.0"}
+  "fmt" {<= "0.9.0"}
+  "result" {<= "1.5"}
+  "datakit-client" {>= "0.9.0" & < "0.10.0"}
+]
+synopsis: "Abstraction of the GitHub API, suitable for DataKit clients"
+url {
+  src:
+    "https://github.com/docker/datakit/releases/download/0.9.0/datakit-0.9.0.tbz"
+  checksum: [
+    "sha256=a29d3ea94f383c0bfac9891abc3f3a39b1c2e97ee124e2ac437019f35c9c0223"
+    "md5=46e4fcd1e9c05e4587ae1663518a8c74"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

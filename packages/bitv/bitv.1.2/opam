@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "filliatr@lri.fr"
+authors: "Jean-Christophe Filliâtre"
+homepage: "https://www.lri.fr/~filliatr/software.en.html"
+dev-repo: "git+https://github.com/backtracking/bitv.git"
+bug-reports: "https://github.com/backtracking/bitv/issues"
+license: "LGPL-2.1-only"
+build: [
+  ["autoconf"]
+  ["./configure"]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "bitv"]
+depends: [
+  "ocaml" {>= "4.00.1" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "conf-autoconf" {build & <= "0.2"}
+]
+synopsis: "A bit vector library"
+flags: light-uninstall
+url {
+  src: "https://www.lri.fr/~filliatr/ftp/ocaml/ds/bitv-1.2.tar.gz"
+  checksum: [
+    "sha256=8a1074fe289d55ad4d177070ec38cdcaea45ddd4141b9961b64422527be80e03"
+    "md5=a08de015cead540ed69e16886e90189e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

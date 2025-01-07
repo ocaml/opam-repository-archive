@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "dave.scott@citrix.com"
+tags: [
+  "org:xapi-project"
+]
+build: make
+remove: [
+  [make "uninstall" "BINDIR=%{bin}%"]
+]
+depends: [
+  "ocaml"
+  "cstruct" {>= "0.6.0" & <= "6.2.0"}
+  "camlp4" {<= "5.3"}
+  "lwt" {< "3.0.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cohttp" {>= "0.10.0" & < "0.12.0"}
+  "ssl" {>= "0.5.3" & <= "0.7.0"}
+  "re" {<= "1.12.0"}
+  "uri" {<= "4.4.0"}
+  "uuidm" {<= "0.9.9"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/djs55/xapi-xe"
+install: [make "install" "BINDIR=%{bin}%"]
+synopsis:
+  "A command-line client for the 'xapi' service (as used in XenServer)"
+description: """
+The 'xe' CLI allows VM, host, networking, storage and resource pool management
+in a XenServer environment."""
+url {
+  src: "https://github.com/djs55/xapi-xe/archive/0.6.2.tar.gz"
+  checksum: [
+    "sha256=c5a622a7e9259161ef635fcd24e12a0fdfb098d020baddcd678e41984c6a80c0"
+    "md5=d7f2b3d0e088984f83417d1edaf3200e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]

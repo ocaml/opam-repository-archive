@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "jonathan.ludlam@citrix.com"
+authors: ["xen-api@lists.xensource.com"]
+license: "ISC"
+homepage: "https://github.com/xapi-project/ezxenstore"
+bug-reports: "https://github.com/xapi-project/ezxenstore/issues"
+dev-repo: "git+https://github.com/xapi-project/ezxenstore.git"
+build: [[ "jbuilder" "build" "-p" name "-j" jobs ]]
+
+depends: [
+  "ocaml" {< "4.06.0"}
+  "jbuilder" {>= "1.0+beta10" & <= "transition"}
+  "cmdliner" {<= "1.3.0"}
+  "logs" {<= "0.7.0"}
+  "xenstore" {<= "2.3.0"}
+  "xenstore_transport" {<= "1.3.0"}
+]
+synopsis:
+  "An easy-to-use xenstore library with a simplified interface geared"
+description: """
+towards use within a daemon that maintains a single connection to
+xenstored."""
+url {
+  src:
+    "https://github.com/xapi-project/ezxenstore/archive/v0.1.2/ezxenstore-0.1.2.tar.gz"
+  checksum: [
+    "sha256=387cb21595b3f1e59a719988d93fab1d9beaa63821055a8575274e2d12b25f4f"
+    "md5=21781e4efc27bea5a7c570e9b7567b5d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["ocaml-version"]

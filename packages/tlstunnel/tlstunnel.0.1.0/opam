@@ -1,0 +1,40 @@
+opam-version: "2.0"
+homepage:     "https://github.com/hannesm/tlstunnel"
+dev-repo: "git+https://github.com/hannesm/tlstunnel.git"
+bug-reports:  "https://github.com/hannesm/tlstunnel/issues"
+authors:      ["Hannes Mehnert <hannes@mehnert.org>"]
+maintainer:   ["Hannes Mehnert <hannes@mehnert.org>"]
+license:      "BSD-2-Clause"
+
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "tls" {>= "0.5.0" & < "0.6.0"}
+  "x509" {>= "0.3.0" & <= "1.0.5"}
+  "nocrypto" {>= "0.4.0" & <= "0.5.4-2"}
+  "lwt" {< "2.7.0"}
+  "type_conv" {<= "113.00.02"}
+  "sexplib" {< "113.01.00"}
+  "cmdliner" {<= "1.3.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "A TLS proxy using OCaml-TLS"
+description: """
+The tlstunnel is a UNIX binary which provides a TLS listener socket,
+and forwards each connection, after removing the TLS layer, to a
+configurable TCP/IP host."""
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/tlstunnel-0.1.0.tar.gz"
+  checksum: [
+    "sha256=a6d8a89309718721eecc3817facad5d36c65bc1ae8e38199dfb177a800c4b939"
+    "md5=f4bb89842dc5d64cea3d117bc00e5d2d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "c3b43597d683b19fcb2f4a8385679b1fdc1489de"
+x-reason-for-archiving: ["uninstallable"]
