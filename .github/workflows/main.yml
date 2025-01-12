@@ -5,11 +5,8 @@ name: ci
 # The lints should be only run when packages are added
 on:
   pull_request:
-    paths:
-      - '**opam'
-  push:
-    paths:
-      - '**opam'
+    # paths:
+    #   - '**opam'
 
 jobs:
   lint:
@@ -31,7 +28,7 @@ jobs:
           ocaml-compiler: 5
 
       - name: Install opam-ci-check
-        run: opam pin opam-ci-check https://github.com/shonfeder/opam-repo-ci.git#411/archive-lint
+        run: opam pin opam-ci-check https://github.com/ocurrent/opam-repo-ci.git#live
 
       # Get the names of the packages being added to the archive, and feed these
       # to opam-ci-check
@@ -39,5 +36,4 @@ jobs:
         run: |
           git diff --name-only origin/main packages \
           | sed 's:.*/\(.*\)/opam:\1:' \
-          | xargs --max-lines=1 --max-procs=4 opam exec -- opam-ci-check lint -r . --checks=archive-repo \
-          | grep "Error in"
+          | xargs --max-lines=1 --max-procs=4 opam exec -- opam-ci-check lint -r . --checks=archive-repo --quiet
