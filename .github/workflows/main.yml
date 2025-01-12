@@ -5,8 +5,8 @@ name: ci
 # The lints should be only run when packages are added
 on:
   pull_request:
-    # paths:
-    #   - '**opam'
+    paths:
+      - '**opam'
 
 jobs:
   lint:
