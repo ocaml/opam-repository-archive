@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "opam-devel@lists.ocaml.org"
+authors: ["massd http://massd.github.io/"]
+license: "GPL-3.0-only"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--%{lwt:enable}%-lwt" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+remove: [["ocamlfind" "remove" "mongo"]]
+depends: [
+  "ocaml"
+  "bson" {<= "0.89.3"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depopts: ["lwt"]
+conflicts: [
+  "lwt" {>= "4.0.0"}
+]
+dev-repo: "git+https://github.com/MassD/mongo"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "OCaml driver for MongoDB"
+flags: light-uninstall
+url {
+  src: "https://github.com/MassD/mongo/archive/v0.67.1.tar.gz"
+  checksum: [
+    "sha256=28a3fbb71adcd3d0f425c6a56104b74e62f12f9ca2e01e47c2f3d0825bab6623"
+    "md5=f28fadbaa18092b5f82d31600dafad39"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

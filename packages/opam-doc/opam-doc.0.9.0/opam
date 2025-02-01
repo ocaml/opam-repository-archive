@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "thomas@gazagnaire.org"
+homepage: "https://github.com/ocamllabs/opam-doc"
+authors: "thomas@gazagnaire.org"
+bug-reports: "https://github.com/ocamllabs/opam-doc/issues"
+tags: [
+  "org:ocamllabs"
+]
+build: make
+remove: [make "uninstall"]
+depends: [
+  "ocaml" {= "4.01.0"}
+  "ocaml-system" {<= "5.3.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cow" {>= "0.8.1" & < "2.0.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/ocamllabs/opam-doc"
+install: [make "install"]
+synopsis: "Produce documentation for OPAM packages"
+url {
+  src: "https://github.com/ocamllabs/opam-doc/archive/0.9.0.tar.gz"
+  checksum: [
+    "sha256=aceefc4f292e053deb7c2d91ce73e65f51c86e0a2c43910f32037058357c91a6"
+    "md5=47e4285a8486c4b355148dbe88359939"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

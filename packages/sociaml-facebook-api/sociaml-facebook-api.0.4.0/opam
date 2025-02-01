@@ -1,0 +1,48 @@
+opam-version: "2.0"
+maintainer: "dominic.price@nottingham.ac.uk"
+homepage: "https://github.com/dominicjprice/sociaml-facebook-api"
+bug-reports: "https://github.com/dominicjprice/sociaml-facebook-api/issues"
+dev-repo: "git+https://github.com/dominicjprice/sociaml-facebook-api.git"
+authors: [ "Dominic Price" ]
+license: "ISC"
+build: [
+  ["oasis" "setup"]
+  ["./configure" "--prefix" prefix]
+  [make "build"]
+]
+install: [
+  [make "install"]
+]
+remove: [
+  [make "uninstall"]
+  ["ocamlfind" "remove" "sociaml_facebook_api"]
+  ["ocamlfind" "remove" "endpoints"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "calendar" {>= "2.00" & <= "3.0.0"}
+  "cohttp" {>= "0.12.0" & < "0.18.0"}
+  "core_kernel" {<= "v0.17.0"}
+  "csv" {<= "2.4"}
+  "lwt" {< "3.0.0"}
+  "meta_conv" {<= "1.1.5"}
+  "oasis" {<= "0.4.11"}
+  "ssl" {<= "0.7.0"}
+  "tiny_json_conv" {<= "1.4.1"}
+  "uri" {<= "4.4.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Facebook Graph API Client Library for OCaml"
+description:
+  "Access version 1.0 of the Facebook Graph API in OCaml applications."
+url {
+  src:
+    "https://github.com/dominicjprice/sociaml-facebook-api/archive/v0.4.0.tar.gz"
+  checksum: [
+    "sha256=4e80d517703fcacccec3d944077dfc83092ecadb7bca67357c160dce75bfd65b"
+    "md5=7cb24524f736f554b1c132a586c81b1a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

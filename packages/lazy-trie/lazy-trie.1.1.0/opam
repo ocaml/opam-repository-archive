@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "thomas@gazagnaire.org"
+authors: [ "Louis Gesbert" "Thomas Gazagnaire" ]
+license: "ISC"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-doc"] {with-doc}
+]
+remove: [
+  ["ocamlfind" "remove" "lazy-trie"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "sexplib" {< "113.01.00"}
+  "type_conv" {<= "113.00.02"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-lazy-trie"
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Implementation of lazy prefix trees"
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/ocaml-lazy-trie/archive/1.1.0.tar.gz"
+  checksum: [
+    "sha256=7599022bbc8de4d6258d5a763934c4db3af9d95e6cf95411e714a7e86ffdb6ba"
+    "md5=fa81f0115109346a4315d885537fbfaa"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

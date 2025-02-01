@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
+authors: ["Vincent Bernardoff <vb@luminar.eu.org>"]
+homepage: "https://github.com/vbmithr/ocaml-msgpck"
+license: "ISC"
+dev-repo: "git+https://github.com/vbmithr/ocaml-msgpck.git"
+bug-reports: "https://github.com/vbmithr/ocaml-msgpck/issues"
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "ppx_deriving" {>= "4.2" & <= "6.0.3"}
+  "ppx_sexp_conv" {< "v0.11.0"}
+  "sexplib" {<= "v0.17.0"}
+  "ocplib-endian" {>= "0.6" & <= "1.2"}
+]
+build:
+[[ "ocaml" "pkg/pkg.ml" "build"
+           "--pinned" "%{pinned}%" ]]
+synopsis: "Fast MessagePack (http://msgpack.org) library"
+url {
+  src: "https://github.com/vbmithr/ocaml-msgpck/archive/1.0.tar.gz"
+  checksum: [
+    "sha256=63f44e0b3fe7d611fdce18eaff3b9cba33571a4f2108893340ede6153193a11c"
+    "md5=1653a0bdfc1b2c3c0b25cc52dc1a553e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

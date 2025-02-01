@@ -1,0 +1,18 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      "Thomas Gazagnaire"
+license:      "ISC"
+homepage:     "https://github.com/mirage/irmin"
+bug-reports:  "https://github.com/mirage/irmin/issues"
+dev-repo: "git+https://github.com/mirage/irmin.git"
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "irmin" {>= "0.9.4" & < "0.9.9"}
+  "git" {<= "3.17.0"}
+  "cohttp" {<= "6.0.0"}
+]
+synopsis: "Virtual package for Irmin's Unix support"
+flags: deprecated
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

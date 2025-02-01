@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [make "socket-build" "PREFIX=%{prefix}%"]
+remove: [["ocamlfind" "remove" "mirage-net"]]
+depends: [
+  "ocaml"
+  "mirage" {= "0.9.1"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+conflicts: [
+  "mirage-xen"
+  "mirage-net-direct"
+]
+dev-repo: "git+https://github.com/mirage/mirage-tcpip"
+install: [make "socket-install" "PREFIX=%{prefix}%"]
+synopsis: "Socket-based networking stack compatible with Mirage"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/mirage/mirage-tcpip/archive/mirage-net-0.9.1.tar.gz"
+  checksum: [
+    "sha256=2b209280fe39c7b5ff60551d749edb68a69db8264b22caaa67dbbf419ed4eea4"
+    "md5=8d63e498af796c435898525d2db3be48"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

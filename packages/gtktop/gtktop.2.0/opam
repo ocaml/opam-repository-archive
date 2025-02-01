@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "zoggy@bat8.org"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make "all"]
+]
+remove: [[make "uninstall"]]
+depends: [
+  "ocaml" {>= "4.00.0" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "lablgtk-extras" {>= "1.2" & <= "1.6"}
+  "lablgtk" {>= "2.16.0" & <= "2.18.14"}
+  "conf-glade" {= "2"}
+]
+install: [make "install"]
+synopsis: "A small library to ease the creation of graphical toplevels."
+dev-repo: "git+https://github.com/zoggy/gtktop.git"
+url {
+  src:
+    "https://framagit.org/zoggy/old-codes/-/archive/gtktop-2.0/old-codes-gtktop-2.0.tar.gz"
+  checksum: [
+    "sha256=5bb673a2edad9f9a0499c10f3419a835dc2ec44d64dc192e3868dc5daca31b21"
+    "md5=750293eb817e18279eb2a97469db8862"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

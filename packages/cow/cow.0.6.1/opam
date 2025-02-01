@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [make "all"]
+remove: [["ocamlfind" "remove" "cow"]]
+depends: [
+  "ocaml" {< "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "dyntype" {= "0.9.0"}
+  "type_conv" {>= "108.07.00" & <= "113.00.02"}
+  "ulex" {<= "1.2"}
+  "re" {<= "1.12.0"}
+  "ounit" {<= "2.2.7"}
+  "uri" {<= "4.4.0"}
+  "xmlm" {>= "1.1.1" & <= "1.4.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-cow"
+install: [make "install"]
+synopsis: "XML, JSON, HTML, CSS, and Markdown syntax and libraries"
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/ocaml-cow/archive/0.6.1.tar.gz"
+  checksum: [
+    "sha256=133ba967a4a4d83b60a5516a318daffe792a9cb259ddb936066af769e0abadc0"
+    "md5=003c103f9c2d821f2ecdff9401a4927c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

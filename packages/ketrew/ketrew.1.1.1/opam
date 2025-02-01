@@ -1,0 +1,66 @@
+opam-version: "2.0"
+maintainer: "seb@mondet.org"
+authors : [
+  "Sebastien Mondet <seb@mondet.org>"
+  "Leonid Rozenberg <leonidr@gmail.com>"
+  "Ahuja <aahuja11@gmail.com>"
+  "Jeff Hammerbacher <jeff.hammerbacher@gmail.com>"
+]
+homepage: "http://seb.mondet.org/software/ketrew"
+dev-repo: "git+https://github.com/hammerlab/ketrew.git"
+bug-reports: "https://github.com/hammerlab/ketrew/issues"
+install: [
+  [make "_oasis"]
+  ["oasis" "setup" ]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "tools/please.ml" "generate" "metadata"]
+  ["ocaml" "setup.ml" "-build" ]
+  ["ocaml" "setup.ml" "-install" ]
+]
+remove: [
+  ["ocamlfind" "remove" "ketrew"]
+  ["ocamlfind" "remove" "ketrew_pure"]
+  ["rm" "-f" "%{bin}%/ketrew"]
+]
+depends: [
+  "ocaml" {>= "4.02.2"}
+  "oasis" {<= "0.4.11"}
+  "ocamlfind" {<= "1.9.6"}
+  "trakeva" {<= "0.1.1"}
+  "sqlite3" {<= "5.3.0"}
+  "sosa" {<= "0.3.0"}
+  "nonstd" {<= "0.0.3"}
+  "docout" {= "0.0.1"}
+  "pvem" {= "0.0.1"}
+  "pvem_lwt_unix" {<= "0.0.2"}
+  "cmdliner" {<= "1.3.0"}
+  "yojson" {<= "2.2.2"}
+  "uri" {<= "4.4.0"}
+  "ppx_deriving" {<= "6.0.3"}
+  "ppx_deriving_yojson" {>= "2.3" & <= "2.4"}
+  "ppx_include" {<= "1.1"}
+  "ppx_blob" {<= "0.9.0"}
+  "cohttp" {>= "0.17.0" & < "0.99"}
+  "lwt" {< "2.5.0"}
+  "ssl" {<= "0.7.0"}
+  "conduit" {<= "7.1.0"}
+]
+post-messages: [
+  "
+  You just installed Ketrew 1.1.1; it is recommended to switch to the
+  2.x family (which requires OCaml >= 4.02.2).
+  "
+  {success}
+]
+synopsis: "Ketrew: Keep Track of Experimental Workflows"
+flags: light-uninstall
+url {
+  src: "https://github.com/hammerlab/ketrew/archive/ketrew.1.1.1.tar.gz"
+  checksum: [
+    "sha256=127efd8aae8c1ba49e7c1e6de66543631b6b43a1a16abb66d87178698f8a7baa"
+    "md5=cc774a70bcbcc6d443eba83335591313"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

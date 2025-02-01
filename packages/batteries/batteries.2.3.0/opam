@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "thelema314@gmail.com"
+homepage: "http://batteries.forge.ocamlcore.org/"
+license: "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  [make "all"]
+]
+remove: [["ocamlfind" "remove" "batteries"]]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.03.0"}
+  "ocamlfind" {>= "1.5.3" & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "num" {<= "1.5-1"}
+]
+dev-repo: "git+https://github.com/ocaml-batteries-team/batteries-included"
+install: [make "install"]
+synopsis: "Community-maintained foundation library"
+description:
+  "Batteries extends and enriches OCaml's standard library. It provides a unified IO system, numerous data structures, powerful iterators, unicode strings and ropes, parsers, command-line options, and many other features."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/ocaml-batteries-team/batteries-included/archive/v2.3.0.tar.gz"
+  checksum: [
+    "sha256=224e7bc7b0356d526ccd01a4f3b47272a79c4f8dd7e5bdb76332c71a34ad8f0b"
+    "md5=34a9c9060f989637912ac0ba4503261e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "Sidharth Kuruvila <sidharth.kuruvila@gmail.com>"
+authors: "Sidharth Kuruvila <sidharth.kuruvila@gmail.com>"
+homepage: "http://github.com/sidharthkuruvila/ocaml-avroc"
+bug-reports: "http://github.com/sidharthkuruvila/ocaml-avroc/issues"
+license: "MIT"
+dev-repo: "git+http://github.com/sidharthkuruvila/ocaml-avroc.git"
+build: [make avroc]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "avroc"]
+depends: [
+  "ocaml" {>= "4.00.0" & < "4.03.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ctypes" {<= "0.23.0"}
+  "ctypes-foreign" {<= "0.23.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Read and write Apache Avro files"
+description: "A wrapper over Apache Avro's c library."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/sidharthkuruvila/ocaml-avroc/archive/v0.0.1g.tar.gz"
+  checksum: [
+    "sha256=a87d242bcf97ab8ec42709833eea0a8afacd839f60cbe74d6addb70a3f76394f"
+    "md5=736d14f64e1de1b4bf94b044e106676d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

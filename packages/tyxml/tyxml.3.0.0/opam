@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "dev@ocsigen.org"
+build: make
+remove: [
+  ["ocamlfind" "remove" "tyxml"]
+]
+depends: [
+  "ocaml" {>= "3.12.1" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis:
+  "Parser and printer for xml, and a simple library for building valid HTML5, XHTML 1.1 and SVG documents."
+flags: light-uninstall
+url {
+  src: "http://ocsigen.org/download/tyxml-3.0.0.tar.gz"
+  checksum: [
+    "sha256=43f5133b52fb99ca4f0887c82717633ad2893b954c0c3084238f82479eaf6b33"
+    "md5=39c863099ea37d7e53f552439979fb86"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

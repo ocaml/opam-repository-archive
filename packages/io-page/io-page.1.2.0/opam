@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer:   "anil@recoil.org"
+homepage:     "https://github.com/mirage/io-page"
+dev-repo: "git+https://github.com/mirage/io-page.git"
+bug-reports:  "https://github.com/mirage/io-page/issues"
+authors: [
+  "Anil Madhavapeddy"
+  "Dave Scott"
+  "Thomas Gazagnaire"
+]
+tags: ["org:mirage"]
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "io-page"]
+depends: [
+  "ocaml" {>= "4.00.0" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cstruct" {>= "1.0.1" & <= "6.2.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "ocamlbuild" {build & != "0.9.0" & <= "0.15.0"} # bug with C bindings
+]
+conflicts: ["io-page-xen" "io-page-unix"]
+synopsis: "Allocate memory pages suitable for aligned I/O"
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/io-page/archive/v1.2.0.tar.gz"
+  checksum: [
+    "sha256=dc01bf4e71adb3dd17dbc5efe7cbe1076743db582c7876e8906d5c744dcdf441"
+    "md5=181b8765941db0e410b65813e4a4d06b"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

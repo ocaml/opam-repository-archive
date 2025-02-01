@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+authors: ["Jane Street Group, LLC"]
+homepage: "https://github.com/janestreet/ocaml_plugin"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [["ocamlfind" "remove" "ocaml_plugin"]]
+depends: [
+  "ocaml" {>= "4.02.1" & < "4.03"}
+  "camlp4" {<= "5.3"}
+  "ocamlfind" {<= "1.9.6"}
+  "async" {>= "113.00.00" & < "113.01.00"}
+  "sexplib" {>= "113.00.00" & < "113.01.00"}
+  "comparelib" {= "113.00.00"}
+  "bin_prot" {>= "113.00.00" & < "113.01.00"}
+  "fieldslib" {>= "113.00.00" & < "113.01.00"}
+  "herelib" {= "112.35.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+bug-reports: "https://github.com/janestreet/ocaml_plugin/issues"
+dev-repo: "git+https://github.com/janestreet/ocaml_plugin.git"
+install: [[make "install"]]
+synopsis: "Automatically build and dynlink OCaml source files"
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/113.00/files/ocaml_plugin-113.00.00.tar.gz"
+  checksum: [
+    "sha256=20e97dc69687815f6239e11ecc4b0b0df1b0825b0286bc18fd68b620d77e8e6e"
+    "md5=7304c5c83325389c9b9a535f1ed41818"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

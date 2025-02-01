@@ -1,0 +1,46 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+authors: ["Alain Frisch"]
+homepage: "http://www.cduce.org/"
+license: "MIT"
+build: [
+  [
+    "./configure"
+    "--prefix=%{prefix}%"
+    "--mandir=%{doc}%/cduce"
+    "--mliface=%{lib}%/ocaml-src"
+      {"%{ocaml-src:installed}%" & ocaml:version = "3.12.1"}
+  ]
+  [make "all"]
+]
+remove: [["ocamlfind" "remove" "cduce"]]
+depends: [
+  "ocaml" {< "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "pcre" {<= "8.0.2"}
+  "ulex" {<= "1.2"}
+  "ocamlnet" {< "4.0.1"}
+  "pxp" {<= "1.2.9"}
+]
+depopts: ["ocaml-src"]
+install: [make "install"]
+synopsis: "Modern XML-oriented functional language with innovative features"
+flags: light-uninstall
+url {
+  src: "http://www.cduce.org/download/cduce-0.5.5.tar.gz"
+  checksum: [
+    "sha256=4ed53a0ff196f490729d0146b474546f5115fd3cff2627f52670cfcc619b0157"
+    "md5=bf9726a9cbc6287c807a8b1113f1e71f"
+  ]
+}
+extra-source "cduce.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/cduce/cduce.install"
+  checksum: [
+    "sha256=7681d41529dcc08c70a33cadc50e612282ea18a7ad3663ef6396296adf368fd2"
+    "md5=384cc62166f125d3959f7875b05c085a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

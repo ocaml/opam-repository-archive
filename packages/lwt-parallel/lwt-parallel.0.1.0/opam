@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "Ivan Gotovchits <ivg@ieee.org>"
+authors: "Ivan Gotovchits <ivg@ieee.org>"
+homepage: "https://github.com/ivg/parallel"
+bug-reports: "https://github.com/ivg/parallel/issues"
+dev-repo: "git+https://github.com/ivg/parallel.git"
+license: "MIT"
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "lwt_parallel"]
+depends: [
+  "ocaml"
+  "base-unix" {= "base"}
+  "camlp4" {<= "5.3"}
+  "lwt" {< "3.0.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Lwt-enabled multiprocessing library"
+description: "Allows to run lwt threads in different process."
+flags: light-uninstall
+url {
+  src: "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/lwt-parallel-0.1.0.tar.gz"
+  checksum: [
+    "sha256=e100a474e399821935fda8ced25ff7a1fb646e16239224aa852db173e43e0f8e"
+    "md5=178e724bb8351eb1835ff27540162cca"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

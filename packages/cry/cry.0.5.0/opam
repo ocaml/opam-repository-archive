@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "Romain Beauxis <toots@rastageeks.org>"
+authors: "The Savonet Team <savonet-users@lists.sourceforge.net>"
+homepage: "https://github.com/savonet/ocaml-cry"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+install: [
+  [make "install"]
+]
+remove: ["ocamlfind" "remove" "cry"]
+conflicts: ["liquidsoap" {<= "1.2.1"}]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+]
+depopts: ["ssl" "osx-secure-transport"]
+bug-reports: "https://github.com/savonet/ocaml-cry/issues"
+dev-repo: "git+https://github.com/savonet/ocaml-cry.git"
+synopsis:
+  "The cry library is an implementation of the shout protocol to connect to audio diffusion servers such as icecast"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/savonet/ocaml-cry/releases/download/0.5.0/ocaml-cry-0.5.0.tar.gz"
+  checksum: [
+    "sha256=9876ebbd371451eba759f304a2dd329777df8c47bba14011852969e2b926d673"
+    "md5=933e1f695718cef7b7c612df9c7b5b10"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

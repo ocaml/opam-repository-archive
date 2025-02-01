@@ -1,0 +1,41 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      ["Thomas Leonard" "Magnus Skjegstad"
+               "David Scott" "Thomas Gazagnaire"]
+license:      "Apache-1.0+"
+homepage:     "https://github.com/moby/datakit"
+bug-reports:  "https://github.com/moby/datakit/issues"
+dev-repo: "git+https://github.com/moby/datakit.git"
+doc:          "https://docker.github.io/datakit/"
+
+build: ["jbuilder" "build" "-p" name "-j" jobs]
+
+depends: [
+  "ocaml"
+  "jbuilder" {>= "1.0+beta7" & < "1.0+beta12"}
+  "base-bytes" {<= "base"}
+  "astring" {<= "0.8.5"}
+  "logs" {<= "0.7.0"}
+  "uri" {<= "4.4.0"}
+  "rresult" {<= "0.7.0"}
+  "fmt" {<= "0.9.0"}
+  "cstruct" {> "2.2.0" & <= "6.2.0"}
+  "protocol-9p" {= "0.9.0"}
+  "cmdliner" {<= "1.3.0"}
+]
+synopsis: "A library to connect to DataKit servers"
+description: """
+The library currently only provides only a 9p client to talk to
+Datakit, but other filesystem protocols will be available in the
+future."""
+url {
+  src:
+    "https://github.com/moby/datakit/releases/download/0.10.0/datakit-0.10.0.tbz"
+  checksum: [
+    "sha256=0bfbb0b456925d3b4e057220c8dd60c827a62cfcbc874983c8bcae4528bd7f3a"
+    "md5=1236f6e070f845ad077b748d84026132"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

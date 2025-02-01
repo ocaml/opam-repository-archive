@@ -1,0 +1,55 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+homepage: "https://github.com/OCamlPro/opam"
+bug-reports:  "https://github.com/ocaml/opam/issues"
+authors: [
+   "Thomas Gazagnaire <thomas@gazagnaire.org>"
+   "Anil Madhavapeddy   <anil@recoil.org>"
+   "Fabrice Le Fessant  <Fabrice.Le_fessant@inria.fr>"
+   "Frederic Tuong      <tuong@users.gforge.inria.fr>"
+   "Louis Gesbert <louis.gesbert@ocamlpro.com>"
+   "Guillem Rieu        <guillem.rieu@ocamlpro.com>"
+   "Vincent Bernardoff  <vb@luminar.eu.org>"
+   "Roberto Di Cosmo    <roberto@dicosmo.org>"
+]
+substs: ["depends.ocp"]
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--mandir=%{prefix}%/man"]
+  [make "META"]
+  [make "with-ocamlbuild"]
+]
+remove: [["ocamlfind" "remove" "opam"]]
+depends: [
+  "ocaml"
+  "ocamlgraph" {<= "2.1.0"}
+  "camlp4" {build & <= "5.3"}
+  "cmdliner" {<= "0.9.8"}
+  "dose" {= "3.1.2"}
+  "cudf" {<= "0.10"}
+  "re" {>= "1.2.0" & <= "1.12.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/OCamlPro/opam"
+install: [
+  [make "libinstall-with-ocamlbuild"]
+  ["rm" "opam.install"]
+]
+synopsis: "The OCaml PAckage Manager (OPAM)"
+description: """
+OPAM is a source-based package manager for OCaml. It supports multiple
+simultaneous compiler installations, flexible package constraints, and
+a Git-friendly development workflow.
+
+This package contains only the libraries of OPAM and *not* the binary."""
+flags: [light-uninstall deprecated]
+url {
+  src: "https://github.com/OCamlPro/opam/archive/1.1.1.tar.gz"
+  checksum: [
+    "sha256=7155eefdcf356abef7a2e4329c0aa7a28d76c564258ac5fd4daa8457436b03b5"
+    "md5=7fb6066217a1f3b67f90fe08301c3cf2"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

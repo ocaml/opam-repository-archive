@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "Michael Truog <mjtruog@gmail.com>"
+authors: "Michael Truog <mjtruog@gmail.com>"
+homepage: "http://cloudi.org/"
+bug-reports: "https://github.com/CloudI/CloudI/issues"
+license: "MIT"
+dev-repo: "git+https://github.com/CloudI/cloudi_api_ocaml.git"
+build: [
+  [make]
+]
+remove: ["ocamlfind" "remove" "cloudi"]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.06.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+]
+synopsis: "OCaml CloudI API"
+flags: light-uninstall
+url {
+  src: "https://github.com/CloudI/cloudi_api_ocaml/archive/v1.7.1.tar.gz"
+  checksum: [
+    "sha256=4ae98dd3284bc6327dc8ee0065f6acbc326b8ed53064b406b01e104d3d5da0f2"
+    "md5=4c03c5ff48204f7783a1da512809889d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

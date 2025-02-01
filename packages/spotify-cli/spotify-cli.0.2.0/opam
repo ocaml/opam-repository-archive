@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "john.else@gmail.com"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [
+  [make "PREFIX=%{prefix}%" "uninstall"]
+]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "cmdliner" {<= "1.3.0"}
+  "obus" {<= "1.2.5"}
+  "lwt" {< "3.0.0"}
+  "lwt_camlp4" {= "1.0.0"}
+  "mpris" {< "0.2.0"}
+  "spotify-web-api" {<= "0.2.1"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/johnelse/spotify-cli"
+install: [make "PREFIX=%{prefix}%" "install"]
+synopsis: "CLI program for controlling the Spotify client on Linux and OSX"
+url {
+  src: "https://github.com/johnelse/spotify-cli/archive/0.2.0.tar.gz"
+  checksum: [
+    "sha256=3243fdd506812f3cce6b2e0b9eef88b8fcf55d999fd519793d495b1646d38144"
+    "md5=c85d5014c459505ac9ff9118633de84b"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

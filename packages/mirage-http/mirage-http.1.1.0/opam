@@ -1,0 +1,32 @@
+bug-reports: "https://github.com/mirage/mirage-http/issues/"
+homepage: "https://github.com/mirage/mirage-http"
+authors: ["Anil Madhavapeddy" "Thomas Gazagnaire"]
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+build: make
+remove: [
+  [make "uninstall"]
+]
+depends: [
+  "ocaml" {>= "4.00.0"}
+  "mirage-types" {>= "1.1.0" & < "3.0.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "tcpip" {>= "1.1.0" & <= "2.5.0"}
+  "cohttp" {>= "0.9.16" & < "0.12.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/mirage-http"
+install: [make "install"]
+synopsis: "MirageOS HTTP client and server driver for Unix"
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/mirage-http-1.1.0.tar.gz"
+  checksum: [
+    "sha256=3f4cdc0adc1d02e2d4e9a3d536e7f5dd1c604d361f4c36b394b11e8adb476a8b"
+    "md5=f8ca9f9cb46592682ee571bd124783e6"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

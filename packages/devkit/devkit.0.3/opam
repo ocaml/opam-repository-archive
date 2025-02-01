@@ -1,0 +1,51 @@
+opam-version: "2.0"
+maintainer: "igor@ahrefs.com"
+authors: "Ahrefs <github@ahrefs.com>"
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/ahrefs/devkit"
+dev-repo: "git+https://github.com/ahrefs/devkit.git"
+bug-reports: "https://github.com/ahrefs/devkit/issues"
+tags: ["org:ahrefs"]
+build: [
+  [make]
+  [make "test"] {with-test}
+  [make "doc"] {with-doc}
+]
+install: [
+  [make "install"]
+]
+remove: [
+  ["ocamlfind" "remove" "devkit"]
+]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.03.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "camlp4" {build & <= "5.3"}
+  ("extlib" {>= "1.6.1" & <= "1.8.0"} |
+ "extlib-compat" {>= "1.6.1" & <= "1.7.2"})
+  "ounit" {<= "2.2.7"}
+  "camlzip" {<= "1.13"}
+  "libevent" {<= "0.9.0"}
+  "ocurl" {>= "0.7.2" & <= "0.9.2"}
+  "ocamlnet" {<= "4.1.9-2"}
+  "pcre" {<= "8.0.2"}
+  "extunix" {>= "0.1.2" & < "0.3"}
+  "xmlm" {<= "1.4.0"}
+  "lwt" {>= "2.5.0" & < "4.0.0"}
+  "base-bytes" {<= "base"}
+  "base-unix" {= "base"}
+  "base-threads" {= "base"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "development kit - general purpose library"
+flags: light-uninstall
+url {
+  src: "https://github.com/ahrefs/devkit/archive/v0.3.tar.gz"
+  checksum: [
+    "sha256=05a9db65c23a6f2f336b20654330e5e6fb335332d115038f2c7d91a3fc69448a"
+    "md5=0befb3f2360f4f257fb313b6cf8fe336"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

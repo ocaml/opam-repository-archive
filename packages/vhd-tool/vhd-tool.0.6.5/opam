@@ -1,0 +1,54 @@
+opam-version: "2.0"
+authors: ["David Scott" "Jonathan Ludlam"]
+homepage: "https://github.com/djs55/vhd-tool"
+bug-reports: "https://github.com/djs55/vhd-tool/issues"
+dev-repo: "git+https://github.com/djs55/vhd-tool"
+maintainer: "dave.scott@eu.citrix.com"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [
+  ["./configure" "--bindir=%{bin}%"]
+  [make]
+]
+remove: [
+  ["rm" "-f" "%{bin}%/vhd-tool"]
+  ["rm" "-f" "%{bin}%/sparse_dd"]
+  ["rm" "-f" "%{etc}%/sparse_dd.conf"]
+]
+depends: [
+  "ocaml" {>= "4.00.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "cstruct" {>= "0.7.1" & <= "6.2.0"}
+  "vhd-format" {>= "0.6.4" & < "0.7.0"}
+  "uuidm" {<= "0.9.9"}
+  "cmdliner" {<= "1.3.0"}
+  "obuild" {<= "0.1.11"}
+  "nbd" {>= "0.9.2" & < "1.0.0"}
+  "ounit" {<= "2.2.7"}
+  "uri" {<= "4.4.0"}
+  "tar-format" {> "0.2" & < "0.3.0"}
+  "sha" {<= "1.15.4"}
+  "cohttp" {= "0.9.13"}
+  "ssl" {<= "0.7.0"}
+]
+install: [make "install"]
+synopsis:
+  "A command-line tool to manipulate, transcode and stream .vhd format data."
+description: """
+This tool currently allows you to:
+* extract data from a vhd tree
+* upload vhd-formatted data to a XenServer host"""
+flags: light-uninstall
+url {
+  src: "https://github.com/djs55/vhd-tool/archive/0.6.5.tar.gz"
+  checksum: [
+    "sha256=b80d1e0a9ef9453a0f41ab9f745ae974d940f6cdb281e42029ec43c0c090b16f"
+    "md5=52e512eec2c96c90e1b5da1a604cabf4"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

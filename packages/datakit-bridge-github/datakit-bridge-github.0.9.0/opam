@@ -1,0 +1,80 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      ["Thomas Leonard" "Magnus Skjegstad"
+               "David Scott" "Thomas Gazagnaire"]
+license:      "Apache-1.0+"
+homepage:     "https://github.com/docker/datakit"
+bug-reports:  "https://github.com/docker/datakit/issues"
+dev-repo: "git+https://github.com/docker/datakit.git"
+doc:          "https://docker.github.io/datakit/"
+
+build: [
+  [
+    "ocaml"
+    "pkg/pkg.ml"
+    "build"
+    "--pinned"
+    "%{pinned}%"
+    "-n"
+    name
+    "--tests"
+    "false"
+  ]
+  [
+    "ocaml"
+    "pkg/pkg.ml"
+    "build"
+    "--pinned"
+    "%{pinned}%"
+    "-n"
+    name
+    "--tests"
+    "true"
+  ] {with-test}
+  ["ocaml" "pkg/pkg.ml" "test"] {with-test}
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "cmdliner" {< "1.0.0"}
+  "lwt" {>= "2.7.0" & <= "5.9.0"}
+  "logs" {<= "0.7.0"}
+  "fmt" {<= "0.9.0"}
+  "mtime" {< "1.0.0"}
+  "asl" {<= "0.11"}
+  "win-eventlog" {<= "0.4"}
+  "hvsock" {>= "0.8.1" & < "0.14.0"}
+  "hex" {<= "1.5.0"}
+  "nocrypto" {<= "0.5.4-2"}
+  "conduit" {<= "7.1.0"}
+  "prometheus-app" {<= "1.2"}
+  "uri" {>= "1.8.0" & <= "4.4.0"}
+  "protocol-9p" {>= "0.8.0" & <= "2.0.2"}
+  "datakit-github" {>= "0.9.0" & < "0.10.0"}
+  "datakit-server" {>= "0.9.0" & < "0.10.0"}
+  "datakit-client" {>= "0.9.0" & < "0.10.0"}
+  "github-hooks" {>= "0.1.1" & < "0.2.0"}
+  "github" {>= "2.1.0" & < "3.0.0"}
+  "datakit" {with-test & < "0.10.0"}
+]
+synopsis: "A bi-directional bridge between the GitHub API and Datakit"
+description: """
+The package provides a bi-directional bridge between the GitHub API
+and Datakit, so you can talk to the GitHub API using filesystem and
+Git-like commands only. The `datakit-github` programs can start a
+webhook server to listen for GitHub events in real time, and project
+it into a Git repository. It also monitors that Git repository for
+user-provided changes, and translate them into GitHub API calls."""
+url {
+  src:
+    "https://github.com/docker/datakit/releases/download/0.9.0/datakit-0.9.0.tbz"
+  checksum: [
+    "sha256=a29d3ea94f383c0bfac9891abc3f3a39b1c2e97ee124e2ac437019f35c9c0223"
+    "md5=46e4fcd1e9c05e4587ae1663518a8c74"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

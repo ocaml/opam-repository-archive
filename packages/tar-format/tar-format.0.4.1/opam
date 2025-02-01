@@ -1,0 +1,69 @@
+opam-version: "2.0"
+maintainer:   "dave@recoil.org"
+authors:      [ "Dave Scott" "Thomas Gazagnaire" "David Allsopp" ]
+tags:         ["org:xapi-project" "org:mirage"]
+homepage:     "https://github.com/mirage/ocaml-tar"
+bug-reports:  "https://github.com/mirage/ocaml-tar/issues"
+dev-repo: "git+https://github.com/mirage/ocaml-tar.git"
+build: [
+  [
+    "ocaml"
+    "setup.ml"
+    "-configure"
+    "--prefix"
+    prefix
+    "--%{lwt:enable}%-lwtunix"
+    "--%{mirage-types-lwt:enable}%-mirage"
+  ]
+  ["ocaml" "setup.ml" "-build"]
+  [
+    "ocaml"
+    "setup.ml"
+    "-configure"
+    "--enable-tests"
+    "--enable-lwtunix"
+    "--enable-mirage"
+  ] {with-test}
+  [make "test"] {with-test}
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove:  ["ocamlfind" "remove" "tar"]
+
+depends: [
+  "ocaml" {>= "4.01.0" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "cstruct" {>= "0.6.0" & < "2.0"}
+  "camlp4" {build & <= "5.3"}
+  "type_conv" {build & <= "113.00.02"}
+  "re" {<= "1.12.0"}
+  "cmdliner" {<= "1.3.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "mirage-block-unix" {with-test & <= "2.14.2"}
+  "lwt" {with-test & <= "5.9.0"}
+  "mirage-types-lwt" {with-test & < "3.7.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depopts: ["lwt" "mirage-types-lwt"]
+conflicts: [
+  "lwt" {< "2.4.7"}
+]
+synopsis: "A pure OCaml library to read and write tar files"
+description: """
+This allows easy processing of tar-formatted data: creating archives,
+listing archives and extracting archives. Together with camlzip, it can
+directly process compressed .tar.gz archives.
+
+A mirage interface is also provided which exposes a tar-formatted block
+device as a read-only key=value store."""
+url {
+  src: "https://github.com/mirage/ocaml-tar/archive/v0.4.1.tar.gz"
+  checksum: [
+    "sha256=79ea2b2c87d74bf56919892c484f7ff11fac6d5311abc857978703c23801fdff"
+    "md5=0af2219c4f5cacf9a2d51ee84a983c2e"
+  ]
+}
+available: opam-version >= "2.2.0"
+flags: [light-uninstall deprecated]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer: "Arjun Guha <arjun@cs.umass.edu>"
+homepage: "https://github.com/frenetic-lang/ocaml-topology"
+build: [
+  ["./configure" "--%{pa_ounit:enable}%-tests"]
+  [make]
+  [make "test"] {with-test}
+]
+remove: [
+  ["ocamlfind" "remove" "topology"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "core_kernel" {<= "v0.17.0"}
+  "sexplib" {< "113.01.00"}
+  "ocamlgraph" {>= "1.8.6" & <= "2.1.0"}
+  "packet" {>= "0.3.1" & < "0.5.0" & <= "0.4.0"}
+  "pa_ounit" {with-test & <= "113.00.00"}
+  "ounit" {with-test & <= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/frenetic-lang/ocaml-topology"
+install: [make "install"]
+synopsis: "A library for working with network topologies."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/frenetic-lang/ocaml-topology/archive/v0.4.0.tar.gz"
+  checksum: [
+    "sha256=209aad957711cbccd2ad9fc56a54b17fe362029c6d26634ac7bae30392a2ec86"
+    "md5=554ef565d18791f07de2819f33a65659"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

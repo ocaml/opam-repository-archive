@@ -1,0 +1,42 @@
+opam-version: "2.0"
+maintainer: "jonathan.ludlam@eu.citrix.com"
+authors: [ "Jonathan Ludlam" "David Scott" ]
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/xapi-project/nbd"
+dev-repo: "git+https://github.com/xapi-project/nbd.git"
+bug-reports: "https://github.com/xapi-project/nbd/issues"
+
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [
+  [make "uninstall" "BINDIR=%{bin}%"]
+  ["ocamlfind" "remove" "nbd"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "obuild" {<= "0.1.11"}
+  "lwt" {>= "2.4.5" & < "2.6.0"}
+  "cstruct" {>= "1.0.1" & < "2.0.0"}
+  "cmdliner" {<= "1.3.0"}
+  "type_conv" {build & <= "113.00.02"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+tags: [ "org:mirage" "org:xapi-project" ]
+install: [make "install" "BINDIR=%{bin}%"]
+synopsis: "Network Block Device (NBD) protocol implementation"
+description: """
+This library allows applications to export and consume block
+devices using the NBD protocol (as used by Linux, qemu etc)"""
+url {
+  src: "https://github.com/xapi-project/nbd/archive/v1.0.2/nbd-1.0.2.tar.gz"
+  checksum: [
+    "sha256=48ef98f4abdaf46bbf37ef1f62f4b99d143730dff8680b3244e054e7271d5c50"
+    "md5=68c68b823d453968e46ff3276324caee"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "David Höppner <0xffea@gmail.com>"
+authors: ["Mike Wells" "David Höppner" "Alexander Dinu"]
+homepage: "https://github.com/0xffea/ocaml-redis"
+bug-reports: "https://github.com/0xffea/ocaml-redis/issues"
+license: "BSD-3-Clause"
+build: [
+  ["./configure" "--%{lwt:enable}%-lwt"]
+  [make "build"]
+]
+remove: [
+  ["ocamlfind" "remove" "redis"]
+]
+depends: [
+  "ocaml" {>= "4.01.0" & < "4.05.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "re" {<= "1.12.0"}
+  "uuidm" {<= "0.9.9"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depopts: ["lwt"]
+dev-repo: "git+https://github.com/0xffea/ocaml-redis"
+install: [make "install"]
+synopsis: "Bindings for the key-value cache and store redis."
+flags: light-uninstall
+url {
+  src: "https://github.com/0xffea/ocaml-redis/archive/0.2.1.tar.gz"
+  checksum: [
+    "sha256=e7cf105c2d6bd9379bcd94d1b19886345f1c9b118fe5c551dbc65a21ff88bfa2"
+    "md5=91890dda5ae667b1a94b33d1abb482a9"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,41 @@
+opam-version: "2.0"
+maintainer: "dave@recoil.org"
+authors:      ["Anil Madhavapeddy" "David Scott"]
+homepage:     "https://github.com/mirage/shared-memory-ring"
+bug-reports:  "https://github.com/mirage/shared-memory-ring/issues"
+dev-repo: "git+https://github.com/mirage/shared-memory-ring.git"
+license:      "ISC"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [
+  [make "all"]
+]
+install: [make "install"]
+remove: [["ocamlfind" "remove" "shared-memory-ring"]]
+depends: [
+  "ocaml"
+  "cstruct" {>= "0.6.0" & <= "1.9.0"}
+  "type_conv" {build & <= "113.00.02"}
+  "lwt" {< "4.0.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ounit" {<= "2.2.7"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+synopsis: "Shared memory rings for RPC and bytestream communications."
+description: """
+Includes concrete implementations of Xen console and Xenstore 
+rings."""
+flags: light-uninstall
+url {
+  src: "https://github.com/mirage/shared-memory-ring/archive/0.4.2.tar.gz"
+  checksum: [
+    "sha256=726b981671a5a1cddb33944685864a65d71291bc810739f31d1684122f31fe86"
+    "md5=810ba161b321a6aa01bc05d6c1361e97"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]
