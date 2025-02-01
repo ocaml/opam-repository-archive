@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: make
+remove: [["ocamlfind" "remove" "pa_ounit"]]
+depends: [
+  "ocaml"
+  "camlp4" {<= "5.3"}
+  "ocamlfind" {<= "1.9.6"}
+  "type_conv" {= "109.14.00"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis: "Syntax extension for oUnit"
+description: """
+Pa_ounit is a syntax extension that helps writing in-line oUnit. It
+takes care of automatically registering the tests and generates
+helpfull failure messages with the file and line number.
+
+It allows user to register tests with a new TEST top-level expressions
+and automatically collects all the tests in a module (in a function
+ounit_tests of type unit -> OUnit.test)."""
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/109.14.00/individual/pa_ounit-109.14.00.tar.gz"
+  checksum: [
+    "sha256=eac0e200ae2c474eb6bdc6f81fdbe4a41fe423744f5f78ead12d09898423ab8c"
+    "md5=4a99efc188aa1ea23b1005fb1337b94e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

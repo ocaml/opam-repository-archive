@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+remove: [["ocamlfind" "remove" "ocaml_plugin"]]
+depends: [
+  "ocaml"
+  "camlp4" {<= "5.3"}
+  "ocamlfind" {<= "1.9.6"}
+  "async" {>= "109.38.00" & <= "109.42.00"}
+  "sexplib" {>= "109.41.00" & <= "109.47.00"}
+  "comparelib" {= "109.27.00"}
+  "bin_prot" {>= "109.45.00" & <= "109.47.00"}
+  "fieldslib" {= "109.20.00"}
+  "herelib" {= "109.35.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis: "Automatically build and dynlink OCaml source files"
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/109.45.00/individual/ocaml_plugin-109.45.00.tar.gz"
+  checksum: [
+    "sha256=0a158ac0d76cf2cd1b955b3449c32ddbdef426b56dd89af7d40e487a7ad8be00"
+    "md5=24157c317fbbd909e99a8aab5e1208f2"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

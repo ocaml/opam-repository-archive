@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "Anton Lavrik <alavrik@piqi.org>"
+homepage: "http://piqi.org"
+bug-reports: "https://github.com/alavrik/piqi/issues"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+  [make "ocaml"]
+  [make "test"] {with-test}
+]
+install: [
+  [make "install"]
+  [make "ocaml-install"]
+]
+remove: [
+  ["rm" "-f" "%{prefix}%/bin/piqi"]
+  ["ocamlfind" "remove" "piqilib"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "easy-format" {<= "1.3.4"}
+  "ulex" {<= "1.2"}
+  "xmlm" {<= "1.4.0"}
+  "optcomp" {<= "1.6"}
+  "base64" {>= "2.0.0" & < "3.0.0"}
+  "base-bytes" {<= "base"}
+]
+dev-repo: "git+https://github.com/alavrik/piqi"
+synopsis:
+  "The Piqi library -- runtime support for multi-format Protobuf/JSON/XML/Piq data serialization and conversion"
+authors: "Anton Lavrik <alavrik@piqi.org>"
+flags: light-uninstall
+url {
+  src: "https://github.com/alavrik/piqi/archive/v0.6.13.tar.gz"
+  checksum: [
+    "sha256=143504c5e2ab4e42c433b19a4e0947222535f146dbe29feb17babdb196c818f2"
+    "md5=028d964856c6555c631a8a13b46a4c6c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

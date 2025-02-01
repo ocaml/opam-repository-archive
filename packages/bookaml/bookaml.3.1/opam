@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: "Dario Teixeira <dario.teixeira@nleyten.com>"
+authors: ["Dario Teixeira <dario.teixeira@nleyten.com>"]
+homepage: "http://bookaml.forge.ocamlcore.org/"
+bug-reports: "https://github.com/darioteixeira/bookaml/issues"
+dev-repo: "git+https://github.com/darioteixeira/bookaml.git"
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+build: [
+  ["./configure" "--prefix" prefix "--docdir" "%{doc}%/bookaml" "--%{ocsigenserver:enable}%-ocsigen" "--%{ocamlnet:enable}%-ocamlnet"]
+  [make]
+  [make "doc"]
+]
+install: [[make "install"]]
+remove: [["ocamlfind" "remove" "bookaml"]]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "batteries" {<= "3.9.0"}
+  "calendar" {>= "2.00" & <= "3.0.0"}
+  "camlp4" {<= "5.3"}
+  "cryptokit" {<= "1.20"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlnet" {>= "4" & <= "4.1.9-2"}
+  "ppx_deriving" {<= "6.0.3"}
+  "ppx_sexp_conv" {<= "v0.17.0"}
+  "sexplib" {<= "v0.17.0"}
+  "tyxml" {>= "3.4" & < "3.6"}
+]
+depopts: [
+  "lwt"
+  "ocsigenserver"
+]
+synopsis: "Library for retrieving information about published books"
+description: """
+Bookaml is a library providing a basic API to gather information about a book
+given its ISBN, or to find any number of books matching given search criteria.
+The library is closely tied to the Amazon Product Advertising API, which is
+used internally for retrieving book information."""
+flags: light-uninstall
+url {
+  src: "https://github.com/darioteixeira/bookaml/archive/v3.1.tar.gz"
+  checksum: [
+    "sha256=9ff828506d2ee93ca6bae65b027b949655ff53eca7716c104323a7f223f83cb6"
+    "md5=ca8af791889eb96ef141d8ea64a0ad20"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

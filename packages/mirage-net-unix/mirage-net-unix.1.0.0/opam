@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+build: make
+remove: [[make "uninstall"]]
+depends: [
+  "ocaml" {>= "4.00.0" & < "4.06.0"}
+  "cstruct" {>= "0.8.1" & <= "6.2.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "camlp4" {build & <= "5.3"}
+  "lwt" {>= "2.4.3" & < "4.0.0"}
+  "mirage-types" {>= "0.5.0" & < "1.1.0"}
+  "io-page-unix" {>= "0.9.9" & < "2.0.0"}
+  "tuntap" {>= "0.7.0" & <= "2.0.1"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/mirage-net-unix"
+install: [make "install"]
+synopsis: "Ethernet network driver for Mirage, using tuntap"
+url {
+  src: "https://github.com/mirage/mirage-net-unix/archive/v1.0.0.tar.gz"
+  checksum: [
+    "sha256=6ea7300f920cbf269f3722c5197d4776cdee60f80a9bd92c1c054853d2dd09dc"
+    "md5=f9b1fac14350777abcc3ef773729b360"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

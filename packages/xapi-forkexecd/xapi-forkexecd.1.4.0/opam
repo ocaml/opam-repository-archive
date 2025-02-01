@@ -1,0 +1,45 @@
+opam-version: "2.0"
+maintainer: "xen-api@lists.xen.org"
+authors: "xen-api@lists.xen.org"
+homepage: "https://github.com/xapi-project/"
+bug-reports: "https://github.com/xapi-project/forkexecd/issues"
+dev-repo: "git+https://github.com/xapi-project/forkexecd"
+tags: [ "org:xapi-project" ]
+build: [
+  ["oasis" "setup"]
+  [make]
+]
+install: [
+  [make "install"]
+]
+remove: [
+    ["oasis" "setup"]
+    [make "uninstall"]
+    ["ocamlfind" "remove" "forkexec"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.6"}
+  "oasis" {build & <= "0.4.11"}
+  "base-threads" {= "base"}
+  "ocaml-systemd" {>= "1.2" & <= "1.3"}
+  "syslog" {<= "2.0.2"}
+  "rpc" {>= "1.9.51" & <= "9.0.0"}
+  "fd-send-recv" {<= "2.0.2"}
+  "uuidm" {<= "0.9.9"}
+  "xapi-stdext" {= "2.1.0"}
+  "xapi-idl" {= "1.14.0"}
+]
+synopsis: "Sub-process control service for xapi"
+description:
+  "This daemon creates and manages sub-processes on behalf of xapi."
+url {
+  src: "https://github.com/xapi-project/forkexecd/archive/v1.4.0.tar.gz"
+  checksum: [
+    "sha256=52913869d10a70fdd3edb27e928e45d5ed446dd94b888bd33e115bbc35a0cd2d"
+    "md5=2e24d66dbc7c6d2fe4572feaea7701ae"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

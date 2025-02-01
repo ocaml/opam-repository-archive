@@ -1,0 +1,39 @@
+opam-version: "2.0"
+synopsis: "OCaml debug adapter"
+description: """
+OCaml debug adapter.
+"""
+maintainer: "文宇祥 <hackwaly@qq.com>"
+authors: "文宇祥 <hackwaly@qq.com>"
+license: "MIT"
+homepage: "https://github.com/hackwaly/ocamlearlybird"
+bug-reports: "https://github.com/hackwaly/ocamlearlybird/issues"
+dev-repo: "git://git@github.com:hackwaly/ocamlearlybird.git"
+doc: "https://hackwaly.github.io/ocamlearlybird/"
+depends: [
+  "ocaml" {>= "4.06" & < "4.07"}
+  "dune" {<= "3.17.2"}
+  "cmdliner" {<= "1.3.0"}
+  "batteries" {<= "3.9.0"}
+  "lwt" {<= "5.9.0"}
+  "lwt_ppx" {<= "5.8.0"}
+  "angstrom" {<= "0.16.1"}
+  "angstrom-lwt-unix" {<= "0.16.1"}
+  "yojson" {<= "2.2.2"}
+  "ppx_deriving_yojson" {<= "3.9.1"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+url {
+  src:
+    "https://github.com/hackwaly/ocamlearlybird/releases/download/0.1.0/earlybird-0.1.0.tbz"
+  checksum: [
+    "sha256=4435b7f2d3bf55416ac4d6bc0b9a651297e88d53366cda2946debbd6416bc564"
+    "md5=b842c45b529ea5d41da238452316e1d9"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

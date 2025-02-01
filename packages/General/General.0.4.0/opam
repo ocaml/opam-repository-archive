@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "Vincent Jacques <vincent@vincent-jacques.net>"
+authors: "Vincent Jacques <vincent@vincent-jacques.net>"
+homepage: "https://jacquev6.github.io/General/"
+bug-reports: "http://github.com/jacquev6/General/issues/"
+license: "MIT"
+doc: "https://jacquev6.github.io/General/"
+dev-repo: "git+https://github.com/jacquev6/General.git"
+build: [
+  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["jbuilder" "runtest" "-p" name] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.02.3" & < "4.07.0"}
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "cppo" {build & >= "1.3.0" & <= "1.8.0"}
+  "num" {<= "1.5-1"}
+]
+synopsis: "Rich functionality for built-in and basic OCaml types"
+url {
+  src: "https://github.com/jacquev6/General/archive/0.4.0.tar.gz"
+  checksum: [
+    "sha256=011e06a398c3b81ff1eacf806cb4a2961588459b551f1dc5d626fdd8968b8983"
+    "md5=bca274800b824bd0e492a5abf038867c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

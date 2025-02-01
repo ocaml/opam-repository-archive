@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "fferre8@cs.cmgill.ca"
+build: [["omake" "NATIVE_ENABLED=true"]]
+depends: [
+  "ocaml" {< "4.02.0"}
+  "ocamlfind" {<= "1.9.6"}
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
+  "ulex" {<= "1.2"}
+  "omake" {<= "0.10.7"}
+  "ounit" {<= "2.2.7"}
+]
+synopsis:
+  "A Language for programming and reasoning using Higher-Order Abstract Syntax"
+url {
+  src: "http://complogic.cs.mcgill.ca/beluga/beluga-0.5-20130207.tar.gz"
+  checksum: [
+    "sha256=256467db13e27c647d0ea95a7afd10ff082f3d490b21a45cd2f8abc8dc92e6c3"
+    "md5=27ca78189f8e5e4346e4850c2faa4bd0"
+  ]
+}
+extra-source "beluga.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/beluga/beluga.install.0.5"
+  checksum: [
+    "sha256=bf745be4593ac1f913aaa2ee71aaefe9401ee7fbfe460245ae7e729b0f8a4e3d"
+    "md5=a49e7c297536db228e125ee677e49c1d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

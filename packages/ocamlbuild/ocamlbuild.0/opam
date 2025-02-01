@@ -1,0 +1,24 @@
+opam-version: "2.0"
+maintainer: "Gabriel Scherer <gabriel.scherer@gmail.com>"
+authors: [
+  "Nicolas Pouillard"
+  "Berke Durak"
+]
+license: "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+
+homepage: "https://github.com/ocaml/ocaml"
+dev-repo: "git+https://github.com/ocaml/ocaml.git"
+bug-reports: "http://caml.inria.fr/mantis/"
+
+doc: [
+  "http://caml.inria.fr/pub/docs/manual-ocaml/ocamlbuild.html"
+  "https://github.com/gasche/manual-ocamlbuild/blob/master/manual.md"
+]
+
+available: os != "win32"
+depends: ["ocaml" "base-ocamlbuild" {= "base"}]
+synopsis:
+  "Build system distributed with the OCaml compiler since OCaml 3.10.0"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

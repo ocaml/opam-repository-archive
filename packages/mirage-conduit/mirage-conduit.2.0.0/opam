@@ -1,0 +1,19 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: ["org:mirage"]
+build: [
+  ["ocamlfind" "query" "conduit.mirage"]
+]
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "mirage-types" {>= "2.0.0" & < "3.0.0"}
+  "mirage-dns" {>= "2.0.0" & < "3.0.0"}
+  "tcpip" {<= "8.2.0"}
+  "vchan" {<= "6.0.2"}
+  "conduit" {= "0.7.2"}
+]
+synopsis: "Virtual package for the MirageOS Conduit transports"
+flags: deprecated
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

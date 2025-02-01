@@ -1,0 +1,39 @@
+opam-version: "2.0"
+authors: "Jun Furuse"
+maintainer: "jun.furuse@gmail.com"
+homepage: "http://bitbucket.org/camlspotter/ppxx"
+bug-reports: "https://bitbucket.org/camlspotter/ppxx/issues?status=new&status=open"
+dev-repo: "hg+https://bitbucket.org/camlspotter/ppxx"
+build: [
+  [ "ocaml" "setup.ml" "-configure" "--prefix" prefix ]
+  [ "ocaml" "setup.ml" "-build" ]
+]
+install: [
+  [ "ocaml" "setup.ml" "-install" ]
+]
+remove: [
+  [ "ocaml" "setup.ml" "-configure" "--prefix" prefix ]
+  [ "ocaml" "setup.ml" "-uninstall" ]
+]
+depends: [
+  "ocaml" {>= "4.04.0" & < "4.05.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "omake" {build & <= "0.10.7"}
+  "ppx_tools" {>= "5.0" & <= "6.6"}
+]
+synopsis: "Ppxx: a small extension library for writing PPX preprocessors"
+description: """
+# PPXX: a small extension library for PPX
+
+PPXX contains several utility functions to make PPX preprocessors easier."""
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/ppxx-1.4.0.tar.gz"
+  checksum: [
+    "sha256=83c2ff77241812d30d6d1b326ec9366580fc308881a32bec0a251378385599fa"
+    "md5=1308eededf2811917cd5e92845f809d5"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

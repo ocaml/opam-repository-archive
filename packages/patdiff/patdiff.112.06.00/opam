@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+depends: [
+  "ocaml"
+  "camlp4" {<= "5.3"}
+  "core_extended" {>= "112.06.00" & < "112.07.00"}
+  "patience_diff" {>= "111.28.00" & < "111.29.00"}
+  "pcre" {<= "8.0.2"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis: "File Diff using the Patience Diff algorithm"
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/112.06.00/individual/patdiff-112.06.00.tar.gz"
+  checksum: [
+    "sha256=6b4658d9dba095f171a7ae43724cb21ca7550c06f102610ecf128095f4bf1f07"
+    "md5=82af5ede6d3a479a44a86dcc72398e06"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+authors: [ "Yoriyuki Yamagata" ]
+license: "LGPL-3.0-only WITH OCaml-LGPL-linking-exception"
+homepage: "https://github.com/yoriyuki/ucorelib"
+bug-reports: "https://github.com/yoriyuki/ucorelib/issues"
+dev-repo: "git+https://github.com/yoriyuki/ucorelib.git"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+  ["ocaml" "setup.ml" "-configure" "--enable-tests" "--prefix" prefix]
+    {with-test}
+  ["ocaml" "setup.ml" "-build"] {with-test}
+  ["ocaml" "setup.ml" "-test"] {with-test}
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove: [["ocamlfind" "remove" "ucorelib"]]
+depends: [
+  "ocaml" {>= "4.00.0" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & with-test & <= "0.15.0"}
+]
+synopsis: "A light weight Unicode library for OCaml"
+flags: light-uninstall
+url {
+  src: "https://github.com/yoriyuki/ucorelib/archive/v0.0.2.tar.gz"
+  checksum: [
+    "sha256=133a79db50013746fbf93ac902c323570c161236fe2d19729da6a41cd4d7f599"
+    "md5=3d2870855fcb677d6193dec58a796ddd"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

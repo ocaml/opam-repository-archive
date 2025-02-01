@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+build: make
+remove: [["ocamlfind" "remove" "async_inotify"]]
+depends: [
+  "ocaml" {>= "4.00.0"}
+  "camlp4" {<= "5.3"}
+  "inotify" {>= "2.0" & <= "2.6"}
+  "async" {>= "111.17.00" & < "112.36.00"}
+  "async_find" {>= "111.28.00" & < "111.29.00"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis: "Async wrapper for inotify"
+flags: light-uninstall
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/111.28.00/individual/async_inotify-111.28.00.tar.gz"
+  checksum: [
+    "sha256=1b09af4e6be87ef5a452a14b2362c79670d9bf42d5c97c19f91553b08bff0687"
+    "md5=0e59caf870da7d9c1b3f563ae8403f8a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

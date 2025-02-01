@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "protz@microsoft.com"
+authors: "Nik Swamy <nswamy@microsoft.com>"
+homepage: "http://fstar-lang.org"
+license: "Apache-2.0"
+depends: [
+  "ocaml" {>= "4.02.1" & < "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "batteries" {<= "3.9.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "num" {<= "1.5-1"}
+]
+remove: [
+  [ "rm" "-rf"
+      "%{prefix}%/lib/fstar"
+      "%{prefix}%/doc/fstar"
+      "%{prefix}%/etc/fstar"
+      "%{prefix}%/bin/fstar"
+      "%{prefix}%/share/fstar" ]
+]
+dev-repo: "git+https://github.com/FStarLang/FStar"
+install: [make "PREFIX=%{prefix}%" "-C" "src/ocaml-output" "install"]
+synopsis: "An ML-like language with a type system for program verification."
+flags: light-uninstall
+url {
+  src: "https://github.com/FStarLang/FStar/archive/v0.9.1.1.tar.gz"
+  checksum: [
+    "sha256=abc5449aea58f5db29239e9fca0f6d591d95f441ebf621a841253859ee3985ff"
+    "md5=6a0a27dc1b9f5bfb68b46852a381c028"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

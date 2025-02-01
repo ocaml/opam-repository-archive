@@ -1,0 +1,41 @@
+opam-version: "2.0"
+maintainer: "orbitz@gmail.com"
+build: [
+	[make "-j%{jobs}%"]
+]
+
+install: [
+	[make "PREFIX=%{prefix}%" "install"]
+]
+
+remove: [
+	[make "PREFIX=%{prefix}%" "remove"]
+]
+
+depends: [
+  "ocaml"
+  "core" {< "v0.9"}
+  "ocamlfind" {<= "1.9.6"}
+  "pds" {<= "5.38"}
+  "process" {<= "0.2.1"}
+  "toml" {< "6.0"}
+]
+authors: [
+	"dklee@dklee.org"
+	"orbitz@gmail.com"
+]
+
+homepage: "https://bitbucket.org/mimirops/hll"
+bug-reports: "https://bitbucket.org/mimirops/hll/issues"
+dev-repo: "git+https://bitbucket.org/mimirops/hll.git"
+synopsis: "Create opam package files from a repository"
+url {
+  src: "https://bitbucket.org/mimirops/hll/get/2.6.tar.gz"
+  checksum: [
+    "sha256=aa9857bdd0d8e8a7122a45be72b03c037bbac3825b0435d003f19b66e3c297f2"
+    "md5=9383baedd9b2d4450df3690827dca1fb"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

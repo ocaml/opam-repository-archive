@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer:   "john.else@citrix.com"
+authors:      ["Dave Scott" "Jon Ludlam" "John Else"]
+homepage:     "https://github.com/xapi-project/xcp-rrd"
+bug-reports:  "https://github.com/xapi-project/xcp-rrd/issues"
+dev-repo: "git+https://github.com/xapi-project/xcp-rrd.git"
+build: [
+  [make]
+  [make "test"] {with-test}
+]
+install:    [make "PREFIX=%{prefix}%" "install"]
+remove:     [make "PREFIX=%{prefix}%" "uninstall"]
+
+depends: [
+  "ocaml" {>= "4.01.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "oasis" {build & <= "0.4.11"}
+  "rpc" {< "5.9.0"}
+  "uuidm" {<= "0.9.9"}
+  "ounit" {<= "2.2.7"}
+]
+synopsis: "RRD library for use with xapi"
+description: """
+Round-Robin Databases (RRDs) are constant-space datastructures
+used for archiving historical data where the older data is stored
+at a lower resolution."""
+url {
+  src: "https://github.com/xapi-project/xcp-rrd/archive/v0.12.0.tar.gz"
+  checksum: [
+    "sha256=69a7007ce7e3cff5e2dd6144a63820aeb3eefcc2e7de272a7fe603a8dc91e6b0"
+    "md5=a51c3d90d07ee770f418d856bc0cdffe"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,48 @@
+opam-version: "2.0"
+maintainer: "taramana@microsoft.com"
+authors: "Nik Swamy <nswamy@microsoft.com>,Jonathan Protzenko <protz@microsoft.com>,Tahina Ramananandro <taramana@microsoft.com>"
+homepage: "http://fstar-lang.org"
+license: "Apache-2.0"
+depends: [
+  "ocaml" {>= "4.02.3" & (< "4.03.0" | >= "4.04.0" & < "4.07.0")}
+  "ocamlfind" {<= "1.9.6"}
+  "batteries" {<= "3.9.0"}
+  "zarith" {<= "1.14"}
+  "stdint" {<= "0.7.2"}
+  "yojson" {<= "2.2.2"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "fileutils" {<= "0.6.6"}
+  "menhir" {>= "20161115" & <= "20240715"}
+  "pprint" {<= "20230830"}
+  "ulex" {<= "1.2"}
+]
+depexts: ["coreutils"] {os = "macos" & os-distribution = "homebrew"}
+build: [
+  [make "PREFIX=%{prefix}%" "-C" "src/ocaml-output"]
+  [make "PREFIX=%{prefix}%" "-C" "ulib/ml"]
+]
+install: [
+  [make "PREFIX=%{prefix}%" "-C" "src/ocaml-output" "install"]
+]
+remove: [
+  [ "rm" "-rf"
+      "%{prefix}%/lib/fstar"
+      "%{prefix}%/doc/fstar"
+      "%{prefix}%/etc/fstar"
+      "%{prefix}%/bin/fstar"
+      "%{prefix}%/share/fstar" ]
+]
+dev-repo: "git+https://github.com/FStarLang/FStar"
+bug-reports: "https://github.com/FStarLang/FStar/issues"
+synopsis: "An ML-like language with a type system for program verification."
+flags: light-uninstall
+url {
+  src: "https://github.com/FStarLang/FStar/archive/v0.9.5.0-opam.tar.gz"
+  checksum: [
+    "sha256=fd2082db00edb3b25d911d8b28a4195baa94b748b96ec3aae7db5def87f1c1e0"
+    "md5=bb836bc4b9bb6402afaab671d9df62ce"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

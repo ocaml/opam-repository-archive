@@ -1,0 +1,18 @@
+opam-version: "2.0"
+maintainer: "dev@ocsigen.org"
+homepage: "https://ocsigen.org/tyxml/"
+bug-reports: "https://github.com/ocsigen/tyxml/issues"
+doc: "https://ocsigen.org/tyxml/manual/"
+dev-repo: "git+https://github.com/ocsigen/tyxml.git"
+build: ["ocamlfind" "query" "tyxml.ppx"]
+depends: [
+  "ocaml" {>= "4.02"}
+  "tyxml" {= version}
+  "markup" {>= "0.7.2" & <= "1.0.3"}
+  "ppx_tools" {<= "6.6"}
+]
+synopsis: "Virtual package for tyxml's ppx"
+authors: "The ocsigen team"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

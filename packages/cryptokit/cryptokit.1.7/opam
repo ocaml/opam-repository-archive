@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: make
+remove: [["ocamlfind" "remove" "cryptokit"]]
+depends: [
+  "ocaml" {< "4.03.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & != "0.9.0" & <= "0.15.0"}
+  "num" {<= "1.5-1"}
+]
+depexts: [
+  ["zlib1g-dev"] {os-family = "debian"}
+  ["zlib-devel"] {os-distribution = "centos"}
+]
+install: [make "install"]
+synopsis: "Cryptographic primitives library."
+description: """
+Cryptokit includes block ciphers (AES, DES, 3DES), stream ciphers (ARCfour),
+public-key crypto (RSA, DH), hashes (SHA-1, SHA-256), MACs, random number
+generation -- all presented with a compositional, extensible interface."""
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/cryptokit/cryptokit/1.7/cryptokit-1.7.tar.gz"
+  checksum: [
+    "sha256=56a8c0339c47ca3cf43c8881d5b519d3bff68bc8a53267e9c5c9cbc9239600ca"
+    "md5=93db223a3d832cf047d56596de23d470"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

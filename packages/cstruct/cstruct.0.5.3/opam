@@ -1,0 +1,29 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: make
+remove: [["ocamlfind" "remove" "cstruct"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {build & != "0.9.0" & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-cstruct"
+install: [make "install"]
+synopsis: "access C structures via a camlp4 extension"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/mirage/ocaml-cstruct/archive/ocaml-cstruct-0.5.3.tar.gz"
+  checksum: [
+    "sha256=7099e40ecc8e1ea1d235e1f614f30230a01f2060d2643e74a4004b49ecfc762d"
+    "md5=162f841527e98b977d89e0b610698125"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

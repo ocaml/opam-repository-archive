@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "https://github.com/ocaml/opam-repository/issues"
+build: [
+  [make]
+  [make "opt"]
+]
+remove: [["ocamlfind" "remove" "xmlrpc"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlnet" {>= "3.6.0" & < "4.0.0"}
+  "pxp" {<= "1.2.9"}
+  "annexlib" {= "0.13.5"}
+]
+install: [make "install" "BIN_DIR=%{bin}%"]
+synopsis:
+  "An XML-RPC client and server, using an ad-hoc interface definition language and IDL compiler"
+description: """
+OCaml XML-RPC is an XML-RPC client and server for OCaml, using an
+ad-hoc interface definition language and IDL compiler. It was started
+by Shawn Wagner (up to version 0.2.3), was improved for a little while
+by Eric Stokes (up to version 0.2.6), and is now maintained by Ewan
+Mellor."""
+flags: light-uninstall
+url {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/ocaml-xml-rpc-0.2.3.tar.gz"
+  checksum: [
+    "sha256=3b7a9f8deddd7e57df7cf190dd14f22472005fa310a3d1065615dd784f471f7b"
+    "md5=53894f38130a1a02d0507925865e431d"
+  ]
+}
+extra-source "ocaml-xml-rpc.install" {
+  src:
+    "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/ocaml-xml-rpc/ocaml-xml-rpc.install"
+  checksum: [
+    "sha256=9785807e21454435c3667071f92a6cf12873fba94c9ee7c6736ceab0baa15654"
+    "md5=462b8e4f12cba458e7403d8ea828e192"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

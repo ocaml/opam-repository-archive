@@ -1,0 +1,41 @@
+opam-version: "2.0"
+maintainer:   "dev@ocsigen.org"
+authors:      "Ocsigen team"
+bug-reports:  "https://github.com/ocsigen/js_of_ocaml/issues"
+homepage:     "http://ocsigen.org/js_of_ocaml"
+dev-repo: "git+https://github.com/ocsigen/js_of_ocaml.git"
+build:   [make "build"]
+install: [make "install-lib" "BINDIR=%{bin}%"]
+remove:  ["ocamlfind" "remove" "js_of_ocaml"]
+
+depends: [
+  "ocaml" {<= "4.01.0"}
+  "base-unix" {= "base"}
+  "ocamlfind" {<= "1.9.6"}
+  "lwt" {<= "5.9.0"}
+  "menhir" {< "20200525"}
+  "camlp4" {<= "5.3"}
+  "ocamlbuild" {<= "0.15.0"}
+]
+depopts: ["deriving" "tyxml" "reactiveData" ]
+
+conflicts: [
+  "deriving" {< "0.6"}
+  "lwt"      {< "2.4"}
+  "lwt"      {>= "4.0.0"}
+  "tyxml"    {< "3.2.1"}
+  "tyxml"    {>= "3.6.0"}
+  "reactiveData" {>= "0.2"}
+]
+synopsis: "Compiler from OCaml bytecode to Javascript"
+flags: light-uninstall
+url {
+  src: "https://github.com/ocsigen/js_of_ocaml/archive/2.4.tar.gz"
+  checksum: [
+    "sha256=24e656c54b0da642fb8a237fb2e321ec28962fab11763e3236074a1ef3b7e6e0"
+    "md5=47f7fd6d985654446a122abd902219d4"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

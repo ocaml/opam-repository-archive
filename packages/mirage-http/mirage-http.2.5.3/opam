@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+authors: ["Anil Madhavapeddy" "Thomas Gazagnaire"]
+homepage: "https://github.com/mirage/mirage-http"
+bug-reports: "https://github.com/mirage/mirage-http/issues/"
+dev-repo: "git+https://github.com/mirage/mirage-http.git"
+doc: "https://mirage.github.io/mirage-http/"
+build: ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"]
+depends: [
+  "ocaml" {>= "4.00.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "mirage-types" {>= "2.0.0" & < "3.0.0"}
+  "mirage-types-lwt" {>= "2.0.0" & < "3.0.0"}
+  "conduit" {<= "7.1.0"}
+  "mirage-conduit" {>= "2.2.0" & <= "3.2.0"}
+  "lwt" {>= "2.4.3" & <= "5.9.0"}
+  "cohttp" {>= "0.18.0" & < "0.99"}
+  "channel" {<= "1.1.1"}
+]
+synopsis: "MirageOS-compatible implementation of the Cohttp interfaces"
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/mirage-http-2.5.3.tbz"
+  checksum: [
+    "sha256=1f0f48376f8a1f2a4875238ec2b2fa1032ac2297cd89708a018917bfdfb3fb38"
+    "md5=3e83cab7de7cca512bac4f54d485fc0a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

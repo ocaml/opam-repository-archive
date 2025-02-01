@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "michal.kurcewicz@gmail.com"
+authors: ["Michał Kurcewicz"]
+homepage: "https://bitbucket.org/mkur/nlopt-ocaml"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+depends: [
+  "ocaml" {< "4.06.0" & < "5.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "oasis" {build & <= "0.4.11"}
+  "conf-nlopt" {= "1"}
+]
+conflicts: [
+  "base-nnp"
+  "ocaml-option-nnpchecker"
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "OCaml bindings to the NLOpt optimization library"
+url {
+  src:
+    "https://github.com/ocaml/opam-source-archives/raw/main/nlopt-ocaml-0.4.tar.gz"
+  checksum: [
+    "sha256=5a4de42522cf6411fa86b013e1bdaf0a70642e5892611cfcdb88a5cef08672be"
+    "md5=a5a742f058469438dd45c34356ff9665"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

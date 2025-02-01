@@ -1,0 +1,32 @@
+opam-version: "2.0"
+maintainer: "Sylvain Le Gall <sylvain+ocaml@le-gall.net>"
+authors: [ "Sylvain Le Gall" ]
+homepage: "http://ocaml-fileutils.forge.ocamlcore.org/"
+dev-repo: "git+https://github.com/gildor478/ocaml-fileutils.git"
+bug-reports: "https://forge.ocamlcore.org/tracker/?func=add&group_id=128&atid=589"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [["ocamlfind" "remove" "fileutils"]]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ounit" {<= "2.2.7"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: [make "install"]
+synopsis:
+  "Library to provide pure OCaml functions to manipulate real file (POSIX like) and filename."
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/ocaml-fileutils/ocaml-fileutils/0.4.4/ocaml-fileutils-0.4.4.tar.gz"
+  checksum: [
+    "sha256=f18982110572eeb8f69662863202c01b88d69637efff3f9f160e92672b75c15c"
+    "md5=1f43b9333358f47660318bfbe9ae68bf"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

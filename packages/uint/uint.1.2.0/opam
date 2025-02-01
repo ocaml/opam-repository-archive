@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "andre@digirati.com.br"
+build: [
+  ["ocaml" "setup.ml" "-configure" "--prefix" "%{prefix}%"]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [
+  ["ocamlfind" "remove" "uint"]
+]
+depends: [
+  "ocaml" {< "4.06.0"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis: "Unsigned ints for OCaml"
+flags: light-uninstall
+url {
+  src:
+    "https://download.ocamlcore.org/ocaml-uint/ocaml-uint/1.2.0/ocaml-uint-1.2.0.tar.gz"
+  checksum: [
+    "sha256=fce5bb7cb406841c74b27a2c7045375b079e9a0030a444d11311482988aee68c"
+    "md5=e45a28c495cfaf9db714535c5f40876c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "Cedric Cellier <rixed@happyleptic.org>"
+authors: "Cedric Cellier <rixed@happyleptic.org>"
+homepage: "http://pim.happyleptic.org/~rixed/portia.html"
+dev-repo: "git+https://github.com/rixed/portia.git"
+bug-reports: "mailto:rixed-opam@happyleptic.org"
+build: [
+  [make]
+  [make "doc"] {with-doc}
+]
+install: [make "install"]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.06.0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "batteries" {<= "3.9.0"}
+  "conf-asciidoc" {with-doc & = "1"}
+]
+synopsis: "Literate Programming Preprocessor"
+url {
+  src: "https://github.com/rixed/portia/archive/v0.1.3.tar.gz"
+  checksum: [
+    "sha256=cce7e4c25dc7313595df870e0746b6cec1ffb39c4fb8a869fff8c1dfb26e93d6"
+    "md5=aed551ae3c6d230de1e5fa277362630c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

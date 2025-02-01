@@ -1,0 +1,46 @@
+opam-version: "2.0"
+
+maintainer: "Vincent Bernardoff <vb@luminar.eu.org>"
+authors: [
+  "Vincent Bernardoff <vb@luminar.eu.org>"
+  "Rudi Grinberg <rgrinberg@gmail.com>"
+]
+
+homepage: "http://github.com/rgrinberg/onanomsg"
+bug-reports: "http://github.com/rgrinberg/onanomsg/issues"
+dev-repo: "git+https://github.com/rgrinberg/onanomsg"
+license: "WTFPL"
+
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "conf-nanomsg" {= "0"}
+  "ocamlfind" {build & <= "1.9.6"}
+  "ctypes" {>= "0.2" & <= "0.23.0"}
+  "ctypes-foreign" {<= "0.23.0"}
+  "containers" {>= "0.7" & <= "3.15"}
+  "ipaddr" {>= "2.2.0" & <= "5.6.0"}
+  "ppx_deriving" {>= "1.0" & < "3.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "lwt" {with-test & <= "5.9.0"}
+]
+depopts: [ "lwt" "ounit" ]
+
+install: [
+  "ocaml"
+  "pkg/build.ml"
+  "native=true"
+  "native-dynlink=true"
+  "lwt=%{lwt:installed}%"
+  "ounit=%{ounit:installed}%"
+]
+synopsis: "Ctypes based bindings to nanomsg"
+url {
+  src: "http://github.com/rgrinberg/onanomsg/archive/1.0.tar.gz"
+  checksum: [
+    "sha256=d133f8998f8c2c655ce01664b3f64b741192af76ec7ac9486b2fa0be51f51f8b"
+    "md5=5590f8df8accfc38e015032f794cca68"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

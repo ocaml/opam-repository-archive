@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "hez@0ok.org"
+authors: [ "Hezekiah M. Carty <hez@0ok.org>" ]
+license: "MIT"
+homepage: "https://github.com/hcarty/gtk-light"
+build: make
+remove: [
+  ["ocamlfind" "remove" "gtk-light"]
+]
+depends: [
+  "ocaml" {<= "4.01.0"}
+  "batteries" {<= "3.9.0"}
+  "lablgtk" {>= "2.16.0" & <= "2.18.14"}
+  "react" {<= "1.2.2"}
+  "ocamlfind" {<= "1.9.6"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+dev-repo: "git+https://github.com/hcarty/gtk-light"
+install: [make "install"]
+synopsis: "Light wrapper around lablgtk2"
+flags: light-uninstall
+url {
+  src: "https://github.com/hcarty/gtk-light/archive/v0.0.1.tar.gz"
+  checksum: [
+    "sha256=49399dadfa6d0e5d5c839317f93d0d2b1178d6cd9a1abd04638724da80663465"
+    "md5=75b62af8b1a419311e09c8ab625e71a8"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]

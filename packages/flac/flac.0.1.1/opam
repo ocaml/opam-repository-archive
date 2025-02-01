@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "smimram@gmail.com"
+build: [
+  ["./configure" "--prefix" lib "--mandir" man]
+  [make "all"]
+]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.6"}
+  "ogg" {< "0.5.0"}
+  "base-unsafe-string" {= "base"}
+  "conf-pkg-config" {build & <= "4"}
+  "conf-libflac" {build & = "1"}
+]
+install: [make "install"]
+synopsis:
+  "Interface for the Free Lossless Audio Codec otherwise known as FLAC"
+url {
+  src:
+    "http://sourceforge.net/projects/savonet/files/ocaml-flac/0.1.1/ocaml-flac-0.1.1.tar.gz/download"
+  checksum: [
+    "sha256=9f22dce6ad947fc436992eeb71a19bd9bb7c173543132c2b605fa3a7b02ac74a"
+    "md5=145fb0982e6a845277e17218ddb2415c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "7a7bf634fe8cf55b84f98866ad69441f2023f6b6"
+x-reason-for-archiving: ["ocaml-version"]
