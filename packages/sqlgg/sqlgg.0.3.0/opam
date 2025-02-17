@@ -16,7 +16,7 @@ depends: [
   "ocamlfind" {<= "1.9.8"}
   "menhir" {<= "20240715"}
   "deriving" {= "0.8.1"}
-  ("extlib" {<= "1.8.0"} | "extlib-compat")
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
   "ounit" {<= "2.2.7"}
   "ocamlbuild" {build & <= "0.15.0"}
 ]

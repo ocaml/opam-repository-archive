@@ -40,7 +40,7 @@ depends: [
   "result" {= "1.5"}
   "cppo" {build & >= "1.1.0" & <= "1.8.0"}
   "cppo_ocamlbuild" {build & <= "1.8.0"}
-  ("base-no-ppx" | "ppx_tools" {build & <= "6.6"})
+  ("base-no-ppx" {= "base"} | "ppx_tools" {build & <= "6.6"})
 ]
 depopts: [
   "base-threads"

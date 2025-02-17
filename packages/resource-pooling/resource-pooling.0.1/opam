@@ -21,7 +21,7 @@ depends: [
   "batteries" {<= "3.9.0"}
   "lwt" {>= "2.4.7" & < "4.0.0"}
   "oasis" {build & >= "0.4.7" & <= "0.4.11"} |
-"oasis-mirage" {build & >= "0.4.7"}
+"oasis-mirage" {build & <= "0.3.0a"}
   "ocamlbuild" {build & <= "0.15.0"}
   "ocamlfind" {build & <= "1.9.8"}
 ]

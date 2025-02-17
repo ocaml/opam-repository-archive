@@ -15,7 +15,7 @@ depends: [
   "ocaml-src" {build & <= "4.09.1-1"}
   ("solo5-bindings-hvt" {<= "0.6.9"} | "solo5-bindings-virtio" {<= "0.6.9"} |
  "solo5-bindings-muen" {<= "0.6.9"} |
- "solo5-bindings-genode")
+ "solo5-bindings-genode" {<= "0.6.4"})
   "ocaml" {>= "4.04.2" & < "4.08.0"}
 ]
 conflicts: [

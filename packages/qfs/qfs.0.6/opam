@@ -22,7 +22,7 @@ depends: [
   "ocaml" {>= "4.02.0" & < "4.09.0"}
   "base-bytes" {= "base"}
   "base-unix" {= "base"}
-  ("extlib" {<= "1.8.0"} | "extlib-compat")
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
   "lwt" {>= "2.4.6" & < "4.0.0"}
   "ocamlbuild" {build & <= "0.15.0"}
   "ocamlfind" {build & >= "1.5" & <= "1.9.8"}

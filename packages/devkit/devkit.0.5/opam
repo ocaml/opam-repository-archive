@@ -22,7 +22,7 @@ depends: [
   "ocamlfind" {build & <= "1.9.8"}
   "ocamlbuild" {build & <= "0.15.0"}
   "camlp4" {build & <= "5.3"}
-  ("extlib" {>= "1.7.0" & <= "1.8.0"} | "extlib-compat" {>= "1.7.0"})
+  ("extlib" {>= "1.7.0" & <= "1.8.0"} | "extlib-compat" {>= "1.7.0" & < "1.7.2"})
   "ounit" {<= "2.2.7"}
   "camlzip" {<= "1.13"}
   "libevent" {>= "0.8.0" & <= "0.9.0"}
