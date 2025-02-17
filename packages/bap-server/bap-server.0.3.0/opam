@@ -1,0 +1,57 @@
+opam-version: "2.0"
+maintainer: "Ivan Gotovchits <ivg@ieee.org>"
+authors: "BAP Team"
+homepage: "https://github.com/BinaryAnalysisPlatform/bap-server/"
+bug-reports: "https://github.com/BinaryAnalysisPlatform/bap-server/issues"
+dev-repo: "git+https://github.com/BinaryAnalysisPlatform/bap-server/"
+license: "MIT"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+
+install: [
+  ["ocaml" "setup.ml" "-install"]
+]
+
+remove: [
+  ["rm" "-f" "%{bin}%/bap-server"]
+]
+
+depends: [
+  "ocaml" {>= "4.04.1" & < "4.08.0"}
+  "core-lwt" {= "0.3.0"}
+  "regular" {<= "2.5.0"}
+  "bap" {= "1.6.0"}
+  "cohttp" {>= "1.0.0" & < "2.0.0"}
+  "cohttp-lwt" {>= "1.0.0" & < "2.0.0"}
+  "cohttp-lwt-unix" {>= "1.0.0" & < "2.0.0"}
+  "core_kernel" {>= "v0.11" & < "v0.12"}
+  "ezjsonm" {= "0.5.0"}
+  "lwt" {>= "4.0.0" & < "5.0.0"}
+  "lwt_log" {<= "1.1.2"}
+  "oasis" {build & >= "0.4.7" & <= "0.4.11"}
+  "re" {<= "1.12.0"}
+  "uri" {>= "2.0.0" & <= "4.4.0"}
+]
+conflicts: [
+    "tls" {< "0.7.1"}
+    "nocrypto" {< "0.5.3"}
+]
+
+synopsis: "BAP RPC server"
+description:
+  "Provides a small subset of BAP functionality via a JSON RPC server."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/BinaryAnalysisPlatform/bap-server/archive/v0.3.0.tar.gz"
+  checksum: [
+    "sha256=7853e0dc51c82f5e2d37008812cf58f89ababa4e8ce876a916928362cfdd9d32"
+    "md5=0fa424148d6802fdc151b76499833071"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

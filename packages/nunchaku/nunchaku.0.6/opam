@@ -1,0 +1,38 @@
+opam-version: "2.0"
+synopsis:
+  "A counter-example finder for higher-order logic, designed to be used from various proof assistants"
+maintainer: "simon.cruanes.2007@m4x.org"
+authors: ["Simon Cruanes" "Jasmin Blanchette"]
+homepage: "https://github.com/nunchaku-inria/nunchaku/"
+bug-reports: "https://github.com/nunchaku-inria/nunchaku/issues"
+depends: [
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "containers" {>= "1.0" & <= "3.15"}
+  "menhir" {build & <= "20181026"}
+  "sequence" {>= "1.0" & <= "1.1"}
+  "base-unix" {= "base"}
+  "base-threads" {= "base"}
+  "num" {<= "1.5-1"}
+  "qtest" {with-test & <= "2.11.2"}
+  "qcheck" {with-test & <= "0.23"}
+  "ounit" {with-test & <= "2.2.7"}
+  "odoc" {with-doc & <= "3.0.0~beta1"}
+  "ocaml" {>= "4.02.0"}
+]
+build: [
+  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["strip" "_build/default/src/main/nunchaku.exe"]
+  ["jbuilder" "build" "@doc" "-p" name] {with-doc}
+  ["jbuilder" "runtest" "-j" jobs "-p" name] {with-test}
+]
+dev-repo: "git+https://github.com/nunchaku-inria/nunchaku.git"
+url {
+  src: "https://github.com/nunchaku-inria/nunchaku/archive/0.6.tar.gz"
+  checksum: [
+    "md5=dbe85810b12052207e1b27038be72b8d"
+    "sha512=f7d009d2bda679a127fca8a6f0432b9188f4622427003aa3600913369af364a64b72547f2002884dff4c89922a6b7209a80947080cbdb2fec81b9f8e65a1bd3f"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

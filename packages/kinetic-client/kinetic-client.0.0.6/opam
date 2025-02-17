@@ -1,0 +1,37 @@
+opam-version: "2.0"
+maintainer: "Romain Slootmaekers <romain.slootmaekers@cloudfounders.com>"
+authors: "Romain Slootmaekers <romain.slootmaekers@cloudfounders.com>"
+homepage: "https://github.com/cloudfounders/kinetic-ocaml-client"
+bug-reports: "https://github.com/cloudfounders/kinetic-ocaml-client"
+dev-repo: "git+https://github.com/cloudfounders/kinetic-ocaml-client.git"
+license: "LGPL-2.0-or-later"
+build: [
+  [make]
+]
+install: [make "install-lib"]
+remove: ["ocamlfind" "remove" "kinetic-client"]
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "piqi" {build & >= "0.7.1" & <= "0.7.8"}
+  "lwt" {< "4.0.0"}
+  "cryptokit" {<= "1.20"}
+  "ocamlbuild" {build & <= "0.15.0"}
+]
+depexts: [
+  ["protobuf-compiler"] {os-family = "debian"}
+  ["protobuf"] {os = "macos" & os-distribution = "homebrew"}
+]
+synopsis: "Client for Seagate's kinetic drives."
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.6.tar.gz"
+  checksum: [
+    "sha256=cd63b69b833fbabf0c420250a0a08bd48a8cd38be3d3678b425962eca07e9ea1"
+    "md5=abe059263eb7b2fb1f716073b30739a0"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

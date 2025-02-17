@@ -1,0 +1,48 @@
+opam-version: "2.0"
+maintainer: "Sebastien Mondet <seb@mondet.org>"
+authors: [ "Sebastien Mondet <seb@mondet.org>" ]
+license: "Apache-2.0"
+homepage: "http://seb.mondet.org/software/trakeva/index.html"
+bug-reports: "https://github.com/smondet/trakeva/issues"
+dev-repo: "git+https://github.com/smondet/trakeva.git"
+build: [
+  ["./configure" 
+    "--%{sqlite3:enable}%-sqlite"
+    "--%{postgresql:enable}%-postgresql"
+    "--disable-test"
+    prefix]
+  ["ocaml" "setup.ml" "-build"]
+]
+install: ["ocaml" "setup.ml" "-install"]
+remove: [
+  ["ocamlfind" "remove" "trakeva"]
+  ["ocamlfind" "remove" "trakeva_sqlite"]
+  ["ocamlfind" "remove" "trakeva_postgresql"]
+  ["ocamlfind" "remove" "trakeva_of_uri"]
+]
+depends: [
+  "ocaml"
+  "base-threads" {= "base"}
+  "nonstd" {<= "0.0.3"}
+  "oasis" {build & >= "0.4" & <= "0.4.11"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "pvem_lwt_unix" {= "0.0.2"}
+  "uri" {<= "4.4.0"}
+]
+depopts: [
+  "postgresql"
+  "sqlite3"
+]
+synopsis:
+  "Transactions, Keys, and Values: Common interface to various databases"
+flags: light-uninstall
+url {
+  src: "https://github.com/smondet/trakeva/archive/trakeva.0.1.0.tar.gz"
+  checksum: [
+    "sha256=bb27e4b86165546d00f2484aec1f7f5da103ba424e8e7eaa5079e622267bd298"
+    "md5=919e8429eb79f5f9f49a2b87bf8060d1"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "lord@crocodile.org"
+authors: "Vadim Zaliva"
+homepage: "https://github.com/vzaliva/otetris"
+bug-reports: "https://github.com/vzaliva/otetris/issues"
+license: "MIT"
+dev-repo: "git+https://github.com/vzaliva/otetris.git"
+build: ["jbuilder" "build" "-p" name]
+depends: [
+  "ocaml"
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "batteries" {<= "3.9.0"}
+  "lwt" {>= "3.1.0" & < "4.0.0"}
+  "lambda-term" {< "2.0"}
+  "conf-sdl-image" {= "1"}
+  "conf-sdl-ttf" {= "1"}
+  "conf-sdl-gfx" {= "1"}
+  "conf-sdl-mixer" {= "1"}
+  "ocamlsdl" {= "0.9.1"}
+  "ocaml-migrate-parsetree" {< "2.0.0"}
+]
+synopsis: "Tetris game implemented in OCaml language."
+description: """
+Two versions - terminal and using graphics (using SDL) are provided.  They
+could be launched as 'ttetris' and 'gtetris'."""
+url {
+  src: "https://github.com/vzaliva/otetris/archive/v1.0.tar.gz"
+  checksum: [
+    "sha256=12a56d23f5baa43a79b3a1281e9002bb35e2b6b552dd2c98bca395bbca5e64ec"
+    "md5=3fcc605d3d4ffd72bfa195f9a987e757"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

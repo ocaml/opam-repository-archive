@@ -1,0 +1,45 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+authors: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/hardcaml"
+dev-repo: "git+https://github.com/ujamjar/hardcaml.git"
+bug-reports: "https://github.com/ujamjar/hardcaml/issues"
+build: [ 
+  ["ocaml" "pkg/pkg.ml" "build"
+    "--with-ctypes" "%{ctypes:installed}%"
+    "--with-ctypes-foreign" "%{ctypes-foreign:installed}%"
+    "--with-camlp4" "%{camlp4:installed}%"
+    "--with-js_of_ocaml" "true"
+    "--with-lwt" "%{lwt:installed}%"
+  ] 
+]
+depends: [
+  "ocaml" {>= "4.01.0" & < "4.08.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "camlp4" {<= "5.3"}
+  "js_of_ocaml" {<= "6.0.1"}
+  "js_of_ocaml-camlp4" {<= "3.1.0"}
+  "topkg" {build & <= "1.0.7"}
+  "base-bytes" {= "base"}
+  "base-unix" {= "base"}
+  "astring" {<= "0.8.5"}
+  "num" {<= "1.5-1"}
+]
+depopts: [ 
+  "ctypes"
+  "ctypes-foreign" 
+  "lwt"
+]
+
+synopsis: "Register Transfer Level hardware design in OCaml"
+url {
+  src: "https://github.com/ujamjar/hardcaml/archive/v1.2.0.tar.gz"
+  checksum: [
+    "sha256=f32f1626df956ea85c0bba349c34ba1b9cbe9e8ce95dd6ba0caed34d5ef3d05b"
+    "md5=5bcb9e6198ba1c6e834adc752121e880"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

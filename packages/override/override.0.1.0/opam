@@ -1,0 +1,24 @@
+opam-version: "2.0"
+synopsis: "PPX extension for overriding modules"
+description: "PPX extensions [%%override], [%%import], [%%include] and [%%rewrite] to import and change module interfaces."
+maintainer: "Thierry Martinez <Thierry.Martinez@inria.fr>"
+authors: "Thierry Martinez <Thierry.Martinez@inria.fr>"
+homepage: "https://gitlab.inria.fr/tmartine/override"
+bug-reports: "https://gitlab.inria.fr/tmartine/override/issues"
+license: "BSD-3-Clause"
+dev-repo: "git+https://gitlab.inria.fr/tmartine/override.git"
+build: [["dune" "build" "-p" name "-j" jobs]]
+depends: [
+  "dune" {<= "3.17.2"} "ppxlib" {< "0.9.0"} "stdcompat" {<= "19"} "ppx_tools" {<= "6.6"}
+  "ocaml" {>= "4.04.1" & < "4.08.0"}] # no ppxlib for OCaml <4.04.1
+url {
+  src:
+    "https://gitlab.inria.fr/tmartine/override/-/archive/0.1.0/override-0.1.0.tar.gz"
+  checksum: [
+    "sha256=b1360b353c8b4ff53b7ae7e4e56dcab410f8c4856a30326627670ab0d037e4fa"
+    "md5=b6193e9f86da0786fb2fcc935d3cca58"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

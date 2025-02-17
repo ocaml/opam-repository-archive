@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Andre Nathan <andrenth@gmail.com>"
+authors: "Andre Nathan <andrenth@gmail.com>"
+homepage: "https://github.com/andrenth/ocaml-mariadb"
+bug-reports: "https://github.com/andrenth/ocaml-mariadb/issues"
+license: "MIT"
+dev-repo: "git+https://github.com/andrenth/ocaml-mariadb.git"
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+install: [make "install"]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.08.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ctypes" {>= "0.7.0" & < "0.18.0"}
+  "ctypes-foreign" {>= "0.4.0" & <= "0.23.0"}
+  "conf-mariadb" {<= "2"}
+]
+available: arch != "arm32" & arch != "x86_32" # https://github.com/andrenth/ocaml-mariadb/pull/37
+synopsis: "OCaml bindings to MariaDB"
+description: """
+OCaml-MariaDB provides Ctypes-based bindings for MariaDB, including its
+nonblocking API."""
+url {
+  src: "https://github.com/andrenth/ocaml-mariadb/archive/0.9.0.tar.gz"
+  checksum: [
+    "sha256=5b45af346fa77c7b7a7f83fb7b23aa6fb6a06f9be8edfe59b1c947f00daff81c"
+    "md5=aeaf7f3a0f1b53fab043806e4bbcabb5"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

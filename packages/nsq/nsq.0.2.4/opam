@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Ryan Slade <ryanslade@gmail.com>"
+authors: "Ryan Slade <ryanslade@gmail.com>"
+homepage: "https://github.com/ryanslade/nsq-ocaml"
+bug-reports: "https://github.com/ryanslade/nsq-ocaml/issues"
+dev-repo: "git+https://github.com/ryanslade/nsq-ocaml.git"
+build: ["jbuilder" "build" "-p" name "-j" jobs]
+depends: [
+  "ocaml" {>= "4.04.0"}
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "containers" {<= "3.15"}
+  "lwt" {>= "3.2.0" & <"4.0.0"}
+  "ocplib-endian" {<= "1.2"}
+  "integers" {<= "0.7.0"}
+  "cohttp" {<= "6.0.0"}
+  "cohttp-lwt-unix" {<= "2.5.2-1"}
+  "yojson" {<= "2.2.2"}
+  "ocaml-migrate-parsetree" {< "2.0.0"}
+  "ppx_deriving_yojson" {<= "3.9.1"}
+  "logs" {<= "0.7.0"}
+]
+synopsis: "Client library for the NSQ messaging platform"
+description: """
+This package supports publishing and consuming message using the NSQ message platform.
+It uses Lwt for concurrency."""
+url {
+  src: "https://github.com/ryanslade/nsq-ocaml/archive/0.2.4.tar.gz"
+  checksum: [
+    "sha256=c23e0e63bdfb6ea95a82fb7f2666d2949842aad5ffffd07367bfcce05feacc48"
+    "md5=bf48408f6015193c55cb9456e49f1a84"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

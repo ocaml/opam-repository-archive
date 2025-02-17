@@ -1,0 +1,36 @@
+opam-version: "2.0"
+maintainer: "jonathan.ludlam@citrix.com"
+authors: ["xen-api@lists.xensource.com"]
+license: "ISC"
+homepage: "https://github.com/xapi-project/ezxenstore"
+bug-reports: "https://github.com/xapi-project/ezxenstore/issues"
+dev-repo: "git+https://github.com/xapi-project/ezxenstore.git"
+build: [[ "dune" "build" "-p" name "-j" jobs ]]
+depends: [
+  "ocaml"
+  "dune" {>= "1.4" & <= "3.17.2"}
+  "cmdliner" {with-test & >= "1.1.0" & <= "1.3.0"}
+  "logs" {<= "0.7.0"}
+  "uuidm" {<= "0.9.9"}
+  "xenctrl" {<= "0.9.31"}
+  "xenstore" {<= "2.3.0"}
+  "xenstore_transport" {<= "1.3.0"}
+]
+synopsis:
+  "An easy-to-use interface to xenstore"
+description: """
+An easy-to-use xenstore library with a simplified interface geared
+towards use within a daemon that maintains a single connection to
+xenstored."""
+url {
+  src:
+    "https://github.com/xapi-project/ezxenstore/releases/download/v0.4.3/ezxenstore-0.4.3.tbz"
+  checksum: [
+    "sha256=dfec80e8793dd289a3121be4c4fef6d4c5ee52b18df88bfed8f0ba1c53f527c1"
+    "sha512=21a7f98b6335e2ffc19cfed95bd9cd559539fd149b2fa992f00c90deaf3841907631eda4679acd2b20db9d407f7d38495373154026b65ff44c4b9769f1ecf859"
+  ]
+}
+x-commit-hash: "b7f5b9a37440bd32c57ec7708fdba58b2c5f7227"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]
