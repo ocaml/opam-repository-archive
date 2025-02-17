@@ -1,0 +1,56 @@
+opam-version: "2.0"
+maintainer: "taramana@microsoft.com"
+authors: "Nik Swamy <nswamy@microsoft.com>,Jonathan Protzenko <protz@microsoft.com>,Tahina Ramananandro <taramana@microsoft.com>"
+homepage: "http://fstar-lang.org"
+license: "Apache-2.0"
+depends: [
+  "ocaml" {>= "4.04.0" & < "4.08.0"}
+  "ocamlfind" {<= "1.9.8"}
+  "batteries" {<= "3.9.0"}
+  "zarith" {<= "1.14"}
+  "stdint" {<= "0.7.2"}
+  "yojson" {<= "2.2.2"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "fileutils" {<= "0.6.6"}
+  "menhir" {>= "20161115" & <= "20240715"}
+  "pprint" {<= "20230830"}
+  "ulex" {= "1.2"}
+  "ppx_deriving" {<= "6.0.3"}
+  "ppx_deriving_yojson" {<= "3.9.1"}
+  "process" {<= "0.2.1"}
+  "ocaml-migrate-parsetree" {< "2.0.0"}
+]
+depexts: ["coreutils"] {os = "macos" & os-distribution = "homebrew"}
+build: [
+  [make "PREFIX=%{prefix}%" "-C" "src/ocaml-output"]
+  [make "PREFIX=%{prefix}%" "-C" "ulib" "install-fstarlib"]
+  [make "PREFIX=%{prefix}%" "-C" "ulib" "install-fstar-tactics"]
+]
+install: [
+  [make "PREFIX=%{prefix}%" "-C" "src/ocaml-output" "install"]
+]
+remove: [
+  [ "rm" "-rf"
+      "%{prefix}%/lib/fstar"
+      "%{prefix}%/doc/fstar"
+      "%{prefix}%/etc/fstar"
+      "%{prefix}%/bin/fstar.exe"
+      "%{prefix}%/share/fstar" ]
+  [ "ocamlfind" "remove" "fstarlib" ]
+  [ "ocamlfind" "remove" "fstar-compiler-lib" ]
+  [ "ocamlfind" "remove" "fstar-tactics-lib" ]
+]
+dev-repo: "git+https://github.com/FStarLang/FStar"
+bug-reports: "https://github.com/FStarLang/FStar/issues"
+synopsis: "An ML-like language with a type system for program verification."
+flags: light-uninstall
+url {
+  src: "https://github.com/FStarLang/FStar/archive/v0.9.6.0.zip"
+  checksum: [
+    "sha256=a945cdd171e4ad83142b1a7f5230047e766fa81eaf8cbece642c9e80718e3098"
+    "md5=bad094857baf83b8f556ce1348d39ab4"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

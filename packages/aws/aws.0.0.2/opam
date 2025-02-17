@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "hugo.heuzard@gmail.com"
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix "--enable-ocsigen"]
+  ["ocaml" "setup.ml" "-build"]
+]
+remove: [["ocamlfind" "remove" "aws"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.8"}
+  "oasis" {<= "0.4.11"}
+  "cryptokit" {<= "1.20"}
+  "calendar" {>= "2.00" & <= "3.0.0"}
+  "lwt" {< "4.0.0"}
+  "xmlm" {<= "1.4.0"}
+  "yojson" {<= "2.2.2"}
+  "ocsigenserver" {<= "6.0.0"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "camlp4" {<= "5.3"}
+]
+install: ["ocaml" "setup.ml" "-install"]
+synopsis:
+  "Ocaml client library for Amazon services: S3, EC2, SQS, SDB, FPS, IAM, DynamoDb, SES."
+flags: light-uninstall
+url {
+  src: "https://github.com/besport/aws/tarball/0.0.2"
+  checksum: [
+    "sha256=c5ae9482b0ba25b007aad64551ce48152a7af299b4d92158fd3690060390b7f8"
+    "md5=a3330a566ea11650477e9bf9c7f5aaa6"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

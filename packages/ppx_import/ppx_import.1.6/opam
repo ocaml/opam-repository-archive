@@ -1,0 +1,36 @@
+description: "A syntax extension for importing declarations from interface files"
+synopsis: "A syntax extension for importing declarations from interface files"
+opam-version: "2.0"
+maintainer: "whitequark <whitequark@whitequark.org>"
+authors: [ "whitequark <whitequark@whitequark.org>" ]
+homepage: "https://github.com/ocaml-ppx/ppx_import"
+doc: "https://ocaml-ppx.github.io/ppx_import/"
+license: "MIT"
+bug-reports: "https://github.com/ocaml-ppx/ppx_import/issues"
+dev-repo: "git+https://github.com/ocaml-ppx/ppx_import.git"
+tags: [ "syntax" ]
+
+depends: [
+  "ocaml"                   {              >= "4.04.2" & < "4.08.0" }
+  "dune" {>= "1.2.0" & <= "3.17.2"}
+  "ppxlib"                  {              >= "0.3.1"  & < "0.9.0"}
+  "ppx_tools_versioned" {>= "5.2.1" & <= "5.4.0"}
+  "ocaml-migrate-parsetree" {              >= "1.1.0"   & < "2.0.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "ppx_deriving" {with-test & >= "4.2.1" & <= "6.0.3"}
+]
+
+build:      [["dune" "build"   "-p" name "-j" jobs]
+             ["dune" "runtest" "-p" name "-j" jobs] { with-test }
+            ]
+url {
+  src:
+    "https://github.com/ocaml-ppx/ppx_import/releases/download/v1.6/ppx_import-v1.6.tbz"
+  checksum: [
+    "sha256=eea801380c39bd323c61f2497b0a12e2ae056cb06b57f5ec13ef75e595316a86"
+    "md5=43b399b21e171625250c75b55725e703"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

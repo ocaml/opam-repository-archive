@@ -1,0 +1,50 @@
+opam-version: "2.0"
+maintainer: "flow@fb.com"
+homepage: "https://flow.org"
+dev-repo: "git+https://github.com/facebook/flow.git"
+bug-reports: "https://github.com/facebook/flow/issues"
+authors: ["Flow Team <flow@fb.com>"]
+doc: "https://flow.org/en/docs/getting-started/"
+license: "MIT"
+depends: [
+  "ocaml" {>= "4.05.0"}
+  "base-unix" {= "base"}
+  "base-bytes" {= "base"}
+  "dtoa" {>= "0.3.1" & <= "0.3.3"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "sedlex" {>= "1.99.4" & < "2.0"}
+  "lwt" {>= "3.3.0" & <= "5.9.0"}
+  "lwt_log" {= "1.0.0"}
+  "lwt_ppx" {>= "1.1.0" & <= "5.8.0"}
+  "ppx_deriving" {build & <= "6.0.3"}
+  "ppx_gen_rec" {build & <= "2.0.0"}
+  "wtf8" {<= "1.0.2"}
+]
+build: [ [ "env" "FLOW_RELEASE=1" make ] ]
+depexts: ["linux-headers"] {os-distribution = "alpine"}
+synopsis: "Flow is a static typechecker for JavaScript."
+description: """
+To find out more about Flow, check out <https://flow.org>.
+
+Flow adds static typing to JavaScript to improve developer productivity and
+code quality. In particular, static typing offers benefits like early error
+checking, which helps you avoid certain kinds of runtime failures, and code
+intelligence, which aids code maintenance, navigation, transformation, and
+optimization.
+
+We have designed Flow so developers can reap its benefits without losing the
+"feel" of coding in JavaScript. Flow adds minimal compile-time overhead, as it
+does all its work proactively in the background. And Flow does not force you to
+change how you code — it performs sophisticated program analysis to work with
+the idioms you already know and love."""
+url {
+  src: "https://github.com/facebook/flow/archive/v0.78.0.tar.gz"
+  checksum: [
+    "sha256=e135a0a3e4457dba7e19b239506e7c5b16d4e9046d0a43767c7be00b2ad2232d"
+    "md5=2b5ce09ab51a03e336e0536595a07611"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

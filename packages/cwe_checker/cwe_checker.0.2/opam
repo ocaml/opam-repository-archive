@@ -1,0 +1,44 @@
+opam-version: "2.0"
+synopsis: "BAP plugin collection to detect common bug classes"
+description: """
+cwe_checker is a suite of tools to detect common bug classes such as use of dangerous functions and simple integer overflows. These bug classes are formally known as Common Weakness Enumerations (CWEs).
+"""
+maintainer: "CWE_checker Team <nils-edvin.enkelmann@fkie.fraunhofer.de>"
+authors: [ "Thomas Barabosch <thomas.barabosch@fkie.fraunhofer.de>" "Nils-Edvin Enkelmann <nils-edvin.enkelmann@fkie.fraunhofer.de>" ]
+license: "LGPL-3.0-only"
+homepage: "https://github.com/fkie-cad/cwe_checker"
+bug-reports: "https://github.com/fkie-cad/cwe_checker/issues"
+dev-repo: "git+https://github.com/fkie-cad/cwe_checker"
+depends: [
+  "ocaml" {>= "4.05"}
+  "dune" {>= "1.6" & <= "3.17.2"}
+  "yojson" {>= "1.6.0" & <= "2.2.2"}
+  "bap" {>= "1.6" & <= "2.5.0"}
+  "alcotest" {>= "0.8.3" & <= "1.8.0"}
+  "core_kernel" {>= "v0.11" & < "v0.12"}
+  "ppx_jane" {>= "v0.11" & < "v0.12"}
+]
+depexts: [
+  "binutils"
+]
+conflicts: [
+  "fkie-cad-cwe-checker" {!= "0.2"}
+]
+build: [
+  [ "dune" "build" "--profile" "release" ]
+]
+install: [
+  [ make "uninstall" ]
+  [ make "clean" ]
+  [ make "all" ]
+]
+url {
+  src: "https://github.com/fkie-cad/cwe_checker/archive/v0.2.tar.gz"
+  checksum: [
+    "sha256=42dfdeb09d755c8a76fa64bb33c682ad6d82a46b38d2f6dd7e498dddcb91e193"
+    "md5=a63e66b89c3ec36da6a5006be0e70f90"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

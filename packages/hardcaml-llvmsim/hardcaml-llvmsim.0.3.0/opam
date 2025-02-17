@@ -1,0 +1,28 @@
+opam-version: "2.0"
+maintainer: "andy.ray@ujamjar.com"
+authors: "andy.ray@ujamjar.com"
+homepage: "https://github.com/ujamjar/hardcaml-llvmsim"
+dev-repo: "git+https://github.com/ujamjar/hardcaml-llvmsim.git"
+bug-reports: "https://github.com/ujamjar/hardcaml-llvmsim/issues"
+build: [ [ "ocaml" "pkg/pkg.ml" "build" ] ]
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.15.0"}
+  "topkg" {build & <= "1.0.7"}
+  "hardcaml" {>= "1.2.0" & < "2.0.0"}
+  "ctypes" {<= "0.23.0"}
+  "ctypes-foreign" {<= "0.23.0"}
+  "llvm" {>= "3.8" & < "15"}
+]
+synopsis: "HardCaml simulation backend using LLVM"
+url {
+  src: "https://github.com/ujamjar/hardcaml-llvmsim/archive/v0.3.0.tar.gz"
+  checksum: [
+    "sha256=fe4c0a858925a5dd2fd1a95f471cc7eb60d6111f0edb325e086a3524b891ea12"
+    "md5=a0edaf14196ab2cf0e78b5745874c084"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]

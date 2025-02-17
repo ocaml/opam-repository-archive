@@ -1,0 +1,47 @@
+opam-version: "2.0"
+maintainer: "sheets@alum.mit.edu"
+authors: [
+  "David Sheets"
+  "Thomas Gazagnaire"
+]
+homepage: "https://github.com/dsheets/ocaml-github-hooks"
+bug-reports: "https://github.com/dsheets/ocaml-github-hooks/issues"
+dev-repo: "git+https://github.com/dsheets/ocaml-github-hooks.git"
+doc: "https://dsheets.github.io/ocaml-github-hooks/"
+
+tags: [
+  "git"
+  "github"
+]
+
+build: [
+  ["jbuilder" "subst" "-p" name] {dev}
+  ["jbuilder" "build" "-p" name "-j" jobs]
+]
+
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "jbuilder" {>= "1.0+beta9" & <= "transition"}
+  "fmt" {<= "0.9.0"}
+  "logs" {<= "0.7.0"}
+  "lwt" {< "4.0.0"}
+  "cohttp-lwt" {>= "0.99.0" & <= "2.5.2-1"}
+  "conduit-lwt" {<"1.5.0"}
+  "github" {>= "3.0.1" & <= "4.4.1"}
+  "nocrypto" {<= "0.5.4-2"}
+  "cstruct" {<= "6.2.0"}
+  "hex" {<= "1.5.0"}
+]
+synopsis: "GitHub API web hook listener library"
+description: "Library to create GitHub webhook server."
+url {
+  src:
+    "https://github.com/dsheets/ocaml-github-hooks/releases/download/0.3.0/github-hooks-0.3.0.tbz"
+  checksum: [
+    "sha256=174995450523f262b76ed0891e18aeefe642b1d48c171c09ac69b594ea2de815"
+    "md5=6212a5283289f1dc44678d608ba88e5d"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "a17a63ad3c59d7e1f745e87d85b858a34e0cda25"
+x-reason-for-archiving: ["ocaml-version"]
