@@ -35,7 +35,7 @@ install: [make "install"]
 synopsis: "Formal proof management system"
 flags: light-uninstall
 url {
-  src: "https://github.com/coq/coq/archive/V8.6.1.tar.gz"
+  src: "https://github.com/coq/coq/releases/download/V8.6.1/coq-8.6.1.tar.gz"
   checksum: [
     "sha256=ba2e6cca27b064dee2c8d52926896baa7909d0a4ccc3599b4b2bc374ac2ed50a"
     "md5=17d6a99370458b752a45299b9197c29b"
