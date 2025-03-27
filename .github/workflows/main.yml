@@ -28,7 +28,9 @@ jobs:
           ocaml-compiler: 5
 
       - name: Install opam-ci-check
-        run: opam pin opam-ci-check https://github.com/ocurrent/opam-repo-ci.git#live
+        run: |
+          opam pin opam-ci-check-lint https://github.com/ocurrent/opam-repo-ci.git#live
+          opam pin opam-ci-check https://github.com/ocurrent/opam-repo-ci.git#live
 
       # Get the names of the packages being added to the archive, and feed these
       # to opam-ci-check
