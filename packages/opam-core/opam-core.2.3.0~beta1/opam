@@ -59,4 +59,4 @@ url {
 x-maintained: false
 x-opam-repository-commit-hash-at-time-of-archiving:
   "7f75be62677f178bfa500e81fd373e3ec1bbebd8"
-x-reason-for-archiving: ["unmaintained"]
+x-reason-for-archiving: ["maintenance-intent"]

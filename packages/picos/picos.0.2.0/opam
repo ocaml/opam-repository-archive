@@ -56,4 +56,4 @@ x-maintained: false
 x-commit-hash: "a53cd12c7e2515a4ebea9844fe6a45aed4d609ac"
 x-opam-repository-commit-hash-at-time-of-archiving:
   "7f75be62677f178bfa500e81fd373e3ec1bbebd8"
-x-reason-for-archiving: ["unmaintained"]
+x-reason-for-archiving: ["maintenance-intent"]
