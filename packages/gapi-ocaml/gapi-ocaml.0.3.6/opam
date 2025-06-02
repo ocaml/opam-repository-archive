@@ -12,7 +12,7 @@ build: [
 depends: [
   "ocaml" {>= "4.02.3"}
   "cryptokit" {<= "1.20"}
-  ("extlib" {<= "1.8.0"} | "extlib-compat")
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
   "jbuilder" {>= "1.0+beta7" & <= "transition"}
   "ocamlnet" {>= "4.1.4" & <= "4.1.9-2"}
   "ocurl" {<= "transition"}

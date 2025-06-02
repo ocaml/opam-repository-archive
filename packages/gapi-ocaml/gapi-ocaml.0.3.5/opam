@@ -20,7 +20,7 @@ remove: [
 depends: [
   "ocaml" {>= "4.02.3"}
   "cryptokit" {<= "1.20"}
-  ("extlib" {<= "1.8.0"} | "extlib-compat")
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
   "ocamlbuild" {build & <= "0.16.1"}
   "ocamlfind" {build & <= "1.9.8"}
   "ocamlnet" {>= "4.1.4" & != "4.1.9" & <= "4.1.9-2"}
