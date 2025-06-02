@@ -5,7 +5,7 @@ depends: [
   "ocaml" {= "4.00.1" & post}
   "lwt" {post & <= "5.9.1"}
   "ocamlfind" {post & <= "1.9.8"}
-  "xenbigarray" {post}
+  "xenbigarray" {post & = "1.0.0"}
 ]
 conflict-class: "ocaml-core-compiler"
 flags: compiler

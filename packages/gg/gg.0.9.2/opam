@@ -16,7 +16,7 @@ depends: [
   "ocamlbuild" {build & <= "0.16.1"}
   "topkg" {build & <= "1.0.8"}
   "base-bigarray" {= "base"}
-  "bench" {with-test}
+  "bench" {with-test & = "1.3"}
 ]
 build: [[
   "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"

@@ -12,12 +12,12 @@ build: [
 depends: [
   "ocaml" {>= "4.02.3"}
   "cryptokit" {<= "1.20"}
-  ("extlib" {<= "1.8.0"} | "extlib-compat")
+  ("extlib" {<= "1.8.0"} | "extlib-compat" {<= "1.7.2"})
   "dune" {<= "3.19.1"}
   "ocamlnet" {>= "4.1.4" & <= "4.1.9-2"}
   "ocurl" {<= "transition"}
   "ounit" {with-test & <= "2.2.7"}
-  "ppx_monadic" {with-test}
+  "ppx_monadic" {with-test & <= "2.3.0"}
   "xmlm" {<= "1.4.0"}
   "yojson" {< "2.0.0"}
 ]

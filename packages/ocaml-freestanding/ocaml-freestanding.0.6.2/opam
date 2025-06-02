@@ -16,7 +16,7 @@ depends: [
   ("solo5-bindings-hvt" {<= "0.6.9"} | "solo5-bindings-spt" {<= "0.6.9"} |
  "solo5-bindings-virtio" {<= "0.6.9"} |
  "solo5-bindings-muen" {<= "0.6.9"} |
- "solo5-bindings-genode" |
+ "solo5-bindings-genode" {<= "0.6.4"} |
  "solo5-bindings-xen" {<= "0.6.9"})
   "ocaml" {>= "4.08.0" & < "4.12.0"}
 ]
