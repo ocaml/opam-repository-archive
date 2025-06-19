@@ -1,0 +1,47 @@
+opam-version: "2.0"
+authors:      "Dave Scott <dave@recoil.org>"
+maintainer:   "dave@recoil.org"
+homepage:     "https://github.com/mirage/mirage-block-unix"
+dev-repo:     "git+https://github.com/mirage/mirage-block-unix.git"
+doc:          "https://mirage.github.io/mirage-block-unix/"
+bug-reports:  "https://github.com/mirage/mirage-block-unix/issues"
+tags:         "org:mirage"
+license:      "ISC"
+depends: [
+  "ocaml" {>= "4.06.0" & < "5.0"}
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "cstruct" {>= "6.0.0" & <= "6.2.0"}
+  "cstruct-lwt" {<= "6.2.0"}
+  "mirage-block" {>= "2.0.0" & <= "3.0.2"}
+  "uri" {>= "1.9.0" & <= "4.4.0"}
+  "logs" {<= "0.8.0"}
+  "lwt" {>= "5.4.2" & <= "5.9.1"}
+  "io-page" {>= "2.0.0" & < "3.0.0"}
+  "ounit2" {with-test & <= "2.2.7"}
+  "diet" {= "0.4"}
+  "fmt" {with-test & <= "0.10.0"}
+  "conf-linux-libc-dev" {os = "linux" & = "0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+synopsis: "MirageOS disk block driver for Unix"
+description: """
+Unix implementation of the Mirage `BLOCK_DEVICE` interface.
+
+This module provides raw I/O to files and block devices with as little
+caching as possible.
+"""
+url {
+  src:
+    "https://github.com/mirage/mirage-block-unix/releases/download/v2.13.0/mirage-block-unix-2.13.0.tbz"
+  checksum: [
+    "sha256=02850329301a41863c9055f832eb8968018944929f46b9501372ac599add800d"
+    "sha512=bc71cc512b57540e5bcb64de1215ff874ecec831c7372bbdeb99ef1cbd32579aa068cec2782528647d831358c05da5db6d0ae4880d1caedf239da6ab61a7bdb5"
+  ]
+}
+x-commit-hash: "59e1ece188a76e0fc3761d4a5bb4210a22fa3c64"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

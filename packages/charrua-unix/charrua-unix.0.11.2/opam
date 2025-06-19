@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "Christiano F. Haesbaert <haesbaert@haesbaert.org>"
+authors: "Christiano F. Haesbaert <haesbaert@haesbaert.org>"
+homepage: "https://github.com/haesbaert/charrua-unix"
+bug-reports: "https://github.com/haesbaert/charrua-unix/issues"
+license: "ISC"
+dev-repo: "git+https://github.com/haesbaert/charrua-unix.git"
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "ocaml" {>= "4.03.0"}
+  "lwt" {>= "3.0.0" & <= "5.9.1"}
+  "lwt_log" {<= "1.1.2"}
+  "charrua-core" {>= "0.11.0" & < "0.12.0"}
+  "cstruct-unix" {<= "6.2.0"}
+  "cmdliner" {<= "1.3.0"}
+  "rawlink" {>= "1.0" & <= "2.1"}
+  "tuntap" {>= "1.2.0" & < "2.0.0"}
+  "mtime" {>= "1.0.0" & <= "2.1.0"}
+]
+synopsis: "Unix DHCP daemon"
+description: """
+charrua-unix is an _ISC-licensed_ Unix DHCP daemon based on
+[charrua-core](http://www.github.com/mirage/charrua-core).
+"""
+url {
+  src:
+    "https://github.com/haesbaert/charrua-core/releases/download/v0.11.2/charrua-core-v0.11.2.tbz"
+  checksum: [
+    "sha256=58838986999b87d44a91514391ef92257f4f2eab53d41b2e10af9bb81f8ba09d"
+    "md5=c83ace0546e66ebe2b38e9685c7e9c55"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

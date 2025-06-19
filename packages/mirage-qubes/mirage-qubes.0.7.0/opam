@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer:   "talex@gmail.com"
+authors:      ["Thomas Leonard"]
+homepage:     "https://github.com/mirage/mirage-qubes"
+bug-reports:  "https://github.com/mirage/mirage-qubes/issues"
+dev-repo:     "git+https://github.com/mirage/mirage-qubes.git"
+doc:          "https://mirage.github.io/mirage-qubes"
+license:      "BSD-2-Clause"
+
+build: [
+  ["dune" "subst"] {dev}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "cstruct" {>= "1.9.0" & <= "6.2.0"}
+  "ppx_cstruct" {< "5.1.0"}
+  "vchan-xen" {<= "6.0.2"}
+  "xen-evtchn" {<= "2.1.0"}
+  "xen-gnt" {<= "4.0.2"}
+  "mirage-xen" {>= "3.0.0" & < "5.0.0"}
+  "lwt" {<= "5.9.1"}
+  "logs" {>= "0.5.0" & <= "0.8.0"}
+  "ocaml" {>= "4.03.0"}
+]
+synopsis: "Implementations of various Qubes protocols for MirageOS"
+url {
+  src:
+    "https://github.com/mirage/mirage-qubes/releases/download/v0.7.0/mirage-qubes-v0.7.0.tbz"
+  checksum: [
+    "sha256=0ce7224eff7b50e9d15912da3505531f750c9b9c42097a15d4d805e3b2e26425"
+    "md5=0d9ed83062cbe806672f7c7c3c01b356"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

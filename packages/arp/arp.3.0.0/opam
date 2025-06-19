@@ -1,0 +1,53 @@
+opam-version: "2.0"
+maintainer: "Hannes Mehnert <hannes@mehnert.org>"
+authors: ["Hannes Mehnert <hannes@mehnert.org>"]
+homepage: "https://github.com/mirage/arp"
+doc: "https://mirage.github.io/arp/"
+dev-repo: "git+https://github.com/mirage/arp.git"
+bug-reports: "https://github.com/mirage/arp/issues"
+license: "ISC"
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {>= "2.7.0" & <= "3.19.1"}
+  "cstruct" {>= "6.0.0" & <= "6.2.0"}
+  "ipaddr" {>= "4.0.0" & <= "5.6.0"}
+  "macaddr" {>= "4.0.0" & <= "5.6.0"}
+  "logs" {<= "0.8.0"}
+  "mirage-time" {>= "2.0.0" & <= "3.0.0"}
+  "lwt" {<= "5.9.1"}
+  "duration" {<= "0.2.1"}
+  "mirage-profile" {>= "0.9" & <= "0.9.1"}
+  "ethernet" {>= "3.0.0" & <= "3.2.0"}
+  "bisect_ppx" {dev & >= "2.5.0" & <= "2.8.3"}
+  "mirage-random" {with-test & >= "2.0.0" & < "4.0.0"}
+  "mirage-random-test" {= "0.1.0"}
+  "alcotest" {with-test & <= "1.9.0"}
+  "fmt" {with-test & >= "0.8.7" & <= "0.10.0"}
+  "mirage-vnetif" {with-test & >= "0.5.0" & <= "0.6.2"}
+  "mirage-clock-unix" {with-test & >= "3.0.0" & <= "4.2.0"}
+  "mirage-time-unix" {with-test & >= "2.0.0" & <= "3.0.0"}
+  "mirage-flow" {with-test & >= "2.0.1" & <= "5.0.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+synopsis: "Address Resolution Protocol purely in OCaml"
+description: """
+ARP is an implementation of the address resolution protocol (RFC826) purely in
+OCaml.  It handles IPv4 protocol addresses and Ethernet hardware addresses only.
+"""
+url {
+  src:
+    "https://github.com/mirage/arp/releases/download/v3.0.0/arp-v3.0.0.tbz"
+  checksum: [
+    "sha256=f66bc9b03fa5ff66459ce63be0a223573d85160112b8c559e683716fd24674f4"
+    "sha512=52eb9fdb00729a5b6c1d7dd9d14fca213aecddc6e2893c0e670dea3b31576e6765061f557b6521a065ed15a931f4cbbf432b4db8fe53df40dc801695acd242d4"
+  ]
+}
+x-commit-hash: "7222488873ae6d54233480322cb2f92a8df312ba"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

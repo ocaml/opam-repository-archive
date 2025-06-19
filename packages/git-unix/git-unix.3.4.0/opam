@@ -1,0 +1,73 @@
+opam-version: "2.0"
+synopsis: "Virtual package to install and configure ocaml-git's Unix backend"
+maintainer: ["thomas@gazagnaire.org" "romain.calascibetta@gmail.com"]
+authors: "Thomas Gazagnaire"
+license: "ISC"
+homepage: "https://github.com/mirage/ocaml-git"
+doc: "https://mirage.github.io/ocaml-git/"
+bug-reports: "https://github.com/mirage/ocaml-git/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.8.0" & <= "3.19.1"}
+  "mmap" {>= "1.1.0" & <= "1.2.0"}
+  "git" {= version}
+  "rresult" {<= "0.7.0"}
+  "result" {= "1.5"}
+  "bigstringaf" {<= "0.10.0"}
+  "bigarray-compat" {<= "1.1.0"}
+  "fmt" {>= "0.8.7" & <= "0.10.0"}
+  "bos" {<= "0.2.1"}
+  "fpath" {<= "0.7.3"}
+  "uri" {with-test & <= "4.4.0"}
+  "digestif" {>= "0.8.1" & <= "1.3.0"}
+  "logs" {<= "0.8.0"}
+  "lwt" {<= "5.9.1"}
+  "base-unix" {= "base"}
+  "alcotest" {with-test & >= "1.1.0" & <= "1.9.0"}
+  "alcotest-lwt" {with-test & >= "1.1.0" & <= "1.9.0"}
+  "base64" {with-test & >= "3.0.0" & <= "3.5.1"}
+  "git-cohttp-unix" {= version}
+  "mirage-clock" {>= "4.0.0" & <= "4.2.0"}
+  "mirage-clock-unix" {>= "4.0.0" & <= "4.2.0"}
+  "astring" {= "0.8.5"}
+  "awa" {<= "0.5.2"}
+  "cmdliner" {>= "1.0.4" & < "1.1.0"}
+  "decompress" {>= "1.4.0" & <= "1.5.3"}
+  "domain-name" {>= "0.3.0" & <= "0.4.1"}
+  "ipaddr" {>= "5.0.1" & <= "5.6.0"}
+  "mtime" {>= "1.2.0" & < "2.0.0"}
+  "ocamlfind" {>= "1.8.1" & <= "1.9.8"}
+  "tcpip" {>= "6.0.0" & <= "9.0.1"}
+  "cstruct" {>= "6.0.0" & <= "6.2.0"}
+  "awa-mirage" {< "0.1.0"}
+  "mirage-flow" {>= "2.0.1" & <= "5.0.0"}
+  "ke" {>= "0.4" & with-test & <= "0.6"}
+  "mirage-crypto-rng" {with-test & >= "0.8.8" & < "1.0.0"}
+  "ptime" {<= "1.2.0"}
+  "mimic" {<= "0.0.9"}
+  "ca-certs-nss" {>= "3.60" & <= "3.108-1"}
+  "tls" {>= "0.12.8" & < "0.14.0"}
+  "tls-mirage" {>= "0.12.8" & < "0.14.0"}
+  "cohttp-lwt-unix" {with-test & <= "2.5.2-1"}
+]
+x-ci-accept-failures: [
+  "centos-7" # git is too old and fails during tests
+  "oraclelinux-7" # git is too old and fails during tests
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs "--no-buffer"] {with-test}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-git.git"
+x-commit-hash: "5eb3ef686b101102b40967ef45e76f44cd55e149"
+url {
+  src:
+    "https://github.com/mirage/ocaml-git/releases/download/3.4.0/git-3.4.0.tbz"
+  checksum: [
+    "sha256=6eef1240c7c85a8e495b82ef863c509ad41d75e0c45cf73c34ed1bdafd03413f"
+    "sha512=5fc02e4ea5fccf2386ddfcf5a15f1c11f49c982ffce0296bd5c00ba3f6510de3515e1ac80add7fe20cc8e3dc6516bbf233156ab9dd70eab7a12f7097ae49da27"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

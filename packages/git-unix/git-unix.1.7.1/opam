@@ -1,0 +1,20 @@
+opam-version: "2.0"
+maintainer:   "thomas@gazagnaire.org"
+authors:      "Thomas Gazagnaire"
+license:      "ISC"
+homepage:     "https://github.com/mirage/ocaml-git"
+bug-reports:  "https://github.com/mirage/ocaml-git/issues"
+dev-repo: "git+https://github.com/mirage/ocaml-git.git"
+depends: [
+  "ocaml"
+  "git" {>= "1.7.1" & < "1.10.0"}
+  "conduit" {<= "8.0.0"}
+  "cohttp" {<= "6.1.1"}
+  "camlzip" {<= "1.13"}
+  "nocrypto" {<= "0.5.4-2"}
+  "base-unix" {= "base"}
+]
+synopsis: "Virtual package to install and configure ocaml-git's Unix backend"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

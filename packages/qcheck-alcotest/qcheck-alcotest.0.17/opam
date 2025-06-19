@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "simon.cruanes.2007@m4x.org"
+homepage: "https://github.com/c-cube/qcheck/"
+license: "BSD-2-Clause"
+synopsis: "Alcotest backend for qcheck"
+doc: ["http://c-cube.github.io/qcheck/"]
+tags: [
+  "test"
+  "quickcheck"
+  "qcheck"
+  "alcotest"
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "build" "@doc" "-p" name "-j" jobs] {with-doc}
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "dune" {<= "3.19.1"}
+  "base-bytes" {<= "base"}
+  "base-unix" {= "base"}
+  "qcheck-core" { = version }
+  "alcotest" {>= "0.8.0" & <= "1.9.0"}
+  "odoc" {with-doc & <= "3.0.0"}
+  "ocaml" {>= "4.03.0"}
+]
+dev-repo: "git+https://github.com/c-cube/qcheck.git"
+bug-reports: "https://github.com/c-cube/qcheck/issues"
+authors: "Simon Cruanes <simon.cruanes.2007@m4x.org>"
+url {
+  src: "https://github.com/c-cube/qcheck/archive/0.17.tar.gz"
+  checksum: [
+    "md5=605165edc328ae144341a2d73c7fc5fc"
+    "sha512=647c1beefba8fce32daac91bd42976ddf2926cff2e78e43ac3afb6e59ec660f0f6e684f5954d6b1fab6d11328690b236e40c30980a22a999c4b826ae2a0dcaea"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

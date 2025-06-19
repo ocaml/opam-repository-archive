@@ -1,0 +1,56 @@
+opam-version: "2.0"
+synopsis: "A single-consumer single-producer queue on a block device"
+description: """
+This is a simple queue containing variable-length items stored on a
+          disk, in the style of Xen shared-memory-ring."""
+maintainer: "jonathan.ludlam@citrix.com"
+authors: ["David Scott" "Jon Ludlam" "Si Beaumont" "Pau Ruiz Safont"]
+license: "ISC"
+tags: ["org:mirage" "org:xapi-project"]
+homepage: "https://github.com/mirage/shared-block-ring"
+bug-reports: "https://github.com/mirage/shared-block-ring/issues/"
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "bisect_ppx" {dev & >= "2.5.0" & <= "2.8.3"}
+  "cmdliner" {<= "1.3.0"}
+  "cstruct" {>= "3.0.0" & <= "6.2.0"}
+  "dune" {>= "2.7.0" & <= "3.19.1"}
+  "duration" {<= "0.2.1"}
+  "io-page" {<= "3.0.0"}
+  "io-page-unix" {>= "2.0.0" & <= "2.3.0"}
+  "logs" {<= "0.8.0"}
+  "lwt" {<= "5.9.1"}
+  "lwt_log" {<= "1.1.2"}
+  "mirage-block" {>= "2.0.1" & <= "3.0.2"}
+  "mirage-block-unix" {< "2.13.0"}
+  "mirage-clock" {>= "3.0.0" & <= "4.2.0"}
+  "mirage-clock-unix" {with-test & <= "4.2.0"}
+  "mirage-time" {>= "2.0.1" & <= "3.0.0"}
+  "mirage-time-unix" {<= "3.0.0"}
+  "ounit2" {with-test & <= "2.2.7"}
+  "ppx_cstruct" {<= "6.2.0"}
+  "ppx_sexp_conv" {>= "v0.12.0" & <= "v0.17.1"}
+  "result" {= "1.5"}
+  "rresult" {<= "0.7.0"}
+  "sexplib" {<= "v0.17.0"}
+  "sexplib0" {<= "v0.17.0"}
+  "conf-libev" {with-test & <= "4-12"} # to help tests not blow up select (used by lwt)
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+dev-repo: "git+https://github.com/mirage/shared-block-ring.git"
+x-commit-hash: "1c22e3abdc45514cad188d7984dc0d985fb21f25"
+url {
+  src:
+    "https://github.com/mirage/shared-block-ring/releases/download/3.0.0/shared-block-ring-3.0.0.tbz"
+  checksum: [
+    "sha256=e8fc63805afee9d3a7f954edcea9faff8b990ae3f616ebd6ef87fd42624873ec"
+    "sha512=3d2d75c9b1cad3031de9ba6aa7e1ba2fa5e0040f25bbdb95fd5192ddf3fc1d6659e806dcc53e0eb7c78ef64dec6ceca63686e8d5c79c3a5379e66d977973de19"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

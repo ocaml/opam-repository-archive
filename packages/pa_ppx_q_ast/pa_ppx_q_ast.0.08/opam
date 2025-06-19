@@ -1,0 +1,46 @@
+synopsis: "A PPX Rewriter for automating generation of data-conversion code for use with Camlp5's Q_ast"
+description:
+"""
+This is a PPX Rewriter for generating data-conversion code that is otherwise
+hand-written, when using Camlp5's Q_ast.
+
+"""
+opam-version: "2.0"
+maintainer: "Chet Murthy <chetsky@gmail.com>"
+authors: ["Chet Murthy"]
+homepage: "https://github.com/camlp5/pa_ppx_q_ast"
+license: "BSD-3-Clause"
+bug-reports: "https://github.com/camlp5/pa_ppx_q_ast/issues"
+dev-repo: "git+https://github.com/camlp5/pa_ppx_q_ast.git"
+doc: "https://github.com/camlp5/pa_ppx_q_ast/doc"
+
+depends: [
+  "ocaml"       { >= "4.10.0" & < "4.14.0" }
+  "conf-diffutils" {with-test & <= "2"}
+  "conf-perl" {<= "2"}
+  "conf-perl-ipc-system-simple" {<= "3"}
+  "conf-perl-string-shellquote" {<= "3"}
+  "camlp5" {>= "8.00" & <= "8.03.05"}
+  "pa_ppx"      { = "0.08" }
+  "pa_ppx_migrate" {with-test & >= "0.08" & <= "0.13"}
+  "pa_ppx_hashcons" {>= "0.08" & <= "0.11"}
+  "pa_ppx_unique" {>= "0.08" & <= "0.11"}
+  "not-ocamlfind" {>= "0.01" & <= "0.14"}
+  "pcre" {>= "7.4.3" & <= "8.0.3"}
+  "ounit" {with-test & <= "2.2.7"}
+  "bos" {>= "0.2.0" & <= "0.2.1"}
+]
+build: [
+  [make "sys"]
+  [make "test"] {with-test}
+]
+install: [make "install"]
+url {
+  src: "https://github.com/camlp5/pa_ppx_q_ast/archive/0.08.tar.gz"
+  checksum: [
+    "sha512=80942d8287a9d48a84fbe1d3903d56d5d85fba3b9dcea102020dfa322de8937760e147572b9121c4d16be9693db7cecf3981c2e82a84cd841815c484fe40c399"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

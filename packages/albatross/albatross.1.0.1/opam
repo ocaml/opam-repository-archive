@@ -1,0 +1,65 @@
+opam-version: "2.0"
+maintainer: "Hannes Mehnert <hannes@mehnert.org>"
+authors: ["Hannes Mehnert <hannes@mehnert.org>"]
+homepage: "https://github.com/robur-coop/albatross"
+dev-repo: "git+https://github.com/robur-coop/albatross.git"
+bug-reports: "https://github.com/robur-coop/albatross/issues"
+license: "ISC"
+
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {<= "3.19.1"}
+  "dune-configurator" {<= "3.19.1"}
+  "conf-pkg-config" {build & <= "4"}
+  "conf-libnl3" {os = "linux" & = "1"}
+  "lwt" {>= "3.0.0" & <= "5.9.1"}
+  "ipaddr" {>= "4.0.0" & <= "5.6.0"}
+  "cstruct" {< "6.1.0"}
+  "logs" {<= "0.8.0"}
+  "rresult" {<= "0.7.0"}
+  "bos" {<= "0.2.1"}
+  "ptime" {<= "1.2.0"}
+  "cmdliner" {>= "1.0.0" & < "1.1.0"}
+  "fmt" {<= "0.10.0"}
+  "astring" {<= "0.8.5"}
+  "jsonm" {<= "1.0.2"}
+  "x509" {>= "0.11.0" & < "0.12.0"}
+  "tls" {>= "0.12.2" & < "0.16.0"}
+  "mirage-crypto-pk" {< "1.0.0"}
+  "mirage-crypto-rng" {>= "0.8.0" & < "1.0.0"}
+  "asn1-combinators" {>= "0.2.0" & < "0.3.0" & <= "0.2.0-1"}
+  "duration" {<= "0.2.1"}
+  "decompress" {>= "0.9.0" & < "1.0.0"}
+  "checkseum" {<= "0.5.2"}
+  "metrics" {>= "0.2.0" & < "0.5.0"}
+  "metrics-lwt" {>= "0.2.0" & <= "0.5.0"}
+  "metrics-influx" {>= "0.2.0" & <= "0.5.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depexts: ["linux-headers"] {os-distribution = "alpine"}
+synopsis: "Albatross - orchestrate and manage MirageOS unikernels with Solo5"
+description: """
+The goal of albatross is robust deployment of [MirageOS](https://mirage.io)
+unikernels using [Solo5](https://github.com/solo5/solo5). Resources managed
+by albatross are network interfaces of kind `tap`, which are connected to
+already existing bridges, block devices, memory, and CPU. Each unikernel is
+pinned (`cpuset` / `taskset`) to a specific core.
+"""
+available: [
+  arch != "ppc64" & arch != "x86_32" & arch != "arm32"
+]
+x-commit-hash: "bd04fc05cd0deef4129b134a6726926c6cc6a46a"
+url {
+  src:
+    "https://github.com/robur-coop/albatross/releases/download/v1.0.1/albatross-v1.0.1.tbz"
+  checksum: [
+    "sha256=a6ed4443ef37d8584a2ab5788efcdb25878bdcf08b3841f4be8940b5b0c42a91"
+    "sha512=162942ee6d543976051a2578ab5ff220dd59adafd1bfa0247e0214d9de29b8d7c4571f8879e8ca81a2f6bb2b58f247787b4164c5e3a93f7dcb75d9b9b5d14e85"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

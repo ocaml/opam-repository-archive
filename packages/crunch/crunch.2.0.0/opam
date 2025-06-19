@@ -1,0 +1,40 @@
+opam-version: "2.0"
+maintainer:   "anil@recoil.org"
+authors:      ["Anil Madhavapeddy" "Thomas Gazagnaire"]
+homepage:     "https://github.com/mirage/ocaml-crunch"
+bug-reports:  "https://github.com/mirage/ocaml-crunch/issues"
+license:      "ISC"
+dev-repo: "git+https://github.com/mirage/ocaml-crunch.git"
+tags:         ["org:mirage" "org:xapi-project"]
+depends: [
+  "ocaml" {>= "4.03.0"}
+  "cmdliner" {<= "1.3.0"}
+  "ocamlfind" {build & with-test & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.16.1"}
+  "topkg" {build & <= "1.0.8"}
+  "bos" {with-test & <= "0.2.1"}
+  "cstruct" {with-test & <= "6.2.0"}
+  "lwt" {with-test & <= "5.9.1"}
+  "mirage-kv-lwt" {with-test & >= "1.0.0" & < "2.0.0"}
+  "io-page" {<"2.0.0" & with-test}
+  "io-page" {> "1.4.0" & <= "3.0.0"}
+  "rresult" {with-test & <= "0.7.0"}
+]
+build: [
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "false"]
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "true"]
+    {with-test}
+  ["ocaml" "pkg/pkg.ml" "test"] {with-test}
+]
+synopsis: "Convert a filesystem into a static OCaml module"
+url {
+  src:
+    "https://github.com/mirage/ocaml-crunch/releases/download/2.0.0/crunch-2.0.0.tbz"
+  checksum: [
+    "sha256=2ffbe9fa07858398818ad54d5223083c625397f58c6bdcfa7f1cf89cbd32f44b"
+    "md5=9764a599cbcb4ae4bce758f10d70cb8e"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

@@ -1,0 +1,42 @@
+opam-version: "2.0"
+maintainer: "dave@recoil.org"
+authors: ["Anil Madhavapeddy" "David Scott"]
+license: "ISC"
+tags: ["org:mirage" "org:xapi-project"]
+homepage: "https://github.com/mirage/shared-memory-ring"
+doc: "https://mirage.github.io/shared-memory-ring/"
+bug-reports: "https://github.com/mirage/shared-memory-ring/issues"
+depends: [
+  "ocaml" {>= "4.02.0"}
+  "dune" {<= "3.19.1"}
+  "cstruct" {>= "2.4.1" & <= "6.2.0"}
+  "ppx_cstruct" {<= "6.2.0"}
+  "shared-memory-ring" {<= "3.2.1"}
+  "lwt" {<= "5.9.1"}
+  "lwt-dllist" {<= "1.1.0"}
+  "mirage-profile" {<= "0.9.1"}
+  "ounit" {with-test & <= "2.2.7"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+dev-repo: "git+https://github.com/mirage/shared-memory-ring.git"
+synopsis: "Shared memory rings for RPC and bytestream communications using Lwt"
+description: """
+This package contains a set of libraries for creating shared memory
+producer/consumer rings, using the Lwt concurrency library to handle blocking.
+The rings follow the Xen ABI and may be used to create or implement Xen virtual
+devices.
+"""
+url {
+  src:
+    "https://github.com/mirage/shared-memory-ring/releases/download/v3.1.0/shared-memory-ring-v3.1.0.tbz"
+  checksum: [
+    "sha256=a10bc183fa13bcb676cfe50cc2c6bc5ad6d9f280433f06e2f2dbb53ce0056518"
+    "md5=dba58a2c1da945028df10d34332ca7fe"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

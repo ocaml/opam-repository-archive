@@ -1,0 +1,42 @@
+opam-version: "2.0"
+authors:      "Dave Scott <dave@recoil.org>"
+maintainer:   "dave@recoil.org"
+homepage:     "https://github.com/mirage/mirage-block-unix"
+dev-repo: "git+https://github.com/mirage/mirage-block-unix.git"
+bug-reports:  "https://github.com/mirage/mirage-block-unix/issues"
+
+
+build: [
+  ["jbuilder" "build" "-p" name]
+  ["jbuilder" "runtest"] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.02.3" & < "5.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "jbuilder" {>= "1.0+beta7" & <= "transition"}
+  "cstruct" {>= "1.3.0" & < "3.4.0"}
+  "lwt" {>= "2.6.0" & <= "5.9.1"}
+  "mirage-block-lwt" {>= "1.0.0" & = "1.2.0"}
+  "rresult" {<= "0.7.0"}
+  "result" {= "1.5"}
+  "io-page" {>= "1.0.0" & <= "3.0.0"}
+  "io-page" {<"2.0.0" & with-test}
+  "uri" {<= "4.4.0"}
+  "logs" {<= "0.8.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "fmt" {with-test & <= "0.10.0"}
+  "cstruct-lwt" {<= "6.2.0"}
+]
+depexts: ["linux-headers"] {os-distribution = "alpine"}
+tags: "org:mirage"
+synopsis: "MirageOS disk block driver for Unix"
+url {
+  src: "https://github.com/mirage/mirage-block-unix/archive/v2.8.2.tar.gz"
+  checksum: [
+    "sha256=ccc2556525abbb310438c8693bccaad1b41ff9125d18769720a485c8576d2ccd"
+    "md5=58dc51096e65da48ec87617be3110467"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

@@ -1,0 +1,42 @@
+opam-version: "2.0"
+synopsis: "A CoHTTP client with its HTTP/AF implementation"
+description: "A compatible layer betweem CoHTTP and HTTP/AF."
+maintainer: "Romain Calascibetta <romain.calascibetta@gmail.com>"
+authors: "Romain Calascibetta <romain.calascibetta@gmail.com>"
+license: "MIT"
+homepage: "https://github.com/dinosaure/paf-le-chien"
+doc: "https://dinosaure.github.io/paf-le-chien/"
+bug-reports: "https://github.com/dinosaure/paf-le-chien/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0.0" & <= "3.19.1"}
+  "paf" {= version}
+  "cohttp-lwt" {< "6.0.0~" & <= "2.5.2-1"}
+  "domain-name" {<= "0.4.1"}
+  "httpaf" {<= "0.7.1"}
+  "ipaddr" {<= "5.6.0"}
+  "alcotest-lwt" {with-test & >= "1.1.0" & <= "1.9.0"}
+  "fmt" {with-test & <= "0.10.0"}
+  "logs" {with-test & <= "0.8.0"}
+  "mirage-crypto-rng" {with-test & >= "0.11.0" & < "1.0.0"}
+  "mirage-time-unix" {with-test & <= "3.0.0"}
+  "tcpip" {with-test & >= "6.0.0" & <= "9.0.1"}
+  "uri" {with-test & <= "4.4.0"}
+  "lwt" {with-test & <= "5.9.1"}
+  "astring" {with-test & <= "0.8.5"}
+]
+build: ["dune" "build" "-p" name "-j" jobs]
+run-test: ["dune" "runtest" "-p" name "-j" jobs] {os != "macos"}
+dev-repo: "git+https://github.com/dinosaure/paf-le-chien.git"
+url {
+  src:
+    "https://github.com/dinosaure/paf-le-chien/releases/download/0.5.0/paf-0.5.0.tbz"
+  checksum: [
+    "sha256=a1646fc1bf0386d17796d59a67a9a82a681a74552782bba8d54388686355fe83"
+    "sha512=616f5b7c7090b5f9bba70969fce56ffc909ec31a6a9045d8093e4494e76607b4ebb957cc1b2318364d50f30e5414d058af46a23bf8ea0a0ee421dc94378b9c31"
+  ]
+}
+x-commit-hash: "bb905e992b036b9571955b177049b1ea48f4b709"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

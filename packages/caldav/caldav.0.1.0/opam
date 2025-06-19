@@ -1,0 +1,74 @@
+opam-version: "2.0"
+maintainer: [
+  "Stefanie Schirmer @linse"
+  "Hannes Mehnert"
+]
+authors: [
+  "Stefanie Schirmer @linse"
+  "Hannes Mehnert"
+]
+homepage: "https://github.com/robur-coop/caldav"
+bug-reports: "https://github.com/robur-coop/caldav/issues"
+dev-repo: "git+https://github.com/robur-coop/caldav.git"
+tags: ["org:mirage" "org:robur"]
+doc: "https://robur-coop.github.io/caldav/"
+license: "ISC"
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+
+depends: [
+  "ocaml" {>= "4.07.0"}
+  "dune" {>= "1.3" & <= "3.19.1"}
+  "alcotest" {with-test & >= "0.8.5" & <= "1.9.0"}
+  "ounit" {with-test & >= "2.0.0" & <= "2.2.7"}
+  "mirage-random-test" {with-test & <= "0.1.0"}
+  "tcpip" {with-test & >= "3.7.0" & <= "9.0.1"}
+  "mirage-clock-unix" {with-test & >= "2.0.0" & <= "4.2.0"}
+  "mirage-kv-mem" {with-test & >= "2.0.0" & < "4.0.0"}
+  "mirage-kv" {>= "3.0.0" & < "6.0.0"}
+  "mirage-clock" {>= "2.0.0" & <= "4.2.0"}
+  "mirage-random" {>= "2.0.0" & < "4.0.0"}
+  "ppx_deriving" {>= "4.3" & <= "6.1.0"}
+  "lwt" {>= "4.0" & <= "5.9.1"}
+  "ptime" {>= "0.8.5" & <= "1.2.0"}
+  "cohttp" {>= "2.0.0" & <= "6.1.1"}
+  "cohttp-lwt" {>= "2.0.0" & <= "2.5.2-1"}
+  "cohttp-lwt-unix" {with-test & >= "2.0.0" & < "6.0.0~~" & <= "2.5.2-1"}
+  "mirage-crypto" {< "1.0.0"}
+  "mirage-crypto-rng" {< "1.0.0"}
+  "base64" {>= "3.0.0" & <= "3.5.1"}
+  "xmlm" {>= "1.3.0" & <= "1.4.0"}
+  "tyxml" {>= "4.3.0" & <= "4.6.0"}
+  "icalendar" {>= "0.1.2" & < "0.1.5"}
+  "rresult" {>= "0.6.0" & <= "0.7.0"}
+  "sexplib" {>= "v0.12.0" & <= "v0.17.0"}
+  "ppx_sexp_conv" {>= "v0.12.0" & <= "v0.17.1"}
+  "logs" {>= "0.6.3" & <= "0.8.0"}
+  "hex" {>= "1.4.0" & <= "1.5.0"}
+  "metrics" {<= "0.5.0"}
+  #from webmachine
+  "dispatch" {= "0.5.0"}
+  "re" {>= "1.7.2" & <= "1.12.0"}
+  "uri" {>= "4.0.0" & <= "4.4.0"}
+]
+synopsis: "A CalDAV server"
+description: """
+A CalDAV server (RFC 4791). Supports everything from the robur-coop/icalendar
+library. Also includes a partial WebDAV implementation.
+"""
+x-commit-hash: "768937e67d337cd91ad85354134a38f4314ccf3a"
+url {
+  src:
+    "https://github.com/robur-coop/caldav/releases/download/v0.1.0/caldav-v0.1.0.tbz"
+  checksum: [
+    "sha256=d931305bd46acf7e4f72dca2bb2d1c17da064889e79aad004581d7ce136ed834"
+    "sha512=13adab15a5da923b22abad4cf31f974511dbb83f6c34e9c1aa032e678cc00db212218ca8b58b884caea04d0035027da007480895b3660709e9f3a7043e520fd9"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]
