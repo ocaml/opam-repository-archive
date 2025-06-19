@@ -1,0 +1,48 @@
+opam-version: "2.0"
+synopsis: "HTTP/AF and MirageOS"
+description: "A compatible layer for HTTP/AF and MirageOS."
+maintainer: "Romain Calascibetta <romain.calascibetta@gmail.com>"
+authors: "Romain Calascibetta <romain.calascibetta@gmail.com>"
+license: "MIT"
+homepage: "https://github.com/dinosaure/paf-le-chien"
+doc: "https://dinosaure.github.io/paf-le-chien/"
+bug-reports: "https://github.com/dinosaure/paf-le-chien/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0.0" & <= "3.19.1"}
+  "tcpip" {>= "7.0.0" & <= "9.0.1"}
+  "mirage-time" {>= "2.0.0" & <= "3.0.0"}
+  "tls-mirage" {>= "0.15.0" & < "1.0.0"}
+  "mimic" {>= "0.0.5" & <= "0.0.9"}
+  "ke" {>= "0.4" & <= "0.6"}
+  "lwt" {with-test & <= "5.9.1"}
+  "base-unix" {with-test & = "base"}
+  "logs" {with-test & <= "0.8.0"}
+  "fmt" {with-test & <= "0.10.0"}
+  "mirage-crypto-rng" {with-test & < "0.11.0"}
+  "mirage-time-unix" {with-test & <= "3.0.0"}
+  "ptime" {with-test & <= "1.2.0"}
+  "uri" {with-test & <= "4.4.0"}
+  "alcotest-lwt" {with-test & <= "1.9.0"}
+  "bigstringaf" {>= "0.7.0" & <= "0.10.0"}
+  "httpaf" {= "0.7.1"}
+  "h2" {>= "0.7.0" & < "0.9.0"}
+  "faraday" {>= "0.7.2" & <= "0.8.2"}
+  "tls" {>= "0.15.0" & < "1.0.0"}
+  "cstruct" {>= "6.0.0" & <= "6.2.0"}
+]
+build: ["dune" "build" "-p" name "-j" jobs]
+run-test: ["dune" "runtest" "-p" name "-j" jobs]
+dev-repo: "git+https://github.com/dinosaure/paf-le-chien.git"
+url {
+  src:
+    "https://github.com/dinosaure/paf-le-chien/releases/download/0.0.9/paf-0.0.9.tbz"
+  checksum: [
+    "sha256=7b4e56372b20c3c3f193298464efbd4ed1b369b872cedc8d00bec9b904930fff"
+    "sha512=c8c522242838e51989206f30891baaf4454967926689a5ae5f3bf6374ecb2508539ee292338bd991373e31ef2cdf2ad0a9568537a3280eecbcd2c94f28ab8d01"
+  ]
+}
+x-commit-hash: "fdc8d0d34f4e6a2fe111182a69c7e70cec2c08d1"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

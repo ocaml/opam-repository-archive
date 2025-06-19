@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "Robur <team@robur.coop>"
+authors: ["Robur <team@robur.coop>"]
+homepage: "https://github.com/robur-coop/http-lwt-client"
+dev-repo: "git+https://github.com/robur-coop/http-lwt-client.git"
+bug-reports: "https://github.com/robur-coop/http-lwt-client/issues"
+license: "BSD-3-clause"
+
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.0.0" & <= "3.19.1"}
+  "cmdliner" {>= "1.1.0" & < "2.0.0" & <= "1.3.0"}
+  "logs" {<= "0.8.0"}
+  "lwt" {<= "5.9.1"}
+  "base64" {>= "3.1.0" & <= "3.5.1"}
+  "faraday-lwt-unix" {<= "0.8.2"}
+  "httpaf" {>= "0.7.0" & <= "0.7.1"}
+  "tls" {>= "0.14.0" & < "0.16.0"}
+  "ca-certs" {<= "1.0.1"}
+  "fmt" {<= "0.10.0"}
+  "bos" {<= "0.2.1"}
+  "happy-eyeballs-lwt" {<= "2.0.1"}
+  "h2" {>= "0.9.0" & < "0.10.0"}
+]
+conflicts: [ "result" {< "1.5"} ]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+synopsis: "A simple HTTP client using http/af, h2, and lwt"
+url {
+  src:
+    "https://github.com/robur-coop/http-lwt-client/releases/download/v0.2.0/http-lwt-client-0.2.0.tbz"
+  checksum: [
+    "sha256=a84ec8d6f125f53ecb3a2d2dde76b4a7d8ca14ce4888dfd66b00e426febb2c53"
+    "sha512=c0e3ee7b35c0f18b532b1ad421dee78ae114f7c4e6b857341432fd57c1b1d4f2cbdf0a116f0c9af4d4a3a19e29499922bfc5e1118ee69717acf72e6af39c9d4c"
+  ]
+}
+x-commit-hash: "2bba6fb323ef37742d89926aeabde440b02a7bda"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

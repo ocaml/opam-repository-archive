@@ -1,0 +1,72 @@
+opam-version: "2.0"
+synopsis:
+  "Implementation of miniKanren relational (logic) EDSL: PPX extensions"
+description: """
+PPX rewriters for writing relational programs more conveniently.
+
+1) `ppx_fresh` -- a clone of original miniKanren syntax
+
+  fresh (x...) goal
+
+expands into
+
+  Fresh.numeral (fun x ... -> goal)
+
+2) `ppx_distrib` for easier generation of type-safe smart constructors and reifiers...
+
+  [%%distrib
+    type nonrec _ t = fully_abstract_type
+    type ground = ...
+  ]
+
+3) `ppx_repr` for testing. Expands `REPR(expr)` to `(string_of_expr expr, expr)`
+"""
+maintainer: ["Dmitrii Kosarev Kakadu@pm.me"]
+authors: [
+  "Dmitrii Kosarev https://github.com/Kakadu"
+  "JetBrains Research https://research.jetbrains.org"
+]
+license: "LGPL-2.1-only"
+homepage: "https://github.com/JetBrains-Research/OCanren"
+bug-reports: "https://github.com/JetBrains-Research/OCanren/issues"
+depends: [
+  "dune" {>= "2.8" & <= "3.19.1"}
+  "ocaml" {>= "4.10"}
+  "dune-configurator" {<= "3.19.1"}
+  "ppxlib" {>= "0.22" & <= "0.24"}
+  "base" { < "v0.17" }
+  "ppx_inline_test" {<= "v0.17.1"}
+  "ppx_expect" {<= "v0.17.3"}
+  "OCanren" {>= "0.3.0~" & <= "0.3.0"}
+  "ocamlformat" {with-test & <= "0.27.0"}
+  "GT" {<= "0.5.4"}
+  "odoc" {with-doc & <= "3.0.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+
+dev-repo: "git+https://github.com/JetBrains-Research/OCanren.git"
+url {
+  src:
+    "https://github.com/JetBrains-Research/OCanren/archive/refs/tags/0.3.0-alpha1.tar.gz"
+    #"https://github.com/JetBrains-Research/OCanren/archive/refs/heads/eucpp-final.zip"
+  checksum: [
+    "sha256=d530d7e64c2858796c9c3b366702d2afa96097ea0815c0c7b9b185c41c0c7db9"
+    "sha512=ff200d35f72d9ce50c862d63291c3bc6a0e9544426cf72678e2a28553110ca88382a13868af16e62526a3f8d8ba33193be023b2a8a60053f3cb21794063411f4"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

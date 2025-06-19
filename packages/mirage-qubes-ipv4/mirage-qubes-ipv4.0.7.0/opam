@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer:   "talex@gmail.com"
+authors:      ["Thomas Leonard"]
+license:      "BSD-2-Clause"
+homepage:     "https://github.com/mirage/mirage-qubes"
+bug-reports:  "https://github.com/mirage/mirage-qubes/issues"
+dev-repo:     "git+https://github.com/mirage/mirage-qubes.git"
+doc:          "https://mirage.github.io/mirage-qubes"
+
+build: [
+  ["dune" "subst"] {dev}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+
+depends: [
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "mirage-qubes" {>= "0.7.0" & <= "2.0.0"}
+  "tcpip" {>= "3.5.0" & < "5.0.0"}
+  "ipaddr" {>= "3.0.0" & <= "5.6.0"}
+  "mirage-random" {< "2.0.0"}
+  "mirage-clock" {< "3.0.0"}
+  "mirage-protocols-lwt" {>= "2.0.0" & <= "3.1.0"}
+  "cstruct" {>= "1.9.0" & <= "6.2.0"}
+  "lwt" {<= "5.9.1"}
+  "logs" {>= "0.5.0" & <= "0.8.0"}
+  "ocaml" {>= "4.03.0"}
+]
+synopsis: "Implementations of IPv4 stack which reads configuration from QubesDB for MirageOS"
+url {
+  src:
+    "https://github.com/mirage/mirage-qubes/releases/download/v0.7.0/mirage-qubes-v0.7.0.tbz"
+  checksum: [
+    "sha256=0ce7224eff7b50e9d15912da3505531f750c9b9c42097a15d4d805e3b2e26425"
+    "md5=0d9ed83062cbe806672f7c7c3c01b356"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

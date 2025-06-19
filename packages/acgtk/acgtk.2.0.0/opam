@@ -1,0 +1,45 @@
+opam-version: "2.0"
+maintainer: "sylvain.pogodalla@inria.fr"
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+install: ["dune" "install"]
+
+depends: [
+  "ocaml" { >= "4.14.0" }
+  "dune" {>= "3.5" & <= "3.19.1"}
+  "menhir" {>= "20211230" & <= "20240715"}
+  "ocamlgraph" {<= "2.2.0"}
+  "ANSITerminal" {>= "0.8" & <= "0.8.5"}
+  "fmt" {< "0.10.0"}
+  "logs" {<= "0.8.0"}
+  "mtime" {>= "2.0.0" & <= "2.1.0"}
+  "cmdliner" {>= "1.1.0" & <= "1.3.0"}
+  "sedlex" {<= "3.6"}
+  "cairo2" {>= "0.6.4" & <= "0.6.5"}
+  "yojson" {>= "1.6.0" & <= "3.0.0"}
+  "readline" {<= "0.2"}
+  "odoc" {with-doc & <= "3.0.0"}
+]
+
+dev-repo: "git+https://gitlab.inria.fr/ACG/dev/ACGtk.git"
+
+homepage: "http://acg.loria.fr/"
+license: "CeCILL-1.0+"
+authors: ["Sylvain Pogodalla"]
+bug-reports: "sylvain.pogodalla@inria.fr"
+
+synopsis: "Abstract Categorial Grammar development toolkit"
+
+description: "This toolkit provides a compiler and an interpreter for Abstract Categorial Grammars (ACGs). Grammars can be compiled and then used by the interpreter to parse (if the grammar is at most second-order) or to generate terms. See http://acg.loria.fr for more details and bibliographic references."
+
+url {
+     src: "http://acg.loria.fr/software/acg-2.0.0-20231009.tar.gz"
+     checksum: "sha512=e0c72426381259e9ce599c160f83ecf411eaf48b8b050d9c3e87b63d124a719cbc58101892e9594ea30c6ad8950b0dc66c84debca1ca3c370d81fc6654afd21c"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

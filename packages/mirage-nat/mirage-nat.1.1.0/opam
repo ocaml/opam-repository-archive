@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "Mindy Preston <meetup@yomimono.org>"
+authors: "Mindy Preston <meetup@yomimono.org>"
+homepage: "https://github.com/mirage/mirage-nat"
+bug-reports: "https://github.com/mirage/mirage-nat/issues/"
+dev-repo: "git+https://github.com/mirage/mirage-nat.git"
+doc: "https://mirage.github.io/mirage-nat/"
+license: "ISC"
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "ipaddr" {<= "5.6.0"}
+  "cstruct" {<= "6.2.0"}
+  "mirage-time-lwt" {<= "1.3.0"}
+  "mirage-clock-lwt" {<= "2.0.0"}
+  "lwt" {<= "5.9.1"}
+  "rresult" {<= "0.7.0"}
+  "logs" {<= "0.8.0"}
+  "lru" {< "0.3.0"}
+  "ppx_deriving" {build & >= "4.2" & <= "6.1.0"}
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "tcpip" { >= "3.7.0" & < "4.0.0"}
+  "ethernet" { >= "2.0.0" & < "3.0.0" }
+  "arp" {<= "4.0.0"}
+  "alcotest" {with-test & <= "1.9.0"}
+  "mirage-clock-unix" {with-test & <= "4.2.0"}
+]
+synopsis:
+  "Library for network address translation intended for use with mirage unikernels"
+url {
+  src:
+    "https://github.com/mirage/mirage-nat/releases/download/v1.1.0/mirage-nat-v1.1.0.tbz"
+  checksum: [
+    "sha256=70bda623935df6fcebe0f2d46f7cd4b4c3309732ded45d9600086ef77d159055"
+    "md5=39659bd1b5c044a13b4b25c3a9565546"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

@@ -1,0 +1,49 @@
+opam-version: "2.0"
+maintainer: [ "Christiano F. Haesbaert <haesbaert@haesbaert.org>" "Hannes Mehnert <hannes@mehnert.org>" "Reynir Björnsson <reynir@reynir.dk>" "Romain Calascibetta <romain.calascibetta@gmail.com>" "Pierre Alain <pierre.alain@tuta.io>" ]
+authors: [ "Christiano F. Haesbaert <haesbaert@haesbaert.org>" "Hannes Mehnert <hannes@mehnert.org>" "Reynir Björnsson <reynir@reynir.dk>" "Romain Calascibetta <romain.calascibetta@gmail.com>" "Pierre Alain <pierre.alain@tuta.io>" ]
+license: "ISC"
+homepage: "https://github.com/mirage/awa-ssh"
+bug-reports: "https://github.com/mirage/awa-ssh/issues"
+dev-repo: "git+https://github.com/mirage/awa-ssh.git"
+doc: "https://mirage.github.io/awa-ssh/api"
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+
+depends: [
+  "ocaml" {>= "4.10.0"}
+  "dune" {>= "2.7" & <= "3.19.1"}
+  "mirage-crypto" {>= "1.0.0" & <= "2.0.1"}
+  "mirage-crypto-rng" {>= "1.2.0" & <= "2.0.1"}
+  "mirage-crypto-pk" {<= "2.0.1"}
+  "mirage-crypto-ec" {>= "1.0.0" & <= "2.0.1"}
+  "x509" {>= "1.0.0" & <= "1.0.6"}
+  "cstruct" {>= "6.0.0" & <= "6.2.0"}
+  "cstruct-unix" {<= "6.2.0"}
+  "mtime" {>= "1.0.0" & <= "2.1.0"}
+  "logs" {<= "0.8.0"}
+  "fmt" {<= "0.10.0"}
+  "cmdliner" {>= "1.1.0" & <= "1.3.0"}
+  "base64" {>= "3.0.0" & <= "3.5.1"}
+  "zarith" {<= "1.14"}
+  "eqaf" {>= "0.8" & <= "0.10"}
+]
+conflicts: [ "result" {< "1.5"} ]
+synopsis: "SSH implementation in OCaml"
+description: """The OpenSSH protocol implemented in OCaml."""
+x-maintenance-intent: [ "(latest)" ]
+url {
+  src:
+    "https://github.com/mirage/awa-ssh/releases/download/v0.5.1/awa-0.5.1.tbz"
+  checksum: [
+    "sha256=6ddeaf060530261d4c525ae06dd6c155364c77781c246217f04109e7cef69f5e"
+    "sha512=81e5550f00dd341f193892ca257bbc620686bab5a94b12829edca84b42b1c6ab009afaf348d09202bd3b6241e3133e73583ac4de36003e8236c65c7be50636e9"
+  ]
+}
+x-commit-hash: "501ec75a86c33c6d5cc0e607f2ee80f06a9f9c8f"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

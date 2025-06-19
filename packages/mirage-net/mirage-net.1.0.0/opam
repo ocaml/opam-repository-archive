@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer:    "thomas@gazagnaire.org"
+homepage:      "https://github.com/mirage/mirage-net"
+bug-reports:   "https://github.com/mirage/mirage-net/issues"
+dev-repo: "git+https://github.com/mirage/mirage-net.git"
+doc:           "https://mirage.github.io/mirage-net/"
+authors:       ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
+               "Mindy Preston" "Thomas Leonard" "Nicolas Ojeda Bar"
+               "Dave Scott" "David Kaloper" "Hannes Mehnert" "Richard Mortier"]
+tags:          [ "org:mirage"]
+license:       "ISC"
+
+build: ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"]
+
+depends: [
+  "ocaml"
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.16.1"}
+  "topkg" {build & >= "0.8.0" & <= "1.0.8"}
+  "mirage-device" {>= "1.0.0" & < "2.0.0"}
+  "result" {= "1.5"}
+]
+synopsis: "MirageOS TCP/IP networking library"
+url {
+  src:
+    "https://github.com/mirage/mirage-net/releases/download/1.0.0/mirage-net-1.0.0.tbz"
+  checksum: [
+    "sha256=034adc3a4f8b7d39a5ef764bae3c71007be4156126249187bebad65c8e0b25ab"
+    "md5=88a3c848b5e7a16973c4161bb304aa52"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

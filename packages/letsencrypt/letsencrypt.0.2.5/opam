@@ -1,0 +1,58 @@
+opam-version: "2.0"
+synopsis: "ACME implementation in OCaml"
+description: "An implementation of the ACME protocol (RFC 8555) for OCaml"
+maintainer: "Michele Mu <maker@tumbolandia.net>"
+authors:
+  "Michele Mu <maker@tumbolandia.net>, Hannes Mehnert <hannes@mehnert.org>"
+license: "BSD-2-clause"
+homepage: "https://github.com/mmaker/ocaml-letsencrypt"
+bug-reports: "https://github.com/mmaker/ocaml-letsencrypt/issues"
+doc: "https://mmaker.github.io/ocaml-letsencrypt"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "1.2.0" & <= "3.19.1"}
+  "astring" {<= "0.8.5"}
+  "rresult" {<= "0.7.0"}
+  "base64" {>= "3.1.0" & <= "3.5.1"}
+  "cmdliner" {<= "1.3.0"}
+  "cohttp" {<= "6.1.1"}
+  "cohttp-lwt" {>= "2.5.1" & <= "2.5.2-1"}
+  "cohttp-lwt-unix" {>= "1.0.0" & <= "2.5.2-1"}
+  "zarith" {<= "1.14"}
+  "logs" {<= "0.8.0"}
+  "fmt" {<= "0.10.0"}
+  "lwt" {>= "2.6.0" & <= "5.9.1"}
+  "mirage-crypto" {< "1.0.0"}
+  "mirage-crypto-pk" {< "1.0.0"}
+  "mirage-crypto-pk" {with-test & >= "0.8.9" & < "1.0.0"}
+  "mirage-crypto-rng" {< "0.11.0"}
+  "x509" {>= "0.13.0" & <= "1.0.6"}
+  "yojson" {>= "1.6.0" & <= "3.0.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "dns" {< "9.0.0"}
+  "dns-tsig" {<= "10.1.0"}
+  "ptime" {<= "1.2.0"}
+  "bos" {<= "0.2.1"}
+  "fpath" {<= "0.7.3"}
+  "randomconv" {< "0.2.0"}
+  "domain-name" {>= "0.2.0" & <= "0.4.1"}
+  "cstruct" {< "6.1.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+dev-repo: "git+https://github.com/mmaker/ocaml-letsencrypt.git"
+x-commit-hash: "e491778e3342c66db0c437bce8dc728ecfca44a8"
+url {
+  src:
+    "https://github.com/mmaker/ocaml-letsencrypt/releases/download/v0.2.5/letsencrypt-v0.2.5.tbz"
+  checksum: [
+    "sha256=6e3bbb5f593823d49e83e698c06cf9ed48818695ec8318507b311ae74731e607"
+    "sha512=3d221f543a77562ad006b97ad79235da19617f7147c2c31c58d30cdcdd8d813f0fd3a6f4a6e9f91ae6cd1f4c534216470e801dfbf5c7bbc3c85c734746ecb038"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

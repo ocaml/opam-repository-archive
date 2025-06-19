@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer:    "anil@recoil.org"
+homepage:      "https://github.com/mirage/mirage-console"
+bug-reports:   "https://github.com/mirage/mirage-console/issues"
+dev-repo: "git+https://github.com/mirage/mirage-console.git"
+doc:           "https://mirage.github.io/mirage-console/"
+authors:       [ "Anil Madhavapeddy" "David Scott"]
+tags:          [ "org:mirage" "org:xapi-project"]
+license:       "ISC"
+
+build: ["ocaml" "pkg/pkg.ml" "build" "--pkg-name" name "--pinned" "%{pinned}%"]
+
+depends: [
+  "ocaml" {>= "4.03.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.16.1"}
+  "topkg" {build & >= "0.8.0" & <= "1.0.8"}
+  "mirage-console-lwt" {>= "2.2.0" & <= "2.4.3"}
+  "rresult" {<= "0.7.0"}
+  "xenstore" {<= "2.4.0"}
+]
+synopsis: "Protocol for communicating with Xen consoles."
+url {
+  src:
+    "https://github.com/mirage/mirage-console/releases/download/2.2.0/mirage-console-xen-proto-2.2.0.tbz"
+  checksum: [
+    "sha256=84854ae64e20e46c186c09c7f9082d689c4f01451413e4d00703c4922cfb542a"
+    "md5=112acf1dc797d2f4f2c77a62cd272741"
+  ]
+}
+flags: deprecated
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

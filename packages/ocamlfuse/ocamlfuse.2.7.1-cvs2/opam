@@ -1,0 +1,34 @@
+opam-version: "2.0"
+maintainer: "alessandro.strada@gmail.com"
+authors: [ "Vincenzo Ciancia" ]
+license: "GPL-2.0-only"
+homepage: "http://sourceforge.net/apps/mediawiki/ocamlfuse"
+bug-reports: "http://sourceforge.net/p/ocamlfuse/mailman/ocamlfuse-devel/"
+# dev-repo: "cvs://pserver:anonymous@ocamlfuse.cvs.sourceforge.net/cvsroot/ocamlfuse"
+build: [
+  [make "-C" "lib" "INCDIRS=%{lib}%/camlidl"]
+]
+install: [
+  [make "-C" "lib" "install"]
+]
+depends: [
+  "ocaml" {>= "3.08.0" & < "5.0.0"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ocamlbuild" {build & <= "0.16.1"}
+  "camlidl" {<= "1.13"}
+  "conf-libfuse" {= "1"}
+]
+available: os != "macos"
+x-ci-accept-failures: ["oraclelinux-7"]
+synopsis: "OCaml bindings for FUSE (Filesystem in UserSpacE)"
+url {
+  src:
+    "https://download.ocamlcore.org/gdfuse/ocamlfuse/2.7.1-cvs2/ocamlfuse-2.7.1_cvs2.tar.gz"
+  checksum: [
+    "sha256=c040958f6e06a48d31bf0221432abd459fc0b7cc12aa669fb07324daf886fb9e"
+    "md5=639c41e535acb1d983d16e67e2d015db"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

@@ -1,0 +1,45 @@
+opam-version: "2.0"
+homepage:     "https://github.com/mirleft/ocaml-tls"
+dev-repo:     "git+https://github.com/mirleft/ocaml-tls.git"
+bug-reports:  "https://github.com/mirleft/ocaml-tls/issues"
+doc:          "https://mirleft.github.io/ocaml-tls/"
+maintainer:   ["Romain Calascibetta <romain.calascibetta@gmail.com>"]
+license:      "BSD-2-Clause"
+
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+
+depends: [
+  "ocaml" {>= "5.0.0"}
+  "dune" {>= "3.0" & <= "3.19.1"}
+  "tls" {= version}
+  "mirage-crypto-rng-miou-unix" {>= "1.0.0" & with-test & <= "2.0.1"}
+  "x509" {>= "1.0.0" & <= "1.0.6"}
+  "miou" {>= "0.3.0" & <= "0.3.1"}
+  "crowbar" {with-test & <= "0.2.1"}
+  "rresult" {with-test & <= "0.7.0"}
+  "ohex" {with-test & <= "0.2.0"}
+  "ptime" {with-test & <= "1.2.0"}
+  "hxd" {with-test & <= "0.3.4"}
+]
+tags: [ "org:mirage"]
+synopsis: "Transport Layer Security purely in OCaml, Miou+Unix layer"
+description: """
+Tls-miou provides an effectful Tls_miou module to be used with Miou and Unix.
+"""
+authors: "Romain Calascibetta <romain.calascibetta@gmail.com>"
+url {
+  src:
+    "https://github.com/mirleft/ocaml-tls/releases/download/v1.0.0/tls-1.0.0.tbz"
+  checksum: [
+    "sha256=465c4a5c62f868025cd48fd09b2cbef8cf378d996386c09de1535be8407405a5"
+    "sha512=6ee0400f93d1294f44e68f7641a8fe95818aefabea41bb39cb384d4639d9023e2f0e82a75328ae603c575593ff154318d100de4e9d0951afc86e611002b3080e"
+  ]
+}
+x-commit-hash: "95a90b6906a5a3f0c49de9d23ce9b7089db48ada"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

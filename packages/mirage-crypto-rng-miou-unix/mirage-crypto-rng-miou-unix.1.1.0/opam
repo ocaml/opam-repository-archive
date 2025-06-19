@@ -1,0 +1,42 @@
+opam-version: "2.0"
+homepage:     "https://github.com/mirage/mirage-crypto"
+dev-repo:     "git+https://github.com/mirage/mirage-crypto.git"
+bug-reports:  "https://github.com/mirage/mirage-crypto/issues"
+doc:          "https://mirage.github.io/mirage-crypto/doc"
+authors:      ["Romain Calascibetta <romain.calascibetta@gmail.com>" ]
+maintainer:   "Romain Calascibetta <romain.calascibetta@gmail.com>"
+license:      "ISC"
+synopsis:     "Feed the entropy source in an miou.unix-friendly way"
+
+build: [ ["dune" "subst"] {dev}
+         ["dune" "build" "-p" name "-j" jobs ]
+         ["dune" "runtest" "-p" name "-j" jobs] {with-test} ]
+
+depends: [
+  "ocaml" {>= "5.0.0"}
+  "dune" {>= "2.7" & <= "3.19.1"}
+  "miou" {>= "0.2.0" & <= "0.3.1"}
+  "logs" {<= "0.8.0"}
+  "mirage-crypto-rng" {=version}
+  "duration" {<= "0.2.1"}
+  "mtime" {>= "1.0.0" & <= "2.1.0"}
+  "digestif" {>= "1.2.0" & <= "1.3.0"}
+  "ohex" {= "0.2.0"}
+]
+description: """
+Mirage-crypto-rng-miou-unix feeds the entropy source for Mirage_crypto_rng-based
+random number generator implementations, in an miou.unix-friendly way.
+"""
+url {
+  src:
+    "https://github.com/mirage/mirage-crypto/releases/download/v1.1.0/mirage-crypto-1.1.0.tbz"
+  checksum: [
+    "sha256=c7189767a7ead54923cab020f39cd0c34af7d4b048776939d94f028abf536353"
+    "sha512=312f0ea8433bb35224f4ae6e00ff2d5e6ca72f8e5b6d9e24cf609f004629ac55708fe6987edcc6bdd58e67f0044e053d08ccd783abc7f791fe27e77f6eb1ec62"
+  ]
+}
+x-commit-hash: "cc388cdb0ac068cde73d660d8600c3223feadf96"
+x-maintenance-intent: [ "(latest)" ]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

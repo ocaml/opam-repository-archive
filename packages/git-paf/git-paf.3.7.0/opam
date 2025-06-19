@@ -1,0 +1,50 @@
+opam-version: "2.0"
+synopsis: "A package to use HTTP-based ocaml-git with MirageOS backend"
+maintainer: ["thomas@gazagnaire.org" "romain.calascibetta@gmail.com"]
+authors: "Thomas Gazagnaire"
+license: "ISC"
+homepage: "https://github.com/mirage/ocaml-git"
+doc: "https://mirage.github.io/ocaml-git/"
+bug-reports: "https://github.com/mirage/ocaml-git/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.8.0" & <= "3.19.1"}
+  "git" {= version}
+  "mimic" {>= "0.0.4" & <= "0.0.9"}
+  "paf" {>= "0.0.7" & < "0.2.0"}
+  "ca-certs-nss" {<= "3.108-1"}
+  "fmt" {<= "0.10.0"}
+  "ipaddr" {<= "5.6.0"}
+  "logs" {<= "0.8.0"}
+  "lwt" {<= "5.9.1"}
+  "mirage-clock" {<= "4.2.0"}
+  "tcpip" {>= "7.0.0" & <= "9.0.1"}
+  "mirage-time" {<= "3.0.0"}
+  "result" {= "1.5"}
+  "rresult" {<= "0.7.0"}
+  "tls" {>= "0.14.0" & < "1.0.0"}
+  "uri" {<= "4.4.0"}
+  "bigarray-compat" {<= "1.1.0"}
+  "bigstringaf" {<= "0.10.0"}
+  "domain-name" {<= "0.4.1"}
+  "httpaf" {<= "0.7.1"}
+  "mirage-flow" {<= "5.0.0"}
+  "tls-mirage" {< "1.0.0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs "--no-buffer"] {with-test}
+]
+dev-repo: "git+https://github.com/mirage/ocaml-git.git"
+url {
+  src:
+    "https://github.com/mirage/ocaml-git/releases/download/3.7.0/git-3.7.0.tbz"
+  checksum: [
+    "sha256=ee30231a00f0a3548d3c2e1266537afe5f2a877d2c24369ed771cb91ec47610d"
+    "sha512=e0b0d209cf35edead52916fb215ef83739f0be00501b6898a91a14503544d96718b1c248febc1abbe9bf5bd9e07eb0ea3ea5f120c32065fd32a20632b534c481"
+  ]
+}
+x-commit-hash: "45d90b8792ab8f3866751f462619c7dd7860e5d5"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

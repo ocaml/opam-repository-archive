@@ -1,0 +1,46 @@
+opam-version: "2.0"
+maintainer: "Hannes Mehnert <hannes@mehnert.org>"
+authors: ["Hannes Mehnert <hannes@mehnert.org>"]
+homepage: "https://github.com/mirage/arp"
+doc: "https://mirage.github.io/arp/"
+dev-repo: "git+https://github.com/mirage/arp.git"
+bug-reports: "https://github.com/mirage/arp/issues"
+license: "ISC"
+synopsis: "Address Resolution Protocol for MirageOS"
+depends: [
+  "ocaml" {>= "4.04.2"}
+  "dune" {>= "1.0" & <= "3.19.1"}
+  "mirage-time-lwt" {<= "1.3.0"}
+  "mirage-protocols-lwt" {< "2.0.0"}
+  "ethernet" {< "2.0.0"}
+  "lwt" {<= "5.9.1"}
+  "lwt" {with-test & < "5.0.0"}
+  "duration" {<= "0.2.1"}
+  "arp" {>= "1.0.0" & < "2.0.0"}
+  "logs" {<= "0.8.0"}
+  "cstruct" {>= "2.2.0" & < "6.1.0"}
+  "fmt" {with-test & <= "0.10.0"}
+  "mirage-vnetif" {with-test & <= "0.6.2"}
+  "alcotest" {with-test & <= "1.9.0"}
+  "mirage-clock-unix" {with-test & <= "4.2.0"}
+  "mirage-random" {with-test & < "2.0.0"}
+  "mirage-random-test" {with-test & <= "0.1.0"}
+  "mirage-unix" {with-test & < "4.0.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+url {
+  src:
+    "https://github.com/mirage/arp/releases/download/v1.0.0/arp-v1.0.0.tbz"
+  checksum: [
+    "sha256=3f331e7490dbec53122849654c26aa2a2c5dbf983ebe2e1a551b08d727995f58"
+    "md5=40768ca09b10c6b91e8b3a420b075a0e"
+  ]
+}
+flags: deprecated
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

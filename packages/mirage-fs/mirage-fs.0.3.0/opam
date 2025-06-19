@@ -1,0 +1,25 @@
+opam-version: "2.0"
+maintainer: "anil@recoil.org"
+tags: [
+  "org:mirage"
+  "org:xapi-project"
+]
+build: [[make "all"]]
+depends: [
+  "ocaml" {< "5.0"}
+  "ocamlfind" {<= "1.9.8"}
+  "ocamlbuild" {build & <= "0.16.1"}
+]
+synopsis: "MirageOS filesystem utilities"
+url {
+  src: "https://github.com/mirage/mirage-fs/tarball/mirage-fs-0.3.0"
+  checksum: [
+    "sha256=c54b3365e745cd8c188466784eabf29c5dc262aed7717d5ae73ee92167309ad0"
+    "md5=6ddcfc6607e5f1a6b47cb3e08cebdd1a"
+  ]
+}
+flags: deprecated
+post-messages: [ "mirage-fs is deprecated, and has been superseeded by mirage-kv" ]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]

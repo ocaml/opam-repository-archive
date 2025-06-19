@@ -1,0 +1,40 @@
+opam-version: "2.0"
+maintainer:   "Romain Calascibetta <romain.calascibetta@gmail.com>"
+authors:      "Romain Calascibetta <romain.calascibetta@gmail.com>"
+homepage:     "https://git.robur.coop/robur/miou"
+bug-reports:  "https://git.robur.coop/robur/miou/issues"
+dev-repo:     "git+https://github.com/robur-coop/miou.git"
+doc:          "https://docs.osau.re/miou/"
+license:      "MIT"
+synopsis:     "Composable concurrency primitives for OCaml"
+
+build: [ "dune" "build" "-p" name "-j" jobs ]
+run-test: [ "dune" "runtest" "-p" name "-j" jobs ]
+
+depends: [
+  "ocaml"             {>= "5.0.0"}
+  "dune" {>= "2.8.0" & <= "3.19.1"}
+  "dscheck" {with-test & >= "0.4.0" & <= "0.5.0"}
+  "digestif" {with-test & <= "1.3.0"}
+  "happy-eyeballs" {with-test & >= "0.6.0" & <= "2.0.1"}
+  "dns-client" {with-test & <= "10.1.0"}
+  "hxd" {with-test & <= "0.3.4"}
+  "mirage-crypto-rng" {with-test & < "1.0.0"}
+  "ipaddr" {with-test & <= "5.6.0"}
+  "logs" {with-test & >= "0.7.0" & <= "0.8.0"}
+  "dns" {with-test & <= "10.1.0"}
+  "dns-client" {with-test & <= "10.1.0"}
+  "mtime" {with-test & >= "2.0.0" & <= "2.1.0"}
+]
+url {
+  src:
+    "https://github.com/robur-coop/miou/releases/download/v0.2.0/miou-0.2.0.tbz"
+  checksum: [
+    "sha256=8716021b53640c46d5c83bcdf1e4bf163eacd746324bb3511a5c8d3a42f2eac0"
+    "sha512=dd2c488e22552a05cf66e88eaf7e55d9980a442c603edd047182707ab87036974aa03c9139754321ab736b42439cb28738a18cb2f568a8429b653a5d89e60c5f"
+  ]
+}
+x-commit-hash: "bedc462649427b2dc26471850592e1191108f60e"
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "08d8c16c16dc6b23a5278b06dff0ac6c7a217356"
+x-reason-for-archiving: ["maintenance-intent"]
