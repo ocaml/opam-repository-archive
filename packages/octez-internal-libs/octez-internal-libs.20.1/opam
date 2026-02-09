@@ -1,0 +1,58 @@
+opam-version: "2.0"
+maintainer: "contact@tezos.com"
+authors: [
+  "Tezos devteam"
+  "Thomas Gazagnaire"
+  "Thomas Leonard"
+  "Craig Ferguson"
+]
+homepage: "https://www.tezos.com/"
+bug-reports: "https://gitlab.com/tezos/tezos/issues"
+dev-repo: "git+https://gitlab.com/tezos/tezos.git"
+license: "ISC"
+depends: [
+  "dune" {>= "3.11.1" & <= "3.21.0"}
+  "ocaml" { >= "4.14" }
+  "ppx_repr" {>= "0.6.0" & <= "0.8.0"}
+  "logs" {<= "0.10.0"}
+  "ppxlib" {<= "0.37.0"}
+  "bigstringaf" {>= "0.5.0" & <= "0.10.0"}
+  "fmt" {>= "0.8.7" & <= "0.11.0"}
+  "astring" {<= "0.8.5"}
+  "bheap" {= "2.0.0"}
+  "digestif" {>= "0.9.0" & <= "1.3.0"}
+  "jsonm" {= "1.0.2"}
+  "lwt" {>= "5.7.0" & <= "6.1.0"}
+  "mtime" {>= "2.0.0" & <= "2.1.0"}
+  "ocamlgraph" {<= "2.2.0"}
+  "uri" {>= "3.1.0" & <= "4.4.0"}
+  "uutf" {<= "1.0.4"}
+  "repr" {<= "0.8.0"}
+  "optint" {<= "0.3.0"}
+  "index" {>= "1.6.0" & < "1.7.0" & <= "1.6.2"}
+  "cmdliner" {>= "1.1.0" & <= "2.1.0"}
+  "checkseum" {!= "0.5.0" & <= "0.5.2"}
+  "rusage" {= "1.0.0"}
+  "octez-alcotezt" { = version }
+]
+conflicts: [
+  "base-effects"
+]
+build: [
+  ["rm" "-r" "vendors" "contrib"]
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+synopsis: "A package that contains some libraries used by the Octez suite"
+url {
+  src: "https://gitlab.com/tezos/tezos/-/archive/octez-v20.1/tezos-octez-v20.1.tag.bz2"
+  checksum: [
+    "sha256=ddfb5076eeb0b32ac21c1eed44e8fc86a6743ef18ab23fff02d36e365bb73d61"
+    "sha512=d22a827df5146e0aa274df48bc2150b098177ff7e5eab52c6109e867eb0a1f0ec63e6bfbb0e3645a6c2112de3877c91a17df32ccbff301891ce4ba630c997a65"
+  ]
+}
+available: os != "win32"
+x-maintenance-intent:[ "(none)" ]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "4413cea89dc2809c85f68c88c6e28c410f664d95"
+x-reason-for-archiving: ["maintenance-intent"]

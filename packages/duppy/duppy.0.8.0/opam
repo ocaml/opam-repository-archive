@@ -1,0 +1,38 @@
+opam-version: "2.0"
+maintainer: "Romain Beauxis <toots@rastageeks.org>"
+authors: "The Savonet Team <savonet-users@lists.sourceforge.net>"
+homepage: "https://github.com/savonet/ocaml-duppy"
+build: [
+  ["./configure" "--prefix" prefix]
+  [make]
+]
+install: [
+  [make "install"]
+]
+remove: ["ocamlfind" "remove" "duppy"]
+depends: [
+  "ocaml" {>= "4.02.3"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "pcre" {<= "8.0.5"}
+]
+depopts: [
+  "ssl"
+  "osx-secure-transport"
+]
+conflicts: ["liquidsoap" {<= "1.2.1"}]
+bug-reports: "https://github.com/savonet/ocaml-duppy/issues"
+dev-repo: "git+https://github.com/savonet/ocaml-duppy.git"
+synopsis: "Library providing monadic threads"
+flags: [ light-uninstall deprecated ]
+url {
+  src:
+    "https://github.com/savonet/ocaml-duppy/releases/download/0.8.0/ocaml-duppy-0.8.0.tar.gz"
+  checksum: [
+    "sha256=007a7403d3668b4edb201ffc3c74777e1f7eab5ffa71c6ee392a8e8adedb2880"
+    "md5=07c0eab9584b2236e90e2b88ee246677"
+  ]
+}
+x-maintenance-intent: ["(none)"]
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "4413cea89dc2809c85f68c88c6e28c410f664d95"
+x-reason-for-archiving: ["maintenance-intent"]
