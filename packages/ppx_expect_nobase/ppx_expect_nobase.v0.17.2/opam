@@ -37,5 +37,5 @@ x-maintenance-intent: [ "(latest)" ]
 x-maintained: false
 available: false
 x-opam-repository-commit-hash-at-time-of-archiving:
-  "93eb6f1d9705308dac9bad0ead56ff0f19f8ad98"
-x-reason-for-archiving: ["uninstallable"]
+  "4413cea89dc2809c85f68c88c6e28c410f664d95"
+x-reason-for-archiving: ["maintenance-intent"]
