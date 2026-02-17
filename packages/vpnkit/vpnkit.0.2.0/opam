@@ -42,8 +42,8 @@ depends: [
   "hashcons" {>= "1.0.1" & <= "1.4.0"}
   "pcap-format" {>= "0.4.0" & <= "0.6.0"}
   "cmdliner" {<= "2.1.0"}
-  "charrua-core" {>= "0.9"}
-  "charrua-client-mirage" {with-test}
+  "charrua-core" {>= "0.9" & <= "0.12.0"}
+  "charrua-client-mirage" {with-test & <= "1.2.2"}
   "hvsock" {>= "1.0.1" & <= "3.1.0"}
   "asl" {<= "0.11"}
   "win-eventlog" {<= "0.4"}
