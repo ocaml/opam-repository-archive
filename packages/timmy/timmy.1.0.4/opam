@@ -1,0 +1,56 @@
+opam-version: "2.0"
+synopsis: "Time and calendar library"
+maintainer: "mefyl <mefyl@gruntech.org>"
+authors: "mefyl <mefyl@gruntech.org>"
+license: "LGPL-3.0-or-later"
+homepage: "https://github.com/mefyl/timmy"
+bug-reports: "https://github.com/mefyl/timmy/issues"
+depends: [
+  "dune" {>= "3.0" & <= "3.21.1"}
+  "base" {<= "v0.17.3"}
+  "fmt" {>= "0.8.7" & <= "0.11.0"}
+  "ocaml" {>= "4.08.0"}
+  "ppx_here" {<= "v0.17.0"}
+  "ppx_deriving" {>= "5.0" & <= "6.1.1"}
+  "ptime" {<= "1.2.0"}
+  "alcotest" {with-test & >= "1.4.0" & <= "1.9.1"}
+  "odoc" {with-doc & <= "3.1.0"}
+  "cmdliner" {dev & with-test & <= "2.1.0"}
+  "opam-file-format" {dev & with-test & <= "2.2.0"}
+  "sexplib" {dev & with-test & <= "v0.17.0"}
+  "stdio" {dev & with-test & <= "v0.17.0"}
+  "shexp" {dev & with-test & <= "v0.17.0"}
+]
+depopts: ["js_of_ocaml" "schematic"]
+conflicts: [
+  "schematic" {< "0.18.2" | >= "0.19.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/mefyl/timmy.git"
+pin-depends: [
+  ["landmarks.1.4" "git+https://github.com/routineco/landmarks.git#js"]
+  ["landmarks-ppx.1.4" "git+https://github.com/routineco/landmarks.git#js"]
+]
+url {
+  src: "https://github.com/mefyl/timmy/archive/refs/tags/1.0.4.tar.gz"
+  checksum: [
+    "md5=c8bda198fd548c288fd067217fef22aa"
+    "sha512=f168d44b45b453addf0aee02eaf992b6669dc0843cea992ab8a35fefb3a1b76e8225da03424e59369703cce5c788a1eac04f8490c7c8b3977c60da1898811ddf"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "3b501ac1d7ca1c4c2a0a9d24fe18453007b1c41a"
+x-reason-for-archiving: ["uninstallable"]
