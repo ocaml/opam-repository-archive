@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "Jordan Walke <jordojw@gmail.com>"
+authors: [ "Jordan Walke <jordojw@gmail.com>" ]
+license: "MIT"
+homepage: "https://github.com/facebook/reason"
+doc: "http://reasonml.github.io/"
+bug-reports: "https://github.com/facebook/reason/issues"
+dev-repo: "git+https://github.com/facebook/reason.git"
+tags: [ "syntax" ]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "ocaml"  {>= "4.02" & < "4.10"}
+  "dune" {>= "1.4" & <= "3.22.2"}
+  "reason" {<= "3.17.3"}
+  "utop" {>= "1.17" & <= "2.17.0"}
+]
+synopsis: "Reason toplevel"
+description:
+  "rtop is the toplevel (or REPL) for Reason, based on utop (https://github.com/jeremiedimino/utop)."
+url {
+  src: "https://registry.npmjs.org/@esy-ocaml/reason/-/reason-3.5.2.tgz"
+  checksum: [
+    "sha256=d0c761bf3f09469c6707b932b992551d108f9c54fae54cf34c4ff83b8146e1b8"
+    "md5=66c54296009e0f6cbc8e93aa01105cbb"
+  ]
+}
+
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

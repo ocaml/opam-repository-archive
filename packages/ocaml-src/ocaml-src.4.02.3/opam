@@ -1,0 +1,18 @@
+opam-version: "2.0"
+maintainer: "opam-devel@lists.ocaml.org"
+build: [ "touch" "META" ]
+install: ["cp" "-r" "." "%{lib}%/ocaml-src"]
+synopsis: "Compiler sources"
+depends: [
+  "ocaml" {= "4.02.3"}
+]
+url {
+  src: "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.3.tar.gz"
+  checksum: [
+    "sha256=928fb5f64f4e141980ba567ff57b62d8dc7b951b58be9590ffb1be2172887a72"
+    "md5=ef1a324608c97031cbd92a442d685ab7"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

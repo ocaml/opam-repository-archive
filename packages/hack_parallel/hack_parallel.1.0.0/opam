@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Rijnard van Tonder <rvantonder@gmail.com>"
+authors: "Facebook. Modifications by Rijnard van Tonder"
+homepage: "https://github.com/rvantonder/hack_parallel"
+bug-reports: "https://github.com/rvantonder/hack_parallel/issues"
+dev-repo: "git+https://github.com/rvantonder/hack_parallel.git"
+license: "MIT"
+build: [
+  ["dune" "build" "-p" name "-j" jobs "@install"]
+]
+depends: [
+  "ocaml" {>= "4.04.1"}
+  "dune" {>= "1.11" & <= "3.22.2"}
+  "conf-pkg-config" {<= "4"}
+  "conf-sqlite3" {= "1"}
+  "core_kernel" {<= "v0.17.0"}
+  "ppx_deriving" {<= "6.1.1"}
+  "ppxlib" {< "0.9.0"}
+  "sexplib" {<= "v0.17.0"}
+]
+synopsis: "Parallel and shared memory library"
+description: """
+Parallel and shared memory components used in Facebook's Hack, Flow, and Pyre
+projects.
+"""
+url {
+  src: "https://github.com/rvantonder/hack_parallel/archive/1.0.0.tar.gz"
+  checksum: [
+    "sha256=4ebcdd0c0b23735228d13bbf401799174771a747a5aeb4f35b64dcfc68079e29"
+    "md5=26aff6c969020c1d2f588c574dc7d08a"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

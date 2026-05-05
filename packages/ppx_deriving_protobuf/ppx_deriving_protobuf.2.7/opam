@@ -1,0 +1,33 @@
+opam-version: "2.0"
+maintainer: "whitequark <whitequark@whitequark.org>"
+authors: [ "whitequark <whitequark@whitequark.org>" ]
+license: "MIT"
+homepage: "https://github.com/ocaml-ppx/ppx_deriving_protobuf"
+doc: "https://ocaml-ppx.github.io/ppx_deriving_protobuf"
+bug-reports: "https://github.com/ocaml-ppx/ppx_deriving_protobuf/issues"
+dev-repo: "git+https://github.com/ocaml-ppx/ppx_deriving_protobuf.git"
+tags: [ "syntax" ]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+run-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "ocaml"        {>= "4.3" & < "4.11"}
+  "dune" {>= "1.0" & <= "3.22.2"}
+  "ppxfind" {build & <= "1.4"}
+  "ppx_tools" {build & <= "6.6"}
+  "cppo" {build & <= "1.8.0"}
+  "ppx_deriving" {>= "4.0" & < "5.0"}
+  "ounit" {with-test & <= "2.2.7"}
+  "uint" {with-test & <= "2.0.1"}
+]
+synopsis: "A Protocol Buffers codec generator for OCaml >=4.02"
+url {
+  src:
+    "https://github.com/ocaml-ppx/ppx_deriving_protobuf/archive/v2.7.tar.gz"
+  checksum: "sha256=10c0414601bdb4ccac7c3180e0e70f91a408a15e6a4220cdd6b7a7af5bed3efd"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

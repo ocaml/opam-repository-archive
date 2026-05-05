@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "stephanos.tsoucas@gmail.com"
+authors: ["Stephanos Tsoucas"]
+license: "Apache-2.0"
+synopsis: "Path-based HTTP request routing for Ocaml"
+homepage: "https://github.com/nosman/Ocamlapi"
+bug-reports: "https://github.com/nosman/Ocamlapi/issues"
+dev-repo: "git+https://github.com/nosman/Ocamlapi.git"
+build: [
+  [ "dune" "build" "-p" name "-j" jobs ]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.04"}
+  "ounit" {with-test & <= "2.2.7"}
+  "dune" {<= "3.22.2"}
+  "core" {< "v0.13"}
+  "re2" {< "v0.13"}
+  "cohttp" {<= "6.2.1"}
+]
+
+url {
+  src: "https://github.com/nosman/Ocamlapi/archive/0.0.2.tar.gz"
+  checksum: [
+    "sha256=119e706d4f5a804a13debdbf9df6e9fd9daa520e27e121b24e54c05833d5724a"
+    "md5=e1e7e9018092d9528c5ae60ef01e5246"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

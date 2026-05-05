@@ -1,0 +1,35 @@
+opam-version: "2.0"
+synopsis: "An ocaml tldr client"
+maintainer: "coby@case.edu"
+authors: "Jacob Rosales Chase <coby@case.edu>"
+license: "MIT"
+homepage: "https://github.com/RosalesJ/tldr-ocaml/"
+bug-reports: "https://github.com/RosalesJ/tldr-ocaml/issues"
+depends: [
+  "dune" {<= "3.22.2"}
+  "core" {>= "v0.10.0" & < "v0.13"}
+  "ppx_jane" {< "v0.13"}
+  "bos" {<= "0.3.0"}
+  "cohttp-lwt-unix" {<= "6.2.1"}
+  "lwt_ssl" {<= "1.2.0"}
+  "ANSITerminal" {<= "0.8.5"}
+  "angstrom" {<= "0.16.1"}
+]
+conflicts: [
+  "ssl" {= "0.5.6"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+dev-repo: "git+https://github.com/RosalesJ/tldr-ocaml.git"
+url {
+  src: "https://github.com/RosalesJ/tldr-ocaml/archive/v0.1.tar.gz"
+  checksum: [
+    "md5=26f9547395b11ddda7ce09c58495b03c"
+    "sha512=cc5e754b2249b3df5e20ecb742219bea09ea81ada74094059e53a02e45f5744ccb19476541a02e589c66f3806ad54831831f7583af54bb069f909afd08aa4185"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

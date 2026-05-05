@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "stephen.dolan@cl.cam.ac.uk"
+authors: ["Stephen Dolan"]
+homepage: "https://github.com/stedolan/malfunction"
+bug-reports: "https://github.com/stedolan/malfunction/issues"
+dev-repo: "git+https://github.com/stedolan/malfunction.git"
+license: "LGPL-2.0-or-later"
+build: [
+  [ "dune" "build" "-p" name "-j" jobs ]
+  [ "dune" "runtest" "-p" name "-j" jobs ] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.04" & < "4.09.0"}
+  "ocamlfind" {<= "1.9.8"}
+  "dune" {<= "3.22.2"}
+  "cppo" {build & <= "1.8.0"}
+  "omd" {with-test & < "2.0.0~"}
+  "craml" {with-test & = "1.0.0"}
+  "zarith" {<= "1.14"}
+]
+synopsis: "Compiler back-end for functional languages, based on OCaml"
+description: """
+Malfunction is a high-performance, low-level untyped program
+representation, designed as a target for compilers of functional
+programming languages."""
+url {
+  src: "https://github.com/stedolan/malfunction/archive/v0.3.tar.gz"
+  checksum: [
+    "sha256=07c6dfa055bd2a15436a9fe98c49b84df317f907b98804c7755455d33a7e578c"
+    "md5=4701b150a1be69cd833b51b3b44a1f65"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

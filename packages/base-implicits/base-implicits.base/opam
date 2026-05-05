@@ -1,0 +1,21 @@
+opam-version: "2.0"
+maintainer: "yallop@gmail.com"
+authors: ["Jeremy Yallop"]
+depopts: ["ocamlfind"]
+homepage: "https://github.com/ocaml/opam-repository/tree/master/packages/base-implicits/base-implicits.base"
+bug-reports: "https://github.com/ocaml/opam-repository/issues"
+synopsis: "Dummy base package for compilers with modular implicits support."
+description: """
+Packages which cannot be compiled with a compiler that supports
+modular implicits, typically because 'implicit' is used as an
+identifier, should mark this package as a conflict."""
+depends: [
+  "ocaml"
+  "ocaml-variants"
+  {(= "4.02.1+modular-implicits" | = "4.02.1+modular-implicits-ber") &
+   <= "5.1.1+effect-syntax"}
+]
+flags: light-uninstall
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

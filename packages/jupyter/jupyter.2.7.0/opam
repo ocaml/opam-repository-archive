@@ -1,0 +1,63 @@
+opam-version: "2.0"
+maintainer: [
+  "Akinori ABE <aabe.65535@gmail.com>"
+]
+authors: [
+  "Akinori ABE"
+]
+license: "MIT"
+homepage: "https://akabe.github.io/ocaml-jupyter/"
+bug-reports: "https://github.com/akabe/ocaml-jupyter/issues"
+dev-repo: "git+https://github.com/akabe/ocaml-jupyter.git"
+
+build: [
+  [ "dune" "subst" ] {dev}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+depends: [
+  "ocaml" {>= "4.04.0" & < "4.11"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "uuidm" {>= "0.9.6" & <= "0.9.10"}
+  "base64" {>= "3.2.0" & <= "3.5.2"}
+  "lwt" {>= "4.0.0" & <= "6.1.2"}
+  "lwt_ppx" {>= "1.0.0" & <= "6.1.0"}
+  "logs" {>= "0.6.0" & <= "0.10.0"}
+  "stdint" {>= "0.4.2" & <= "0.7.2"}
+  "zmq" {>= "5.0.0" & <= "5.3.0"}
+  "zmq-lwt" {>= "5.0.0" & <= "5.3.0"}
+  "yojson" {>= "1.6.0" & <= "3.0.0"}
+  "ppx_deriving_yojson" {>= "3.6.0" & <= "3.10.0"}
+  "cryptokit" {>= "1.12" & <= "1.21.1"}
+  "dune" {>= "1.0.0" & <= "3.22.2"}
+]
+depopts: [
+  "merlin"
+]
+conflicts: [
+  "merlin" {< "3.0.0"}
+]
+
+post-messages: [
+  "Please run for registration of ocaml-jupyter kernel:"
+  ""
+  "$ ocaml-jupyter-opam-genspec"
+  "$ jupyter kernelspec install --name ocaml-jupyter \\"
+  "    %{share}%/jupyter"
+  {success}
+]
+
+synopsis: "An OCaml kernel for Jupyter notebook"
+description:
+  "OCaml Jupyter provides an OCaml REPL on Jupyter (a great interface with markdown/HTML documentation, LaTeX formula by MathJax, and image embedding). This is useful for data analysis in OCaml."
+url {
+  src:
+    "https://github.com/akabe/ocaml-jupyter/releases/download/v2.7.0/jupyter-v2.7.0.tbz"
+  checksum: [
+    "sha256=3d9ff9a66b8f0d35f5c7b36bd9945c8e695d67559d084889fb42ac784d328345"
+    "md5=eabc63818e4a2c6387ed103ad79c3655"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

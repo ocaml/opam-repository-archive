@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "dparfitt@basho.com"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [["ocamlfind" "remove" "riak"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.8"}
+  "ounit" {<= "2.2.7"}
+  "piqi" {<= "0.7.8"}
+  "riak-pb" {= "1.0.0"}
+  "lwt" {<= "6.1.2"}
+  "ocamlbuild" {build & <= "0.16.1"}
+]
+dev-repo: "git+https://github.com/metadave/riak-ocaml-client"
+install: [make "install"]
+synopsis: "A Riak OCaml client"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/metadave/riak-ocaml-client/archive/riak-1.0.0.tar.gz"
+  checksum: [
+    "sha256=54b91f4db670277c8b453d884b7d1384ecec78cc85ecd68e5eaa18321d270fbb"
+    "md5=a19aae193c0cd667ae7033bbf152087f"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]
