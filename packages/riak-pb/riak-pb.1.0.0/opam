@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "dparfitt@basho.com"
+build: [
+  ["./configure"]
+  [make]
+]
+remove: [["ocamlfind" "remove" "riak-pb"]]
+depends: [
+  "ocaml"
+  "ocamlfind" {<= "1.9.8"}
+  "piqi" {< "0.7.0"}
+  "ocamlbuild" {build & <= "0.16.1"}
+]
+depexts: [
+  ["protobuf-compiler"] {os-family = "debian"}
+]
+dev-repo: "git+https://github.com/metadave/riak-ocaml-pb"
+install: [make "install"]
+synopsis: "Riak OCaml Protobuffs library"
+flags: light-uninstall
+url {
+  src:
+    "https://github.com/metadave/riak-ocaml-pb/archive/riak-pb-1.0.0.tar.gz"
+  checksum: [
+    "sha256=7f597d5f654b81acc7f7e105efd691412eb56e319c2b341f2206dc77c8ad5a0c"
+    "md5=23926ad6a39a47a1375c134cdf6f644c"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

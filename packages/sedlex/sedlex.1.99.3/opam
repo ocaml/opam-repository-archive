@@ -1,0 +1,30 @@
+opam-version: "2.0"
+maintainer: "Alain Frisch <alain.frisch@lexifi.com>"
+authors: [
+  "Alain Frisch <alain.frisch@lexifi.com>"
+]
+build: [ [make "all"]  [make "opt"] ]
+install: [make "install"]
+remove: [["ocamlfind" "remove" "sedlex"]]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.11"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "ppx_tools" {>= "5.0" & <= "6.6"}
+  "gen" {<= "1.1"}
+]
+homepage: "https://github.com/ocaml-community/sedlex"
+bug-reports: "https://github.com/ocaml-community/sedlex/issues"
+license: "MIT"
+dev-repo: "git+https://github.com/ocaml-community/sedlex.git"
+synopsis: "ppx-based unicode-friendly lexer generator"
+flags: light-uninstall
+url {
+  src: "http://github.com/ocaml-community/sedlex/archive/v1.99.3.tar.gz"
+  checksum: [
+    "sha256=54a1c32e5505dc081b3f231f21501ebebddcd50ee097e9c163ba347855b953fb"
+    "md5=abfc762b516583747e475cc7642ee098"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

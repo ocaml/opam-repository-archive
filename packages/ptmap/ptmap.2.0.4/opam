@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Jean-Christophe.Filliatre@lri.fr"
+authors: ["Jean-Christophe Filliâtre"]
+homepage: "https://www.lri.fr/~filliatr/software.en.html"
+bug-reports: "https://github.com/backtracking/ptmap/issues"
+dev-repo: "git+https://github.com/backtracking/ptmap.git"
+license: "LGPL-2.1-only"
+build: [
+  ["obuild" "configure"]
+  ["obuild" "build" "lib-ptmap"]
+]
+install: [
+  ["obuild" "install"]
+]
+remove: [
+  ["ocamlfind" "remove" "ptmap"]
+]
+depends: [
+  "ocaml" {>= "4.07.0" & < "4.11"}
+  "ocamlfind" {build & <= "1.9.8"}
+  "obuild" {build & <= "0.2.2"}
+  "qtest" {with-test & >= "2.2" & <= "2.11.2"}
+]
+synopsis: "Maps over integers implemented as Patricia trees"
+flags: light-uninstall
+url {
+  src: "https://github.com/backtracking/ptmap/archive/v2.0.4.tar.gz"
+  checksum: [
+    "sha256=5c0f32d96f90fee6bd86e02a78f3e5b2092caade1a88effc434c185ea20cc6a7"
+    "md5=0402cdfebb221e39237c616bfdb99afc"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

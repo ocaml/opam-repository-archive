@@ -1,0 +1,39 @@
+opam-version: "2.0"
+maintainer: "Ivan Gotovchits <ivg@ieee.org>"
+authors: "BAP Team"
+homepage: "https://github.com/BinaryAnalysisPlatform/bap/"
+bug-reports: "https://github.com/BinaryAnalysisPlatform/bap/issues"
+dev-repo: "git+https://github.com/BinaryAnalysisPlatform/bap/"
+license: "MIT"
+build: [
+  ["./configure" "--prefix=%{prefix}%" "--enable-fsi-benchmark"]
+  [make]
+]
+
+install: [[make "install"]]
+
+remove: [["rm" "-f" "%{bin}%/bap-byteweight"]]
+
+depends: [
+  "ocaml" {>= "4.08.0" }
+  "bap-std" {= "2.2.0"}
+  "bap-ida" {= "2.2.0"}
+  "bap-byteweight-frontend" {= "2.2.0"}
+  "cmdliner" {<= "2.1.1"}
+  "fileutils" {<= "0.6.6"}
+  "re" {<= "1.14.0"}
+]
+synopsis: "BAP function start identification benchmark game"
+flags: light-uninstall
+
+url {
+  src: "https://github.com/BinaryAnalysisPlatform/bap/archive/v2.2.0.tar.gz"
+  checksum: [
+    "sha256=7c6d0dfe2640e800829617dd150ffe748493fe3f317ed41be44312b2821deb46"
+    "md5=5dbc6677d646bec59fd7414f23e88cf8"
+  ]
+  mirrors: "https://mirrors.aegis.cylab.cmu.edu/bap/2.2.0/v2.2.0.tar.gz"
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["uninstallable"]

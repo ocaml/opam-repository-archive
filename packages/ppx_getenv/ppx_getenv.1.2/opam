@@ -1,0 +1,45 @@
+opam-version: "2.0"
+maintainer: "whitequark <whitequark@whitequark.org>"
+authors: [ "whitequark <whitequark@whitequark.org>" ]
+license: "Public domain"
+homepage: "https://github.com/whitequark/ppx_getenv"
+bug-reports: "https://github.com/whitequark/ppx_getenv/issues"
+dev-repo: "git+https://github.com/whitequark/ppx_getenv.git"
+tags: [ "syntax" ]
+substs: [ "pkg/META" ]
+build: [
+  [
+    "ocaml"
+    "pkg/build.ml"
+    "native=%{ocaml:native}%"
+    "native-dynlink=%{ocaml:native-dynlink}%"
+  ]
+  [
+    "ocamlbuild"
+    "-classic-display"
+    "-use-ocamlfind"
+    "src_test/test_ppx_getenv.byte"
+    "--"
+  ] {with-test}
+]
+depends: [
+  "ocaml" {>= "4.02.0" & < "4.11"}
+  "cppo" {build & <= "1.8.0"}
+  "cppo_ocamlbuild" {build & <= "1.8.0"}
+  "ppx_tools" {>= "0.99.1" & <= "6.6"}
+  "ounit" {with-test & <= "2.2.7"}
+]
+synopsis:
+  "A sample syntax extension that uses OCaml's new extension points API."
+description:
+  "A sample syntax extension that uses OCaml's new extension points API."
+url {
+  src: "https://github.com/whitequark/ppx_getenv/archive/v1.2.tar.gz"
+  checksum: [
+    "sha256=8f6947963dde9ed804a06296f58267e16b8aedf7ab980a2dc38cd43e1246cf97"
+    "md5=1bf49cd42863004902b4262cdf177a25"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]

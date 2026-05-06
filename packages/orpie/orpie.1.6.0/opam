@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "Paul Pelzl <pelzlpj@gmail.com>"
+authors: "Paul Pelzl <pelzlpj@gmail.com>"
+homepage: "https://github.com/pelzlpj/orpie"
+bug-reports: "https://github.com/pelzlpj/orpie/issues"
+license: "GPL-3.0-only"
+dev-repo: "git+https://github.com/pelzlpj/orpie.git"
+build: ["dune" "build" "-p" "orpie"]
+depends: [
+  "ocaml" {>= "4.03.0" & < "4.10"}
+  "camlp5" {build & <= "8.04.00"}
+  "dune" {>= "1.1" & <= "3.22.2"}
+  "curses" {>= "1.0.3" & <= "1.0.12"}
+  "gsl" {>= "1.22.0" & <= "1.25.1"}
+  "num" {<= "1.6"}
+]
+synopsis: "Curses-based RPN calculator"
+description: """
+Orpie is a curses-based RPN calculator for the terminal.  It supports a
+large chunk of the features supported by classic HP RPN calculators, but
+the user interface is optimized for a keyboard."""
+url {
+  src: "https://github.com/pelzlpj/orpie/archive/release-1.6.0.tar.gz"
+  checksum: [
+    "sha256=bd0f38847a28d465a9149055e7da78cca82ec25dd91d55e51503c1b0a462c718"
+    "md5=ff24eb67a8a8359bd71045c45466eadb"
+  ]
+}
+x-opam-repository-commit-hash-at-time-of-archiving:
+  "622e2cd03db68197f7299596fa614b2f91aa9260"
+x-reason-for-archiving: ["ocaml-version"]
